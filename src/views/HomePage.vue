@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- Hero -->
-    <div class="max-w-[1200px] mx-auto px-8 pt-24 pb-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 pt-12 sm:pt-24 pb-12 sm:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 sm:mb-16">
         <div>
           <div class="flex items-center gap-2.5 mb-6">
             <LiveDot class="text-xs font-bold text-moss-500">
@@ -36,23 +36,23 @@
         </div>
 
         <!-- Network Animation -->
-        <div>
+        <div class="hidden lg:block">
           <NetworkAnimation :dark="dark" />
         </div>
       </div>
 
       <!-- Live stats bar -->
-      <div class="grid grid-cols-4 gap-[1px] rounded-2xl overflow-hidden border" :class="borderClass">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-[1px] rounded-2xl overflow-hidden border" :class="borderClass">
         <div
           v-for="(stat, i) in stats"
           :key="i"
-          class="p-6"
+          class="p-4 sm:p-6"
           :class="i % 2 === 0 ? cardBg : surfaceBg2"
         >
-          <div class="font-display text-4xl font-light text-clay-500 mb-1 tabular-nums">
+          <div class="font-display text-2xl sm:text-4xl font-light text-clay-500 mb-1 tabular-nums">
             {{ stat.value }}
           </div>
-          <div class="text-xs font-semibold tracking-wider uppercase" :class="textTertiary">
+          <div class="text-[10px] sm:text-xs font-semibold tracking-wider uppercase" :class="textTertiary">
             {{ stat.label }}
           </div>
         </div>
@@ -63,16 +63,16 @@
     <BrandCarousel :dark="dark" />
 
     <!-- How it works -->
-    <div class="py-20 px-8" :class="sectionBg">
+    <div class="py-12 sm:py-20 px-4 sm:px-8" :class="sectionBg">
       <div class="max-w-[1200px] mx-auto">
-        <div class="mb-12">
+        <div class="mb-8 sm:mb-12">
           <BaseTag variant="clay" :dark="dark" class="mb-3">How it works</BaseTag>
           <h2 class="font-display text-[clamp(32px,4vw,52px)] font-normal leading-tight" :class="textPrimary">
             Three steps. No agency.
           </h2>
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <BaseCard
             v-for="(step, i) in howItWorksSteps"
             :key="i"
@@ -98,8 +98,8 @@
     </div>
 
     <!-- For advertisers / hosts split CTA -->
-    <div class="max-w-[1200px] mx-auto px-8 py-20">
-      <div class="grid grid-cols-2 gap-4">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-12 sm:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div
           @click="$router.push('/advertisers')"
           class="rounded-[20px] p-10 bg-clay-500 cursor-pointer relative overflow-hidden"
@@ -145,11 +145,11 @@
     </div>
 
     <!-- Testimonial -->
-    <div class="py-20 px-8" :class="sectionBg">
+    <div class="py-12 sm:py-20 px-4 sm:px-8" :class="sectionBg">
       <div class="max-w-[1200px] mx-auto">
         <BaseTag variant="moss" :dark="dark" class="mb-6">Host story</BaseTag>
 
-        <div class="grid grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             <blockquote class="font-display text-[clamp(22px,2.5vw,32px)] font-normal italic leading-snug mb-5" :class="textPrimary">
               "I used to watch that screen and wonder what it was for. Now I watch it and see my earnings going up."
@@ -190,7 +190,7 @@
     </div>
 
     <!-- Footer CTA -->
-    <div class="max-w-[1200px] mx-auto px-8 py-24 text-center">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-16 sm:py-24 text-center">
       <h2 class="font-display text-[clamp(36px,5vw,68px)] font-light leading-tight mb-5 tracking-tight" :class="textPrimary">
         Advertising that actually<br/>belongs in Lagos.
       </h2>

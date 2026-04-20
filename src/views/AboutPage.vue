@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="max-w-[800px] mx-auto px-8 py-20">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-8 py-12 sm:py-20">
       <BaseTag variant="clay" :dark="dark" class="mb-5">About mìmú</BaseTag>
 
       <h1 class="font-display text-[clamp(40px,5vw,64px)] font-light leading-tight tracking-tight mb-8" :class="textPrimary">

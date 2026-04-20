@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="max-w-[1200px] mx-auto px-8 py-20">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-12 sm:py-20">
       <BaseTag variant="clay" :dark="dark" class="mb-4">For advertisers</BaseTag>
 
-      <div class="grid grid-cols-2 gap-16 items-center mb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 sm:mb-20">
         <div>
           <h1 class="font-display text-[clamp(40px,5vw,64px)] font-normal leading-tight tracking-tight mb-5" :class="textPrimary" style="text-wrap: pretty">
             Your customers see your ad. You know exactly how many.
@@ -56,7 +56,7 @@
       </div>
 
       <!-- Feature grid -->
-      <div class="grid grid-cols-3 gap-3.5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
         <BaseCard
           v-for="(feature, i) in features"
           :key="i"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="max-w-[900px] mx-auto px-8 py-20">
+    <div class="max-w-[900px] mx-auto px-4 sm:px-8 py-12 sm:py-20">
       <BaseTag variant="clay" :dark="dark" class="mb-4">Pricing</BaseTag>
 
       <h1 class="font-display text-[clamp(40px,5vw,64px)] font-normal leading-tight tracking-tight mb-4" :class="textPrimary">
@@ -15,7 +15,7 @@
         <div
           v-for="(tier, i) in pricingTiers"
           :key="i"
-          class="p-7 grid grid-cols-[1fr_1fr_1fr_1fr_1fr_140px] items-center gap-4"
+          class="p-4 sm:p-7 grid grid-cols-1 sm:grid-cols-[1fr_1fr_1fr_1fr_1fr_140px] items-center gap-3 sm:gap-4"
           :class="[
             tier.highlight ? 'bg-clay-500' : (i % 2 === 0 ? cardBg : (dark ? 'bg-[#141210]' : 'bg-[#FDFCFB]')),
             i < pricingTiers.length - 1 ? (tier.highlight ? 'border-b border-white/15' : 'border-b ' + borderClass) : ''

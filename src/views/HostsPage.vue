@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="max-w-[1200px] mx-auto px-8 py-20">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-12 sm:py-20">
       <BaseTag variant="moss" :dark="dark" class="mb-4">For hosts</BaseTag>
 
       <h1 class="font-display text-[clamp(40px,5vw,64px)] font-normal leading-tight tracking-tight mb-5" :class="textPrimary">

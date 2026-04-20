@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen transition-colors duration-150" :class="themeClass">
+  <div class="min-h-screen w-full overflow-x-hidden transition-colors duration-150" :class="themeClass">
     <Navigation :dark="isDark" />
-    <main>
+    <main class="w-full">
       <router-view :dark="isDark" />
     </main>
     <Footer :dark="isDark" />

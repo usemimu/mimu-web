@@ -1,12 +1,12 @@
 <template>
-  <div class="relative overflow-hidden py-16" :class="bgClass">
+  <div class="relative overflow-hidden py-12 sm:py-16" :class="bgClass">
     <div class="w-full">
       <!-- Section header -->
-      <div class="text-center mb-10 px-8">
-        <p class="text-sm font-semibold tracking-wider uppercase mb-3" :class="labelClass">
+      <div class="text-center mb-8 sm:mb-10 px-4 sm:px-8">
+        <p class="text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2 sm:mb-3" :class="labelClass">
           Trusted by leading brands
         </p>
-        <h3 class="text-3xl font-display font-normal" :class="textClass">
+        <h3 class="text-xl sm:text-3xl font-display font-normal" :class="textClass">
           Join 340+ brands advertising on mìmú
         </h3>
       </div>
@@ -26,22 +26,22 @@
         <!-- Scrolling track -->
         <div class="flex animate-scroll">
           <!-- First set -->
-          <div class="flex items-center gap-16 px-6 flex-shrink-0">
+          <div class="flex items-center gap-8 sm:gap-16 px-4 sm:px-6 flex-shrink-0">
             <span
               v-for="(brand, i) in brands"
               :key="`set1-${i}`"
-              class="text-3xl font-bold font-display tracking-tight text-clay-500 flex-shrink-0 whitespace-nowrap transition-opacity duration-300 hover:opacity-70"
+              class="text-xl sm:text-3xl font-bold font-display tracking-tight text-clay-500 flex-shrink-0 whitespace-nowrap transition-opacity duration-300 hover:opacity-70"
             >
               {{ brand }}
             </span>
           </div>
 
           <!-- Second set (duplicate for seamless loop) -->
-          <div class="flex items-center gap-16 px-6 flex-shrink-0">
+          <div class="flex items-center gap-8 sm:gap-16 px-4 sm:px-6 flex-shrink-0">
             <span
               v-for="(brand, i) in brands"
               :key="`set2-${i}`"
-              class="text-3xl font-bold font-display tracking-tight text-clay-500 flex-shrink-0 whitespace-nowrap transition-opacity duration-300 hover:opacity-70"
+              class="text-xl sm:text-3xl font-bold font-display tracking-tight text-clay-500 flex-shrink-0 whitespace-nowrap transition-opacity duration-300 hover:opacity-70"
             >
               {{ brand }}
             </span>

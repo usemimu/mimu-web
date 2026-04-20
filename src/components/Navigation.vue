@@ -1,9 +1,10 @@
 <template>
   <div class="nav-wrap sticky top-0 z-50 backdrop-blur-[20px]" :class="navBgClass">
-    <div class="max-w-[1200px] mx-auto px-8 h-16 flex items-center gap-0">
-      <Logo :dark="dark" :size="68" :show-wordmark="true" @click="$router.push('/')" />
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 h-16 flex items-center gap-2">
+      <Logo :dark="dark" :size="54" :show-wordmark="true" @click="$router.push('/')" class="flex-shrink-0" />
 
-      <div class="flex gap-0 items-center ml-10 flex-1">
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex gap-0 items-center ml-10 flex-1">
         <router-link
           v-for="link in navLinks"
           :key="link.path"
@@ -15,7 +16,7 @@
         </router-link>
       </div>
 
-      <div class="flex gap-2.5 items-center ml-auto">
+      <div class="hidden lg:flex gap-2.5 items-center ml-auto">
         <BaseButton variant="outline" size="sm" :dark="dark">
           Contact us
         </BaseButton>
@@ -23,12 +24,49 @@
           Start advertising
         </BaseButton>
       </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        class="lg:hidden ml-auto p-2 rounded-md"
+        :class="dark ? 'text-neutral-50' : 'text-neutral-900'"
+      >
+        <i :class="mobileMenuOpen ? 'ph ph-x text-2xl' : 'ph ph-list text-2xl'"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      v-if="mobileMenuOpen"
+      class="lg:hidden border-t"
+      :class="navBgClass"
+    >
+      <div class="px-4 py-4 space-y-2">
+        <router-link
+          v-for="link in navLinks"
+          :key="link.path"
+          :to="link.path"
+          @click="mobileMenuOpen = false"
+          class="block px-4 py-3 rounded-md text-sm font-medium no-underline"
+          :class="navLinkClass(link.path)"
+        >
+          {{ link.label }}
+        </router-link>
+        <div class="pt-4 space-y-2">
+          <BaseButton variant="outline" size="sm" :dark="dark" class="w-full">
+            Contact us
+          </BaseButton>
+          <BaseButton variant="primary" size="sm" @click="$router.push('/advertisers'); mobileMenuOpen = false" class="w-full">
+            Start advertising
+          </BaseButton>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import Logo from './Logo.vue'
 import BaseButton from './BaseButton.vue'
@@ -41,6 +79,7 @@ const props = defineProps({
 })
 
 const route = useRoute()
+const mobileMenuOpen = ref(false)
 
 const navLinks = [
   { label: 'For advertisers', path: '/advertisers' },
