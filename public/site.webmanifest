@@ -1,0 +1,21 @@
+{
+  "name": "Mìmú — Lagos neighborhood advertising network",
+  "short_name": "Mìmú",
+  "description": "Mìmú (Mimu / MimuAds / Usemimu) — your ad on screens inside neighborhood pharmacies, eateries and salons across Lagos. From ₦5,000 with AI-verified viewership.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAFAF9",
+  "theme_color": "#B55430",
+  "lang": "en-NG",
+  "categories": ["business", "advertising", "marketing", "finance"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

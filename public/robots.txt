@@ -1,0 +1,19 @@
+# Mìmú (Mimu / MimuAds / Usemimu)
+# https://usemimu.com
+User-agent: *
+Allow: /
+
+# Be explicit for the crawlers that matter most
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+Sitemap: https://usemimu.com/sitemap.xml

@@ -6,36 +6,64 @@ import PricingPage from '@/views/PricingPage.vue'
 import NetworkPage from '@/views/NetworkPage.vue'
 import AboutPage from '@/views/AboutPage.vue'
 
+const SITE_URL = 'https://usemimu.com'
+const SITE_NAME = 'Mìmú'
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`
+
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomePage
+    component: HomePage,
+    meta: {
+      title: 'Mìmú (Mimu) — Your ad, on every street in Lagos | MimuAds',
+      description: "Mìmú is Lagos' neighborhood advertising network. Run your ad on screens inside pharmacies, eateries and salons across 18 LGAs — from ₦5,000, with AI-verified viewership. Also known as MimuAds / Usemimu."
+    }
   },
   {
     path: '/advertisers',
     name: 'advertisers',
-    component: AdvertisersPage
+    component: AdvertisersPage,
+    meta: {
+      title: 'Advertise on Mìmú — Reach Lagos customers from ₦5,000 | MimuAds',
+      description: 'Put your ad inside the pharmacies, eateries and salons your customers visit every day. AI-verified viewership, APCON-vetted, live in 24 hours. Mìmú (MimuAds / Usemimu) advertising starts at ₦5,000.'
+    }
   },
   {
     path: '/hosts',
     name: 'hosts',
-    component: HostsPage
+    component: HostsPage,
+    meta: {
+      title: 'Host a Mìmú Screen — Earn ₦20k–₦60k/month in Lagos | Usemimu',
+      description: 'Host a Mìmú (Mimu) screen in your shop. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs, no maintenance — just passive income from your storefront.'
+    }
   },
   {
     path: '/pricing',
     name: 'pricing',
-    component: PricingPage
+    component: PricingPage,
+    meta: {
+      title: 'Pricing — Mìmú Ads from ₦5,000 | MimuAds / Usemimu',
+      description: 'Transparent per-play pricing in Naira. No hidden fees, no agency margin, APCON vetting included. Mìmú (MimuAds) plans from ₦5,000 starter to ₦80,000 scale.'
+    }
   },
   {
     path: '/network',
     name: 'network',
-    component: NetworkPage
+    component: NetworkPage,
+    meta: {
+      title: 'The Mìmú Network — 1,247 screens across 18 LGAs in Lagos',
+      description: 'Browse the Mìmú (Mimu) network of 1,247 screens across 18 Lagos LGAs. Filter by location, category, and daily traffic. See exactly where your ads will play.'
+    }
   },
   {
     path: '/about',
     name: 'about',
-    component: AboutPage
+    component: AboutPage,
+    meta: {
+      title: 'About Mìmú — Built in Lagos, for Lagos first | Usemimu',
+      description: "Mìmú means 'to grab, to hold attention' in Yoruba. We built a neighborhood advertising network for Nigerian SMEs — screens hosted by local businesses, ad time sold in Naira, viewership verified by AI."
+    }
   }
 ]
 
@@ -49,6 +77,49 @@ const router = createRouter({
       return { top: 0 }
     }
   }
+})
+
+function setMeta(selector, attr, value) {
+  let el = document.head.querySelector(selector)
+  if (!el) {
+    el = document.createElement('meta')
+    const [, key, name] = selector.match(/\[(\w+)="([^"]+)"\]/) || []
+    if (key && name) el.setAttribute(key, name)
+    document.head.appendChild(el)
+  }
+  el.setAttribute(attr, value)
+}
+
+function setCanonical(href) {
+  let el = document.head.querySelector('link[rel="canonical"]')
+  if (!el) {
+    el = document.createElement('link')
+    el.setAttribute('rel', 'canonical')
+    document.head.appendChild(el)
+  }
+  el.setAttribute('href', href)
+}
+
+router.afterEach((to) => {
+  const title = to.meta?.title || `${SITE_NAME} — Your ad, on every street in Lagos`
+  const description = to.meta?.description || "Mìmú is Lagos' neighborhood advertising network."
+  const url = `${SITE_URL}${to.path}`
+
+  document.title = title
+
+  setMeta('meta[name="description"]', 'content', description)
+  setMeta('meta[property="og:title"]', 'content', title)
+  setMeta('meta[property="og:description"]', 'content', description)
+  setMeta('meta[property="og:url"]', 'content', url)
+  setMeta('meta[property="og:image"]', 'content', DEFAULT_OG_IMAGE)
+  setMeta('meta[property="og:type"]', 'content', 'website')
+  setMeta('meta[property="og:site_name"]', 'content', SITE_NAME)
+  setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image')
+  setMeta('meta[name="twitter:title"]', 'content', title)
+  setMeta('meta[name="twitter:description"]', 'content', description)
+  setMeta('meta[name="twitter:image"]', 'content', DEFAULT_OG_IMAGE)
+
+  setCanonical(url)
 })
 
 export default router
