@@ -5,6 +5,7 @@ import HostsPage from '@/views/HostsPage.vue'
 import PricingPage from '@/views/PricingPage.vue'
 import NetworkPage from '@/views/NetworkPage.vue'
 import AboutPage from '@/views/AboutPage.vue'
+import TermsPage from '@/views/TermsPage.vue'
 
 const SITE_URL = 'https://usemimu.com'
 const SITE_NAME = 'Mìmú'
@@ -63,6 +64,15 @@ const routes = [
     meta: {
       title: 'About Mìmú — Built in Lagos, for Lagos first | Usemimu',
       description: "Mìmú means 'to grab, to hold attention' in Yoruba. We built a neighborhood advertising network for Nigerian SMEs — screens hosted by local businesses, ad time sold in Naira, viewership verified by AI."
+    }
+  },
+  {
+    path: '/terms',
+    name: 'terms',
+    component: TermsPage,
+    meta: {
+      title: 'Terms & Conditions — Mìmú',
+      description: 'Plain-language Terms of Service for Mìmú — covering advertisers, hosts, payments, refunds, content rules, data, and disputes under Nigerian law.'
     }
   }
 ]

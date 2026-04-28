@@ -4,14 +4,16 @@
       <Logo :dark="dark" :size="54" :show-wordmark="true" />
 
       <div class="flex gap-6 flex-wrap">
-        <a
+        <component
+          :is="link.to ? 'router-link' : 'a'"
           v-for="link in footerLinks"
-          :key="link"
+          :key="link.label"
+          :to="link.to"
           class="text-[13px] no-underline cursor-pointer hover:opacity-70 transition-opacity"
           :class="linkClass"
         >
-          {{ link }}
-        </a>
+          {{ link.label }}
+        </component>
       </div>
 
       <div class="text-xs" :class="textClass">
@@ -32,7 +34,14 @@ const props = defineProps({
   }
 })
 
-const footerLinks = ['Privacy', 'Terms', 'APCON', 'NDPR']
+// `to` set ⇒ rendered as <router-link>; left undefined ⇒ falls back to a
+// no-op <a> until the destination page exists.
+const footerLinks = [
+  { label: 'Privacy' },
+  { label: 'Terms', to: '/terms' },
+  { label: 'APCON' },
+  { label: 'NDPR' },
+]
 
 const borderClass = computed(() =>
   props.dark ? 'border-white/[0.07]' : 'border-neutral-200'
