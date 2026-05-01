@@ -6,6 +6,7 @@ import PricingPage from '@/views/PricingPage.vue'
 import NetworkPage from '@/views/NetworkPage.vue'
 import AboutPage from '@/views/AboutPage.vue'
 import TermsPage from '@/views/TermsPage.vue'
+import NotFoundPage from '@/views/NotFoundPage.vue'
 
 const SITE_URL = 'https://usemimu.com'
 const SITE_NAME = 'Mimuads'
@@ -73,6 +74,16 @@ const routes = [
     meta: {
       title: 'Terms & Conditions — Mimuads',
       description: 'Plain-language Terms of Service for Mimuads — covering advertisers, hosts, payments, refunds, content rules, data, and disputes under Nigerian law.'
+    }
+  },
+  // Catch-all 404 — shown briefly, then auto-redirected to `/` (HomePage).
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: NotFoundPage,
+    meta: {
+      title: 'Page not found — Mimuads',
+      description: "The page you tried to open isn't on Mimuads. Heading back to the homepage."
     }
   }
 ]
