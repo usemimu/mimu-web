@@ -135,7 +135,7 @@
             Your shop earns money while it's open.
           </h3>
           <p class="text-sm leading-relaxed mb-6" :class="textSecondary">
-            Host a mìmú screen. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs.
+            Host a Mimuads screen. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs.
           </p>
           <div class="inline-flex items-center gap-2 text-clay-500 font-bold text-sm">
             Become a host <i class="ph ph-arrow-right"></i>

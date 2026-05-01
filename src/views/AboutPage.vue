@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="max-w-[800px] mx-auto px-4 sm:px-8 py-12 sm:py-20">
-      <BaseTag variant="clay" :dark="dark" class="mb-5">About mìmú</BaseTag>
+      <BaseTag variant="clay" :dark="dark" class="mb-5">About Mimuads</BaseTag>
 
       <h1 class="font-display text-[clamp(40px,5vw,64px)] font-light leading-tight tracking-tight mb-8" :class="textPrimary">
         Built in Lagos, for Lagos first.
       </h1>
 
       <div class="text-[17px] leading-loose flex flex-col gap-6" :class="textSecondary">
-        <p>mìmú means "to grab, to hold attention" in Yoruba. We named it that deliberately — because that is exactly what advertising is supposed to do, and almost never does.</p>
+        <p>Mimuads means "to grab, to hold attention" in Yoruba. We named it that deliberately — because that is exactly what advertising is supposed to do, and almost never does.</p>
 
         <p>The existing options for a small business owner in Lagos — a restaurant in Yaba, a fashion brand in Surulere, a fintech looking for foot-traffic customers in Ikeja — are built for Coca-Cola, not for them. Agency-driven. Expensive. Unmeasured. Corporate.</p>
 

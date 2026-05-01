@@ -1,10 +1,10 @@
-# mìmú Web
+# Mimuads Web
 
-A Vue.js application for the mìmú advertising network platform. Built with Vue 3, Vue Router, and Tailwind CSS.
+A Vue.js application for the Mimuads advertising network platform. Built with Vue 3, Vue Router, and Tailwind CSS.
 
 ## Features
 
--  **Custom Design System**: Uses the mìmú color palette (Clay, Moss, Gold, Neutral)
+-  **Custom Design System**: Uses the Mimuads color palette (Clay, Moss, Gold, Neutral)
 -  **Dark/Light Mode**: Fully functional theme switcher with localStorage persistence
 -  **Component-Based**: Reusable components for consistency across the app
 -  **Fast Development**: Powered by Vite for instant HMR

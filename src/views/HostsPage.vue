@@ -7,7 +7,7 @@
         Your shop earns money while it's open.
       </h1>
       <p class="text-[17px] leading-relaxed mb-8 max-w-[600px]" :class="textSecondary">
-        Host a mìmú screen. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs. No maintenance. Just passive income while you run your business.
+        Host a Mimuads screen. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs. No maintenance. Just passive income while you run your business.
       </p>
 
       <BaseButton variant="primary" size="lg">

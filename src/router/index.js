@@ -8,7 +8,7 @@ import AboutPage from '@/views/AboutPage.vue'
 import TermsPage from '@/views/TermsPage.vue'
 
 const SITE_URL = 'https://usemimu.com'
-const SITE_NAME = 'Mìmú'
+const SITE_NAME = 'Mimuads'
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`
 
 const routes = [
@@ -17,8 +17,8 @@ const routes = [
     name: 'home',
     component: HomePage,
     meta: {
-      title: 'Mìmú (Mimu) — Your ad, on every street in Lagos | MimuAds',
-      description: "Mìmú is Lagos' neighborhood advertising network. Run your ad on screens inside pharmacies, eateries and salons across 18 LGAs — from ₦5,000, with AI-verified viewership. Also known as MimuAds / Usemimu."
+      title: 'Mimuads (Mimu) — Your ad, on every street in Lagos | MimuAds',
+      description: "Mimuads is Lagos' neighborhood advertising network. Run your ad on screens inside pharmacies, eateries and salons across 18 LGAs — from ₦5,000, with AI-verified viewership. Also known as MimuAds / Usemimu."
     }
   },
   {
@@ -26,8 +26,8 @@ const routes = [
     name: 'advertisers',
     component: AdvertisersPage,
     meta: {
-      title: 'Advertise on Mìmú — Reach Lagos customers from ₦5,000 | MimuAds',
-      description: 'Put your ad inside the pharmacies, eateries and salons your customers visit every day. AI-verified viewership, APCON-vetted, live in 24 hours. Mìmú (MimuAds / Usemimu) advertising starts at ₦5,000.'
+      title: 'Advertise on Mimuads — Reach Lagos customers from ₦5,000 | MimuAds',
+      description: 'Put your ad inside the pharmacies, eateries and salons your customers visit every day. AI-verified viewership, APCON-vetted, live in 24 hours. Mimuads (MimuAds / Usemimu) advertising starts at ₦5,000.'
     }
   },
   {
@@ -35,8 +35,8 @@ const routes = [
     name: 'hosts',
     component: HostsPage,
     meta: {
-      title: 'Host a Mìmú Screen — Earn ₦20k–₦60k/month in Lagos | Usemimu',
-      description: 'Host a Mìmú (Mimu) screen in your shop. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs, no maintenance — just passive income from your storefront.'
+      title: 'Host a Mimuads Screen — Earn ₦20k–₦60k/month in Lagos | Usemimu',
+      description: 'Host a Mimuads (Mimu) screen in your shop. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs, no maintenance — just passive income from your storefront.'
     }
   },
   {
@@ -44,8 +44,8 @@ const routes = [
     name: 'pricing',
     component: PricingPage,
     meta: {
-      title: 'Pricing — Mìmú Ads from ₦5,000 | MimuAds / Usemimu',
-      description: 'Transparent per-play pricing in Naira. No hidden fees, no agency margin, APCON vetting included. Mìmú (MimuAds) plans from ₦5,000 starter to ₦80,000 scale.'
+      title: 'Pricing — Mimuads Ads from ₦5,000 | MimuAds / Usemimu',
+      description: 'Transparent per-play pricing in Naira. No hidden fees, no agency margin, APCON vetting included. Mimuads (MimuAds) plans from ₦5,000 starter to ₦80,000 scale.'
     }
   },
   {
@@ -53,8 +53,8 @@ const routes = [
     name: 'network',
     component: NetworkPage,
     meta: {
-      title: 'The Mìmú Network — 1,247 screens across 18 LGAs in Lagos',
-      description: 'Browse the Mìmú (Mimu) network of 1,247 screens across 18 Lagos LGAs. Filter by location, category, and daily traffic. See exactly where your ads will play.'
+      title: 'The Mimuads Network — 1,247 screens across 18 LGAs in Lagos',
+      description: 'Browse the Mimuads (Mimu) network of 1,247 screens across 18 Lagos LGAs. Filter by location, category, and daily traffic. See exactly where your ads will play.'
     }
   },
   {
@@ -62,8 +62,8 @@ const routes = [
     name: 'about',
     component: AboutPage,
     meta: {
-      title: 'About Mìmú — Built in Lagos, for Lagos first | Usemimu',
-      description: "Mìmú means 'to grab, to hold attention' in Yoruba. We built a neighborhood advertising network for Nigerian SMEs — screens hosted by local businesses, ad time sold in Naira, viewership verified by AI."
+      title: 'About Mimuads — Built in Lagos, for Lagos first | Usemimu',
+      description: "Mimuads means 'to grab, to hold attention' in Yoruba. We built a neighborhood advertising network for Nigerian SMEs — screens hosted by local businesses, ad time sold in Naira, viewership verified by AI."
     }
   },
   {
@@ -71,8 +71,8 @@ const routes = [
     name: 'terms',
     component: TermsPage,
     meta: {
-      title: 'Terms & Conditions — Mìmú',
-      description: 'Plain-language Terms of Service for Mìmú — covering advertisers, hosts, payments, refunds, content rules, data, and disputes under Nigerian law.'
+      title: 'Terms & Conditions — Mimuads',
+      description: 'Plain-language Terms of Service for Mimuads — covering advertisers, hosts, payments, refunds, content rules, data, and disputes under Nigerian law.'
     }
   }
 ]
@@ -112,7 +112,7 @@ function setCanonical(href) {
 
 router.afterEach((to) => {
   const title = to.meta?.title || `${SITE_NAME} — Your ad, on every street in Lagos`
-  const description = to.meta?.description || "Mìmú is Lagos' neighborhood advertising network."
+  const description = to.meta?.description || "Mimuads is Lagos' neighborhood advertising network."
   const url = `${SITE_URL}${to.path}`
 
   document.title = title

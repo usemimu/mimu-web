@@ -1,7 +1,7 @@
 {
-  "name": "Mìmú — Lagos neighborhood advertising network",
-  "short_name": "Mìmú",
-  "description": "Mìmú (Mimu / MimuAds / Usemimu) — your ad on screens inside neighborhood pharmacies, eateries and salons across Lagos. From ₦5,000 with AI-verified viewership.",
+  "name": "Mimuads — Lagos neighborhood advertising network",
+  "short_name": "Mimuads",
+  "description": "Mimuads (Mimu / MimuAds / Usemimu) — your ad on screens inside neighborhood pharmacies, eateries and salons across Lagos. From ₦5,000 with AI-verified viewership.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -9,7 +9,7 @@
             Your customers see your ad. You know exactly how many.
           </h1>
           <p class="text-[17px] leading-relaxed mb-8" :class="textSecondary" style="text-wrap: pretty">
-            mìmú puts your ad inside the pharmacies, eateries, and salons your customers visit every day. On-device AI counts every viewer, anonymously. You pay for real attention.
+            Mimuads puts your ad inside the pharmacies, eateries, and salons your customers visit every day. On-device AI counts every viewer, anonymously. You pay for real attention.
           </p>
           <BaseButton variant="primary" size="lg">
             Create campaign — from ₦5,000

@@ -7,7 +7,7 @@
           Trusted by leading brands
         </p>
         <h3 class="text-xl sm:text-3xl font-display font-normal" :class="textClass">
-          Join 340+ brands advertising on mìmú
+          Join 340+ brands advertising on Mimuads
         </h3>
       </div>
 

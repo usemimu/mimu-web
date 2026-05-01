@@ -1,4 +1,4 @@
-# Mìmú (Mimu / MimuAds / Usemimu)
+# Mimuads (Mimu / MimuAds / Usemimu)
 # https://usemimu.com
 User-agent: *
 Allow: /
