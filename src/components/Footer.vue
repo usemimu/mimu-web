@@ -58,7 +58,7 @@ const props = defineProps({
 // from the fleet's installed version unless someone forgets to
 // edit this line — worth a release-checklist item.
 const PLAYER_APK_URL =
-  'https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/v2/app-field.apk'
+  'https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/v3/app-field.apk'
 
 // `to` set ⇒ rendered as <router-link>; left undefined ⇒ falls back to a
 // no-op <a> until the destination page exists.
