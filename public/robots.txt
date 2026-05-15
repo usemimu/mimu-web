@@ -2,6 +2,8 @@
 # https://usemimu.com
 User-agent: *
 Allow: /
+# Private investor pitch — not for crawling.
+Disallow: /pitch
 
 # Be explicit for the crawlers that matter most
 User-agent: Googlebot

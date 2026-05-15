@@ -6,6 +6,7 @@ import PricingPage from '@/views/PricingPage.vue'
 import NetworkPage from '@/views/NetworkPage.vue'
 import AboutPage from '@/views/AboutPage.vue'
 import TermsPage from '@/views/TermsPage.vue'
+import PitchPage from '@/views/PitchPage.vue'
 import NotFoundPage from '@/views/NotFoundPage.vue'
 
 const SITE_URL = 'https://usemimu.com'
@@ -76,6 +77,21 @@ const routes = [
       description: 'Plain-language Terms of Service for Mimuads — covering advertisers, hosts, payments, refunds, content rules, data, and disputes under Nigerian law.'
     }
   },
+  // Investor pitch deck. Standalone full-bleed page — the App.vue
+  // chrome (Navigation, Footer, theme toggle) is suppressed when
+  // `meta.standalone` is true. `meta.noindex` blocks crawlers; the
+  // robots.txt entry is the belt-and-braces version.
+  {
+    path: '/pitch',
+    name: 'pitch',
+    component: PitchPage,
+    meta: {
+      title: 'Mimuads · Investor Pitch',
+      description: 'Mimuads — software-defined DOOH for Nigeria. Investor deck.',
+      noindex: true,
+      standalone: true
+    }
+  },
   // Catch-all 404 — shown briefly, then auto-redirected to `/` (HomePage).
   {
     path: '/:pathMatch(.*)*',
@@ -139,6 +155,18 @@ router.afterEach((to) => {
   setMeta('meta[name="twitter:title"]', 'content', title)
   setMeta('meta[name="twitter:description"]', 'content', description)
   setMeta('meta[name="twitter:image"]', 'content', DEFAULT_OG_IMAGE)
+
+  // Per-route robots policy. The site is index/follow by default
+  // (set in index.html), but routes flagged `noindex: true` — the
+  // investor pitch is the only one today — get an explicit override
+  // so they don't slip into the public index even if linked.
+  setMeta(
+    'meta[name="robots"]',
+    'content',
+    to.meta?.noindex
+      ? 'noindex, nofollow'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  )
 
   setCanonical(url)
 })
