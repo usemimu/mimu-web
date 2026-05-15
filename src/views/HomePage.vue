@@ -1,277 +1,355 @@
 <template>
-  <div>
-    <!-- Hero -->
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 pt-12 sm:pt-24 pb-12 sm:pb-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 sm:mb-16">
-        <div>
-          <div class="flex items-center gap-2.5 mb-6">
-            <LiveDot class="text-xs font-bold text-moss-500">
-              Live network
-            </LiveDot>
-            <span class="text-xs font-mono" :class="textTertiary">
-              {{ playCount.toLocaleString() }} plays today
-            </span>
-          </div>
-
-          <div class="mb-8">
-            <h1 class="font-display text-[clamp(48px,6vw,88px)] font-light leading-[1.05] tracking-tight mb-4" :class="textPrimary" style="text-wrap: pretty">
-              Your ad, on every street<br/>
-              <em class="italic text-clay-500">in Lagos.</em>
-            </h1>
-            <p class="text-lg leading-relaxed max-w-[540px]" :class="textSecondary" style="text-wrap: pretty">
-              Advertise on screens inside local pharmacies, eateries, and salons. Starting from ₦5,000. You pay for verified attention — real viewers, counted by AI.
-            </p>
-          </div>
-
-          <div class="flex gap-3 flex-wrap">
-            <BaseButton variant="primary" size="lg" @click="$router.push('/advertisers')">
-              Start advertising
-              <i class="ph ph-arrow-right"></i>
-            </BaseButton>
-            <BaseButton variant="outline" size="lg" :dark="dark" @click="$router.push('/hosts')">
-              Host a screen
-              <i class="ph ph-caret-right"></i>
-            </BaseButton>
-          </div>
-        </div>
-
-        <!-- Network Animation -->
-        <div class="hidden lg:block">
-          <NetworkAnimation :dark="dark" />
-        </div>
-      </div>
-
-      <!-- Live stats bar -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-[1px] rounded-2xl overflow-hidden border" :class="borderClass">
-        <div
-          v-for="(stat, i) in stats"
-          :key="i"
-          class="p-4 sm:p-6"
-          :class="i % 2 === 0 ? cardBg : surfaceBg2"
-        >
-          <div class="font-display text-2xl sm:text-4xl font-light text-clay-500 mb-1 tabular-nums">
-            {{ stat.value }}
-          </div>
-          <div class="text-[10px] sm:text-xs font-semibold tracking-wider uppercase" :class="textTertiary">
-            {{ stat.label }}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Brand Carousel -->
-    <BrandCarousel :dark="dark" />
-
-    <!-- How it works -->
-    <div class="py-12 sm:py-20 px-4 sm:px-8" :class="sectionBg">
-      <div class="max-w-[1200px] mx-auto">
-        <div class="mb-8 sm:mb-12">
-          <BaseTag variant="clay" :dark="dark" class="mb-3">How it works</BaseTag>
-          <h2 class="font-display text-[clamp(32px,4vw,52px)] font-normal leading-tight" :class="textPrimary">
-            Three steps. No agency.
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <BaseCard
-            v-for="(step, i) in howItWorksSteps"
-            :key="i"
-            :dark="dark"
-            rounded="lg"
-            padding="lg"
-          >
-            <div class="flex items-center gap-3 mb-5">
-              <span class="font-display text-5xl font-light text-clay-500 leading-none">
-                {{ step.number }}
-              </span>
-              <i :class="[`ph ${step.icon}`, 'text-2xl', textTertiary]"></i>
-            </div>
-            <h3 class="font-display text-2xl font-medium mb-2.5" :class="textPrimary">
-              {{ step.title }}
-            </h3>
-            <p class="text-sm leading-relaxed" :class="textSecondary">
-              {{ step.body }}
-            </p>
-          </BaseCard>
-        </div>
-      </div>
-    </div>
-
-    <!-- For advertisers / hosts split CTA -->
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-12 sm:py-20">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div
-          @click="$router.push('/advertisers')"
-          class="rounded-[20px] p-10 bg-clay-500 cursor-pointer relative overflow-hidden"
-        >
-          <div class="absolute top-[-30px] right-[-30px] w-40 h-40 rounded-full bg-white/[0.08]"></div>
-          <span class="text-[11px] font-bold tracking-wider uppercase text-white/60 block mb-3">
-            For advertisers
-          </span>
-          <h3 class="font-display text-4xl font-normal text-white leading-tight mb-4">
-            Reach real people in real places.
-          </h3>
-          <p class="text-sm text-white/70 leading-relaxed mb-6">
-            Screens inside the shops your customers visit every day. Verified viewership. Starts at ₦5,000.
-          </p>
-          <div class="inline-flex items-center gap-2 text-white font-bold text-sm">
-            Start advertising <i class="ph ph-arrow-right"></i>
-          </div>
-        </div>
-
-        <div
-          @click="$router.push('/hosts')"
-          class="rounded-[20px] p-10 cursor-pointer relative overflow-hidden"
-          :class="[cardBg, 'border ' + borderClass]"
-        >
-          <div
-            class="absolute top-[-30px] right-[-30px] w-40 h-40 rounded-full"
-            :class="dark ? 'bg-white/[0.03]' : 'bg-neutral-900/[0.03]'"
-          ></div>
-          <span class="text-[11px] font-bold tracking-wider uppercase block mb-3" :class="textTertiary">
-            For hosts
-          </span>
-          <h3 class="font-display text-4xl font-normal leading-tight mb-4" :class="textPrimary">
-            Your shop earns money while it's open.
-          </h3>
-          <p class="text-sm leading-relaxed mb-6" :class="textSecondary">
-            Host a Mimuads screen. Earn ₦20,000–₦60,000 per month, paid every Friday. No running costs.
-          </p>
-          <div class="inline-flex items-center gap-2 text-clay-500 font-bold text-sm">
-            Become a host <i class="ph ph-arrow-right"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Testimonial -->
-    <div class="py-12 sm:py-20 px-4 sm:px-8" :class="sectionBg">
-      <div class="max-w-[1200px] mx-auto">
-        <BaseTag variant="moss" :dark="dark" class="mb-6">Host story</BaseTag>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div>
-            <blockquote class="font-display text-[clamp(22px,2.5vw,32px)] font-normal italic leading-snug mb-5" :class="textPrimary">
-              "I used to watch that screen and wonder what it was for. Now I watch it and see my earnings going up."
-            </blockquote>
-            <div class="flex items-center gap-3.5">
-              <div class="w-12 h-12 rounded-full bg-clay-500 flex items-center justify-center text-white text-lg font-bold flex-shrink-0">
-                A
-              </div>
-              <div>
-                <div class="text-sm font-bold" :class="textPrimary">Adeola Fashola</div>
-                <div class="text-[13px]" :class="textSecondary">Apex Pharmacy, Surulere · Hosting since Oct 2024</div>
-              </div>
-            </div>
-          </div>
-
-          <BaseCard :dark="dark" rounded="lg" padding="lg">
-            <div class="text-[11px] font-semibold tracking-wider uppercase mb-3.5" :class="textTertiary">
-              Adeola's earnings
-            </div>
-            <div class="font-display text-[52px] font-light text-clay-500 mb-1 tabular-nums">
-              ₦214,700
-            </div>
-            <div class="text-[13px] mb-5" :class="textSecondary">
-              Total earned · 6 months · 52 payouts
-            </div>
-            <div
-              v-for="(item, i) in earningsBreakdown"
-              :key="i"
-              class="flex justify-between py-2.5 border-b"
-              :class="borderClass"
-            >
-              <span class="text-[13px]" :class="textSecondary">{{ item.label }}</span>
-              <span class="text-sm font-semibold" :class="textPrimary">{{ item.value }}</span>
-            </div>
-          </BaseCard>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer CTA -->
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-16 sm:py-24 text-center">
-      <h2 class="font-display text-[clamp(36px,5vw,68px)] font-light leading-tight mb-5 tracking-tight" :class="textPrimary">
-        Advertising that actually<br/>belongs in Lagos.
-      </h2>
-      <p class="text-base mb-10 max-w-[480px] mx-auto" :class="textSecondary">
-        No agency. No corporate deck. Just your ad, on screens where your customers already are.
+  <!--
+    Pre-launch homepage. One screen. No section CTAs. The illustration
+    in the middle is what conveys what Mimu does — a simulated DOOH
+    screen cycling through real-sounding Lagos SMB ad headlines, with
+    a LIVE indicator. Pure CSS animation (no JS, no Lottie, no canvas,
+    no images) so the homepage stays under a couple of KB of overhead
+    on top of what was already there.
+  -->
+  <section class="home-stage" :class="dark ? 'is-dark' : 'is-light'">
+    <div class="brand">
+      <h1 class="wordmark">
+        Mimu<em>ads</em>
+      </h1>
+      <p class="tagline">
+        Your ad, on every street in <em>Lagos</em>.
       </p>
-      <BaseButton variant="primary" size="lg">
-        Create your first campaign
-      </BaseButton>
     </div>
-  </div>
+
+    <div class="screen" role="figure" aria-label="A simulated Mimuads screen cycling Lagos shop headlines">
+      <div class="bezel">
+        <div class="indicator" aria-hidden="true">
+          <span class="dot"></span>
+          <span class="label">LIVE · LAGOS</span>
+        </div>
+        <div class="canvas">
+          <p
+            v-for="(headline, i) in headlines"
+            :key="i"
+            class="headline"
+            :style="{ animationDelay: `${i * STEP_S}s` }"
+          >
+            {{ headline }}
+          </p>
+        </div>
+      </div>
+      <p class="caption">
+        An ad. On a screen. In a shop.
+        <em>Where the customer already is.</em>
+      </p>
+    </div>
+
+    <div class="coda mono">
+      More — soon · <a href="mailto:hello@usemimu.com">hello@usemimu.com</a>
+    </div>
+  </section>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import BaseButton from '@/components/BaseButton.vue'
-import BaseTag from '@/components/BaseTag.vue'
-import BaseCard from '@/components/BaseCard.vue'
-import LiveDot from '@/components/LiveDot.vue'
-import NetworkAnimation from '@/components/NetworkAnimation.vue'
-import BrandCarousel from '@/components/BrandCarousel.vue'
-
-const props = defineProps({
-  dark: {
-    type: Boolean,
-    default: false
-  }
+defineProps({
+  dark: { type: Boolean, default: false },
 })
 
-const playCount = ref(1247)
-let interval = null
-
-onMounted(() => {
-  interval = setInterval(() => {
-    playCount.value += Math.floor(Math.random() * 3)
-  }, 4000)
-})
-
-onUnmounted(() => {
-  if (interval) clearInterval(interval)
-})
-
-const stats = computed(() => [
-  { label: 'Screens live', value: '1,247' },
-  { label: 'Plays today', value: playCount.value.toLocaleString() },
-  { label: 'LGAs covered', value: '18 of 20' },
-  { label: 'Advertisers', value: '340+' }
-])
-
-const howItWorksSteps = [
-  {
-    number: '01',
-    title: 'Pick your screens',
-    body: 'Browse the map. Filter by LGA, category, or daily viewers. See exactly where your ad will play.',
-    icon: 'ph-map-pin'
-  },
-  {
-    number: '02',
-    title: 'Set your budget',
-    body: 'Choose how long to run and how much to spend. See real impression forecasts before you pay.',
-    icon: 'ph-currency-ngn'
-  },
-  {
-    number: '03',
-    title: 'Go live in 24 hours',
-    body: 'Upload your creative. APCON vetting runs automatically. Your ad plays on screens the same day.',
-    icon: 'ph-play'
-  }
+// Each headline is a real-sounding Lagos SMB ad — the kind that
+// would actually play on a Mimuads screen. Order chosen so the
+// rotation reads as a believable cross-section of categories
+// (eatery → salon → pharmacy → delivery → eatery again).
+const headlines = [
+  'Open till 10pm · Lekki Phase 1',
+  '₦5,000 off braids · this Saturday',
+  'Flu vaccines · in stock today',
+  'Free delivery to Yaba · before noon',
+  'New menu · weekend brunch · Surulere',
 ]
 
-const earningsBreakdown = [
-  { label: 'This month', value: '₦48,200' },
-  { label: 'Avg/month', value: '₦35,800' },
-  { label: 'Uptime', value: '99.2%' }
-]
-
-const textPrimary = computed(() => props.dark ? 'text-neutral-50' : 'text-neutral-900')
-const textSecondary = computed(() => props.dark ? 'text-neutral-400' : 'text-neutral-600')
-const textTertiary = computed(() => props.dark ? 'text-neutral-600' : 'text-neutral-400')
-const cardBg = computed(() => props.dark ? 'bg-neutral-800' : 'bg-white')
-const surfaceBg2 = computed(() => props.dark ? 'bg-neutral-700' : 'bg-neutral-100')
-const sectionBg = computed(() => props.dark ? 'bg-[#111009]' : 'bg-neutral-100')
-const borderClass = computed(() => props.dark ? 'border-white/[0.08]' : 'border-neutral-200')
+// Seconds each headline holds the screen. With 5 headlines that's a
+// 30s total loop — long enough for the rotation to feel like a real
+// ad break, short enough that a visitor sees the whole cross-section
+// within one minute. Adjust `STEP_S` here and the CSS @keyframes
+// recompute against it via the inline `animation-delay` per item.
+const STEP_S = 6
 </script>
+
+<style scoped>
+.home-stage {
+  /* Visible viewport minus the sticky nav (h-16 = 64px) and enough
+     room for the footer to sit at the bottom without scroll on a
+     typical laptop. min-height keeps it tall on mobile so the coda
+     line isn't hugging the footer. */
+  min-height: calc(100vh - 64px - 96px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(32px, 5vw, 64px);
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 48px);
+  text-align: center;
+}
+
+/* ── brand wordmark + tagline ───────────────────────────────── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.wordmark {
+  font-family: 'Cormorant', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(56px, 9vw, 128px);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.wordmark em {
+  font-style: italic;
+  color: #b55430;
+}
+.tagline {
+  font-family: 'Cormorant', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(18px, 2.4vw, 28px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0;
+  max-width: 520px;
+  opacity: 0.78;
+}
+.tagline em {
+  color: #b55430;
+  font-style: italic;
+}
+
+/* ── the simulated screen ───────────────────────────────────── */
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  max-width: 640px;
+}
+.bezel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  /* Feels like a TV/monitor without any raster assets. Composed
+     entirely from gradients + an inset shadow vignette. Depth comes
+     from layering, not images. */
+  border-radius: 14px;
+  padding: clamp(18px, 3vw, 32px);
+  background:
+    /* top-edge brand warmth */
+    radial-gradient(120% 80% at 50% 0%, rgba(181, 84, 48, 0.12) 0%, rgba(181, 84, 48, 0) 60%),
+    /* bottom-edge cool wash */
+    radial-gradient(120% 80% at 50% 100%, var(--bezel-shade) 0%, transparent 60%),
+    var(--bezel-bg);
+  border: 1px solid var(--bezel-border);
+  box-shadow:
+    inset 0 0 0 1px var(--bezel-inset),
+    /* inner vignette — pulls the eye to centre, sells depth */
+    inset 0 0 80px var(--bezel-vignette),
+    0 24px 48px -24px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+/* Pixel-grid texture overlay. Hints at LED-screen pixels without
+   being literal about it — sub-1% opacity dots on a 14px lattice. */
+.bezel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: radial-gradient(circle at 1px 1px, var(--dot-color) 1px, transparent 1.5px);
+  background-size: 14px 14px;
+  opacity: var(--dot-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Drifting ambient glow. Two soft brand-coloured blobs that
+   slowly cross-fade and translate so the screen feels alive. No
+   blur() filter — radial gradients are already soft, and avoiding
+   filters keeps this GPU-cheap on low-end Android. */
+.bezel::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(40% 50% at 30% 40%, rgba(181, 84, 48, 0.22) 0%, transparent 55%),
+    radial-gradient(45% 55% at 75% 65%, rgba(200, 119, 76, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes drift {
+  0%   { transform: translate(-4%, -2%); }
+  50%  { transform: translate(3%, 4%); }
+  100% { transform: translate(-2%, 5%); }
+}
+.indicator {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--indicator-color);
+  /* Above the ambient glow + pixel grid pseudo-elements */
+  z-index: 2;
+}
+.indicator .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b55430;
+  box-shadow: 0 0 12px rgba(181, 84, 48, 0.6);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.indicator .label {
+  font-weight: 500;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(28px, 5vw, 56px);
+  /* Above the ambient glow + pixel grid pseudo-elements */
+  z-index: 1;
+}
+.headline {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0 clamp(20px, 5vw, 48px);
+
+  font-family: 'Cormorant', Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(22px, 3.4vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--headline-color);
+  /* Soft brand-coloured halo so the text reads as *emitted* by the
+     screen rather than printed on top of a sticker. Stronger in the
+     dark theme where the contrast is cooler, lighter in the light
+     theme where it would otherwise wash out the surrounding ink. */
+  text-shadow: var(--headline-glow);
+
+  /* Each headline starts hidden. The shared `cycle` keyframe is
+     30s long (5 headlines × 6s step). Per-headline animation-delay
+     (inline above) staggers visibility so headlines never overlap
+     their visible windows. `infinite` keeps the rotation running
+     for as long as the page is open — the loop is purely declarative,
+     no JS timers, no IntersectionObservers. */
+  opacity: 0;
+  animation: cycle 30s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes cycle {
+  0%   { opacity: 0; transform: translateY(8px); }
+  3%   { opacity: 1; transform: translateY(0); }
+  17%  { opacity: 1; transform: translateY(0); }
+  20%  { opacity: 0; transform: translateY(-8px); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.92); }
+  50%      { opacity: 1;    transform: scale(1.08); }
+}
+
+/* Honour user preference for reduced motion. The whole point of
+   the cycle is decorative — if a user has asked the OS to calm
+   animations, we hold on the first headline instead of rotating. */
+@media (prefers-reduced-motion: reduce) {
+  .headline,
+  .indicator .dot,
+  .bezel::after {
+    animation: none;
+  }
+  .headline:first-child {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.caption {
+  font-family: 'Cormorant', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(15px, 1.6vw, 19px);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 520px;
+  opacity: 0.7;
+}
+.caption em {
+  color: #b55430;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ── footer-ish coda line ───────────────────────────────────── */
+.coda {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+.coda a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity 0.15s ease;
+}
+.coda a:hover {
+  opacity: 0.7;
+}
+
+/* ── theme tokens ───────────────────────────────────────────── */
+.is-light {
+  --bezel-bg: #fffaf6;
+  --bezel-border: rgba(0, 0, 0, 0.08);
+  --bezel-inset: rgba(0, 0, 0, 0.03);
+  --bezel-shade: rgba(0, 0, 0, 0.05);
+  --bezel-vignette: rgba(0, 0, 0, 0.10);
+  --dot-color: rgba(0, 0, 0, 0.35);
+  --dot-opacity: 0.06;
+  --indicator-color: rgba(0, 0, 0, 0.55);
+  --headline-color: #1a1a1a;
+  --headline-glow: 0 0 18px rgba(181, 84, 48, 0.10);
+  color: #1a1a1a;
+}
+.is-dark {
+  --bezel-bg: #100f0d;
+  --bezel-border: rgba(255, 255, 255, 0.08);
+  --bezel-inset: rgba(255, 255, 255, 0.04);
+  --bezel-shade: rgba(0, 0, 0, 0.5);
+  --bezel-vignette: rgba(0, 0, 0, 0.55);
+  --dot-color: rgba(255, 255, 255, 0.6);
+  --dot-opacity: 0.05;
+  --indicator-color: rgba(255, 255, 255, 0.55);
+  --headline-color: #f4ede4;
+  --headline-glow: 0 0 24px rgba(181, 84, 48, 0.30);
+  color: #f4ede4;
+}
+</style>
