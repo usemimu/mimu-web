@@ -1,4 +1,4 @@
-<template>
+n<template>
   <div class="flex items-center gap-2.5 cursor-pointer select-none" @click="handleClick">
     <svg
       :width="size"

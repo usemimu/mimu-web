@@ -73,6 +73,7 @@ const routes = [
   //     title: 'About Mimuads — Built in Lagos, for Lagos first | Usemimu',
   //     description: "Mimuads means 'to grab, to hold attention' in Yoruba. We built a neighborhood advertising network for Nigerian SMEs — screens hosted by local businesses, ad time sold in Naira, viewership verified by AI."
   //   }
+  
   // },
   {
     path: '/terms',

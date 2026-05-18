@@ -5,7 +5,8 @@
          pager nav, so nesting it inside Navigation/Footer would
          break its layout AND leak the site's marketing chrome into
          a confidential context. -->
-    <Navigation v-if="!isStandalone" :dark="isDark" />
+
+    <!-- <Navigation v-if="!isStandalone" :dark="isDark" /> -->
     <main class="w-full">
       <router-view :dark="isDark" />
     </main>

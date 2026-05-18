@@ -2,10 +2,9 @@
   <!--
     Pre-launch homepage. One screen. No section CTAs. The illustration
     in the middle is what conveys what Mimu does — a simulated DOOH
-    screen cycling through real-sounding Lagos SMB ad headlines, with
-    a LIVE indicator. Pure CSS animation (no JS, no Lottie, no canvas,
-    no images) so the homepage stays under a couple of KB of overhead
-    on top of what was already there.
+    screen autoplaying real approved Lagos creatives, with a LIVE
+    indicator. The reel rotates to a different random ad on each
+    `ended` event so the spot you land on isn't always the same.
   -->
   <section class="home-stage" :class="dark ? 'is-dark' : 'is-light'">
     <div class="brand">
@@ -17,21 +16,23 @@
       </p>
     </div>
 
-    <div class="screen" role="figure" aria-label="A simulated Mimuads screen cycling Lagos shop headlines">
+    <div class="screen" role="figure" aria-label="A simulated Mimuads screen playing the house reel">
       <div class="bezel">
         <div class="indicator" aria-hidden="true">
           <span class="dot"></span>
           <span class="label">LIVE · LAGOS</span>
         </div>
         <div class="canvas">
-          <p
-            v-for="(headline, i) in headlines"
-            :key="i"
-            class="headline"
-            :style="{ animationDelay: `${i * STEP_S}s` }"
-          >
-            {{ headline }}
-          </p>
+          <video
+            class="reel"
+            :src="reelSrc"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+          ></video>
         </div>
       </div>
       <p class="caption">
@@ -47,28 +48,22 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   dark: { type: Boolean, default: false },
 })
 
-// Each headline is a real-sounding Lagos SMB ad — the kind that
-// would actually play on a Mimuads screen. Order chosen so the
-// rotation reads as a believable cross-section of categories
-// (eatery → salon → pharmacy → delivery → eatery again).
-const headlines = [
-  'Open till 10pm · Lekki Phase 1',
-  '₦5,000 off braids · this Saturday',
-  'Flu vaccines · in stock today',
-  'Free delivery to Yaba · before noon',
-  'New menu · weekend brunch · Surulere',
-]
-
-// Seconds each headline holds the screen. With 5 headlines that's a
-// 30s total loop — long enough for the rotation to feel like a real
-// ad break, short enough that a visitor sees the whole cross-section
-// within one minute. Adjust `STEP_S` here and the CSS @keyframes
-// recompute against it via the inline `animation-delay` per item.
-const STEP_S = 6
+// The mimu-player APK ships these two clips under
+// app/src/main/assets/fallback-content. They're the house-ad reel
+// the LocalContentRotator drops to whenever a screen has no
+// scheduled ad to play, so they're the canonical 'nothing else is
+// running' loop. Two variants exist purely for theme — clay for the
+// light wash, dark for the dark wash — so we pick by the same prop
+// the rest of the page already keys off.
+const reelSrc = computed(() =>
+  props.dark ? '/fallback/mimu_m_dark.mp4' : '/fallback/mimu_m_clay.mp4',
+)
 </script>
 
 <style scoped>
@@ -221,53 +216,23 @@ const STEP_S = 6
 .canvas {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(28px, 5vw, 56px);
   /* Above the ambient glow + pixel grid pseudo-elements */
   z-index: 1;
 }
-.headline {
+.reel {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 0;
-  padding: 0 clamp(20px, 5vw, 48px);
-
-  font-family: 'Cormorant', Georgia, serif;
-  font-weight: 500;
-  font-style: italic;
-  font-size: clamp(22px, 3.4vw, 40px);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--headline-color);
-  /* Soft brand-coloured halo so the text reads as *emitted* by the
-     screen rather than printed on top of a sticker. Stronger in the
-     dark theme where the contrast is cooler, lighter in the light
-     theme where it would otherwise wash out the surrounding ink. */
-  text-shadow: var(--headline-glow);
-
-  /* Each headline starts hidden. The shared `cycle` keyframe is
-     30s long (5 headlines × 6s step). Per-headline animation-delay
-     (inline above) staggers visibility so headlines never overlap
-     their visible windows. `infinite` keeps the rotation running
-     for as long as the page is open — the loop is purely declarative,
-     no JS timers, no IntersectionObservers. */
-  opacity: 0;
-  animation: cycle 30s ease-in-out infinite;
-  will-change: opacity, transform;
-}
-
-@keyframes cycle {
-  0%   { opacity: 0; transform: translateY(8px); }
-  3%   { opacity: 1; transform: translateY(0); }
-  17%  { opacity: 1; transform: translateY(0); }
-  20%  { opacity: 0; transform: translateY(-8px); }
-  100% { opacity: 0; transform: translateY(-8px); }
+  width: 100%;
+  height: 100%;
+  /* `cover` matches how real DOOH screens render — fills the frame,
+     crops the edges. Most creatives in the schedule are 1920×1080,
+     so on the 16:9 bezel cover ≈ contain anyway. */
+  object-fit: cover;
+  /* Sits inside the rounded bezel; the inner inset is already
+     padded by the bezel border-radius so a small radius here keeps
+     the corners from poking past the pixel-grid overlay. */
+  border-radius: 4px;
+  background: #000;
 }
 
 @keyframes pulse {
@@ -275,18 +240,10 @@ const STEP_S = 6
   50%      { opacity: 1;    transform: scale(1.08); }
 }
 
-/* Honour user preference for reduced motion. The whole point of
-   the cycle is decorative — if a user has asked the OS to calm
-   animations, we hold on the first headline instead of rotating. */
 @media (prefers-reduced-motion: reduce) {
-  .headline,
   .indicator .dot,
   .bezel::after {
     animation: none;
-  }
-  .headline:first-child {
-    opacity: 1;
-    transform: none;
   }
 }
 
