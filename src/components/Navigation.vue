@@ -39,7 +39,7 @@
         </a>
       </div>
 
-      <a href="mailto:hello@usemimu.com" class="nav-cta"> Start a Campaign </a>
+      <a href="mailto:femi@usemimu.com" class="nav-cta"> Start a Campaign </a>
     </div>
   </header>
 </template>

@@ -6,13 +6,13 @@
       <div class="hero-inner wrap">
 
         <div class="hero-text">
-          <div class="eyebrow">Lagos · Neighborhood Advertising</div>
+          <div class="eyebrow">AI-Powered · Neighborhood Advertising · Lagos</div>
           <h1 class="hero-headline">
             Your ad.<br>On every street<br>in <em>Lagos.</em>
           </h1>
           <p class="hero-sub">
-            Screens inside pharmacies, eateries and salons across 18 LGAs.
-            AI-verified viewership. APCON-compliant. Live in 24 hours.
+            The first AI-native outdoor ad platform in Africa. Launch campaigns yourself —
+            no agency needed. AI handles targeting, compliance, and viewership verification automatically.
           </p>
           <div class="hero-ctas">
             <a href="mailto:hello@usemimu.com" class="btn-primary">Start a Campaign</a>
@@ -71,6 +71,90 @@
       </div>
     </div>
 
+    <!-- ── AI SELF-SERVE ──────────────────────────────────────── -->
+    <section id="ai-platform" class="section section-alt">
+      <div class="wrap">
+        <div class="ai-layout">
+
+          <!-- Text side -->
+          <div class="ai-text">
+            <div class="tag">AI Self-Serve Platform</div>
+            <h2 class="section-headline">
+              Campaign intelligence,<br><em>built in.</em>
+            </h2>
+            <p class="section-sub">
+              Mimuads is not an ad agency — it's an AI platform. Launch,
+              optimize and measure your campaign from your phone, in minutes.
+              The AI handles everything a media buyer would charge you for.
+            </p>
+            <ul class="ai-features">
+              <li v-for="f in aiFeatures" :key="f.title" class="ai-feature">
+                <i :class="`ph ${f.icon} ai-feature-icon`"></i>
+                <div>
+                  <div class="ai-feature-title">{{ f.title }}</div>
+                  <div class="ai-feature-body">{{ f.body }}</div>
+                </div>
+              </li>
+            </ul>
+            <a href="mailto:hello@usemimu.com" class="btn-primary mt-cta">
+              Launch a Campaign with AI →
+            </a>
+          </div>
+
+          <!-- AI dashboard mockup -->
+          <div class="ai-card" :class="dark ? 'ai-card-dark' : 'ai-card-light'">
+            <div class="ai-card-header">
+              <span class="ai-card-title">Mimuads AI</span>
+              <span class="ai-status">
+                <span class="ai-dot"></span>Active
+              </span>
+            </div>
+
+            <div class="ai-metric-row">
+              <div class="ai-metric">
+                <div class="ai-metric-val">47</div>
+                <div class="ai-metric-lbl">Screens Live</div>
+              </div>
+              <div class="ai-metric">
+                <div class="ai-metric-val">2,841</div>
+                <div class="ai-metric-lbl">Verified Views Today</div>
+              </div>
+              <div class="ai-metric">
+                <div class="ai-metric-val">94<span class="ai-metric-unit">/100</span></div>
+                <div class="ai-metric-lbl">AI Score</div>
+              </div>
+            </div>
+
+            <div class="ai-bar-wrap">
+              <div class="ai-bar-label">
+                <span>Campaign performance</span>
+                <span class="text-clay-500">94%</span>
+              </div>
+              <div class="ai-bar-track">
+                <div class="ai-bar-fill" style="width:94%"></div>
+              </div>
+            </div>
+
+            <div class="ai-log">
+              <div v-for="log in aiLogs" :key="log.time" class="ai-log-row">
+                <span class="ai-log-time">{{ log.time }}</span>
+                <span class="ai-log-msg">{{ log.msg }}</span>
+              </div>
+            </div>
+
+            <div class="ai-footer-row">
+              <span class="ai-optimizing">
+                <span class="ai-dot ai-dot-sm"></span>
+                AI optimizing…
+              </span>
+              <span class="ai-cost">₦0.47 <span class="ai-cost-lbl">/ verified view</span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ── FOR ADVERTISERS ─────────────────────────────────────── -->
     <section id="advertisers" class="section">
       <div class="wrap">
@@ -119,7 +203,7 @@
                 <span>{{ b }}</span>
               </li>
             </ul>
-            <a href="mailto:hello@usemimu.com" class="btn-primary mt-cta">Apply to Host →</a>
+            <a href="https://host.usemimu.com" target="_blank" rel="noopener noreferrer" class="btn-primary mt-cta">Apply to Host →</a>
           </div>
 
           <div class="host-stats">
@@ -227,10 +311,41 @@ const reelSrc = computed(() =>
 )
 
 const stats = [
-  { value: '18 LGAs',     label: 'Lagos coverage' },
-  { value: 'AI-Verified', label: 'Real viewership' },
-  { value: 'APCON',       label: 'Fully compliant' },
-  { value: '24 hrs',      label: 'Go-live time' },
+  { value: '18 LGAs',    label: 'Lagos coverage' },
+  { value: 'AI-Native',  label: 'From the ground up' },
+  { value: 'APCON',      label: 'Fully compliant' },
+  { value: '24 hrs',     label: 'Go-live time' },
+]
+
+const aiFeatures = [
+  {
+    icon: 'ph-cursor-click',
+    title: 'Self-Serve in Minutes',
+    body: 'Create, target and launch your campaign from your phone. No agency, no back-and-forth, no waiting.',
+  },
+  {
+    icon: 'ph-brain',
+    title: 'AI Screen Targeting',
+    body: 'Our AI selects the screens where your audience is most likely to convert, based on venue type and foot traffic.',
+  },
+  {
+    icon: 'ph-chart-line-up',
+    title: 'Live Optimization',
+    body: 'The platform watches your campaign performance in real time and shifts budget to your best-performing screens.',
+  },
+  {
+    icon: 'ph-eye',
+    title: 'On-Device Verification',
+    body: 'Viewership is counted by AI running directly on each screen — no estimates, no off-device data, no fraud.',
+  },
+]
+
+const aiLogs = [
+  { time: '09:41', msg: 'Screen #LK-04 added — high-traffic pharmacy' },
+  { time: '09:43', msg: 'Creative approved by APCON AI checker' },
+  { time: '09:44', msg: 'Campaign deployed to 47 screens' },
+  { time: '09:51', msg: 'Reallocating budget → top 12 screens' },
+  { time: '10:02', msg: '2,841 verified impressions recorded' },
 ]
 
 const advertiserFeatures = [
@@ -962,5 +1077,208 @@ const faqs = reactive([
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
+}
+
+/* ── AI SELF-SERVE SECTION ──────────────────────────────────── */
+.ai-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(48px, 7vw, 80px);
+  align-items: start;
+}
+@media (min-width: 860px) {
+  .ai-layout { grid-template-columns: 1fr 1fr; }
+}
+
+/* AI feature list */
+.ai-features {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ai-feature {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.ai-feature-icon {
+  font-size: 20px;
+  color: #B55430;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ai-feature-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+.ai-feature-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* AI dashboard card */
+.ai-card {
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+}
+.ai-card-light {
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+}
+.ai-card-dark {
+  background: #1C1A17;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.ai-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--divider);
+}
+.ai-card-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+.ai-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2B7244;
+}
+
+.ai-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2B7244;
+  box-shadow: 0 0 8px rgba(43,114,68,0.6);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+.ai-dot-sm {
+  width: 6px;
+  height: 6px;
+}
+
+.ai-metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  gap: 12px;
+}
+.ai-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ai-metric-val {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.ai-metric-unit {
+  font-size: 12px;
+  opacity: 0.45;
+}
+.ai-metric-lbl {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ai-bar-wrap {
+  padding: 0 20px 20px;
+}
+.ai-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.ai-bar-track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--divider);
+  overflow: hidden;
+}
+.ai-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #B55430, #D9803A);
+  transition: width 1s ease;
+}
+
+.ai-log {
+  border-top: 1px solid var(--divider);
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ai-log-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.ai-log-time {
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.ai-log-msg {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.ai-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid var(--divider);
+  background: var(--section-alt-bg);
+}
+.ai-optimizing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2B7244;
+}
+.ai-cost {
+  font-size: 13px;
+  font-weight: 600;
+  color: #B55430;
+}
+.ai-cost-lbl {
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--text-muted);
 }
 </style>

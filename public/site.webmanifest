@@ -1,7 +1,7 @@
 {
-  "name": "Mimuads — Lagos neighborhood advertising network",
+  "name": "Mimuads — your neighborhood advertising network",
   "short_name": "Mimuads",
-  "description": "Mimuads — your ad on screens inside neighborhood pharmacies, eateries and salons across Lagos. AI-verified viewership, APCON-compliant, live in 24 hours.",
+  "description": "Mimuads — your ad on screens inside neighborhood pharmacies, supermarkets, bars, malls, rastaurants, eateries, stadiums, train-stations and salons across Lagos. AI-verified viewership, APCON-compliant, live in 24 hours.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
