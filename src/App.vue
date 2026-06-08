@@ -15,13 +15,19 @@
   />
 
   <div class="min-h-screen w-full overflow-x-hidden transition-colors duration-150" :class="themeClass">
-    <!-- Site chrome is hidden on `standalone` routes (the investor
-         pitch). The deck owns the full viewport and supplies its own
-         pager nav, so nesting it inside Navigation/Footer would
-         break its layout AND leak the site's marketing chrome into
-         a confidential context. -->
 
-    <!-- <Navigation v-if="!isStandalone" :dark="isDark" /> -->
+    <!-- Floating pill nav: sticky wrapper pads by safeTop so the pill
+         always sits below the safe-area color strip (no clip on notch). -->
+    <div
+      v-if="!isStandalone"
+      class="sticky top-0 z-[100]"
+      :style="{ paddingTop: safeTop }"
+    >
+      <div class="px-4 pt-3 pb-3">
+        <Navigation :dark="isDark" />
+      </div>
+    </div>
+
     <main class="w-full">
       <router-view :dark="isDark" />
     </main>

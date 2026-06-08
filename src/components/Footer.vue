@@ -1,43 +1,69 @@
 <template>
-  <div class="border-t py-10 px-8" :class="borderClass">
-    <div class="max-w-[1200px] mx-auto flex justify-between items-center gap-6 flex-wrap">
-      <!--
-        The footer logo doubles as the Android-TV player download link.
-        Operators visiting from an Android TV's browser tap this to
-        fetch the latest signed APK directly from S3 — same artifact
-        the OTA path serves. `download` hints the browser to save
-        rather than navigate. The `rel="noopener"` is belt-and-brace
-        in case a TV browser opens the target in a new tab.
-      -->
-      <a
-        :href="PLAYER_APK_URL"
-        download
-        rel="noopener"
-        title="Download Mìmúads Player APK (Android TV / Fire TV / Android tablet)"
-        class="cursor-pointer no-underline hover:opacity-80 transition-opacity"
-        aria-label="Download Mìmúads Player APK"
-      >
-        <Logo :dark="dark" :size="54" :show-wordmark="true" />
-      </a>
+  <footer class="border-t transition-colors duration-150" :class="borderClass">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-8 py-10">
 
-      <div class="flex gap-6 flex-wrap">
-        <component
-          :is="link.to ? 'router-link' : 'a'"
-          v-for="link in footerLinks"
-          :key="link.label"
-          :to="link.to"
-          class="text-[13px] no-underline cursor-pointer hover:opacity-70 transition-opacity"
-          :class="linkClass"
-        >
-          {{ link.label }}
-        </component>
+      <!-- Top row -->
+      <div class="flex flex-wrap justify-between items-start gap-8 mb-8">
+
+        <!-- Brand -->
+        <div class="flex flex-col gap-3">
+          <a
+            :href="PLAYER_APK_URL"
+            download
+            rel="noopener"
+            title="Download Mìmúads Player APK (Android TV / Fire TV)"
+            class="cursor-pointer no-underline hover:opacity-75 transition-opacity inline-flex"
+            aria-label="Download Mìmúads Player APK"
+          >
+            <Logo :dark="dark" :size="40" />
+          </a>
+          <p class="text-[11px] font-mono tracking-widest uppercase" :class="mutedClass">
+            Lagos · Neighborhood Advertising
+          </p>
+        </div>
+
+        <!-- Social icons -->
+        <div class="flex items-center gap-2">
+          <a
+            v-for="s in socials"
+            :key="s.href"
+            :href="s.href"
+            :aria-label="s.label"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 flex items-center justify-center rounded-full border transition-colors"
+            :class="dark
+              ? 'border-white/10 text-neutral-400 hover:text-neutral-100 hover:border-white/30 hover:bg-white/5'
+              : 'border-neutral-200 text-neutral-400 hover:text-neutral-800 hover:border-neutral-300 hover:bg-neutral-50'"
+          >
+            <i :class="`ph ${s.icon} text-[15px]`"></i>
+          </a>
+        </div>
       </div>
 
-      <div class="text-xs" :class="textClass">
-        Lagos, Nigeria · APCON registered
+      <!-- Divider -->
+      <div class="h-px mb-6" :class="dark ? 'bg-white/[0.07]' : 'bg-neutral-200'"></div>
+
+      <!-- Bottom row -->
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div class="flex flex-wrap gap-5">
+          <component
+            :is="link.to ? 'router-link' : 'a'"
+            v-for="link in footerLinks"
+            :key="link.label"
+            :to="link.to"
+            class="text-[12px] no-underline cursor-pointer hover:opacity-70 transition-opacity"
+            :class="linkClass"
+          >
+            {{ link.label }}
+          </component>
+        </div>
+        <p class="text-[11px]" :class="mutedClass">
+          Lagos, Nigeria · APCON registered
+        </p>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script setup>
@@ -45,24 +71,18 @@ import { computed } from 'vue'
 import Logo from './Logo.vue'
 
 const props = defineProps({
-  dark: {
-    type: Boolean,
-    default: false
-  }
+  dark: { type: Boolean, default: false }
 })
 
-// Direct S3 URL of the currently-shipped player APK. Bump the
-// version segment whenever a new player_releases row publishes
-// (admin → Configuration → Player releases). The same APK file is
-// what SelfUpdateWorker pulls for OTA, so this never diverges
-// from the fleet's installed version unless someone forgets to
-// edit this line — worth a release-checklist item.
-// https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/v3/app-field.apk
 const PLAYER_APK_URL =
   'https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/v4/app-field.apk'
 
-// `to` set ⇒ rendered as <router-link>; left undefined ⇒ falls back to a
-// no-op <a> until the destination page exists.
+const socials = [
+  { icon: 'ph-instagram-logo', href: 'https://www.instagram.com/mimuads',        label: 'Mimuads on Instagram' },
+  { icon: 'ph-x-logo',         href: 'https://twitter.com/mimuads',              label: 'Mimuads on X / Twitter' },
+  { icon: 'ph-linkedin-logo',  href: 'https://www.linkedin.com/company/mimuads', label: 'Mimuads on LinkedIn' },
+]
+
 const footerLinks = [
   { label: 'Privacy' },
   { label: 'Terms', to: '/terms' },
@@ -73,12 +93,10 @@ const footerLinks = [
 const borderClass = computed(() =>
   props.dark ? 'border-white/[0.07]' : 'border-neutral-200'
 )
-
 const linkClass = computed(() =>
-  props.dark ? 'text-neutral-600' : 'text-neutral-600'
+  props.dark ? 'text-neutral-500' : 'text-neutral-500'
 )
-
-const textClass = computed(() =>
-  props.dark ? 'text-neutral-600' : 'text-neutral-600'
+const mutedClass = computed(() =>
+  props.dark ? 'text-neutral-600' : 'text-neutral-400'
 )
 </script>

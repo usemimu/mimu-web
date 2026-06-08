@@ -13,7 +13,8 @@
 }
 
 html {
-  background-color: #F7F5F2; /* neutral-50 light default — overridden to neutral-900 by .dark class */
+  background-color: #F7F5F2;
+  scroll-behavior: smooth;
 }
 
 html.dark {
