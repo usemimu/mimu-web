@@ -24,6 +24,17 @@ export function useTheme() {
     } else {
       document.documentElement.classList.remove('dark')
     }
+
+    // Keep Chrome Android's browser chrome (status bar + nav bar) in sync.
+    // Safari uses the fixed safe-area divs in App.vue; Chrome relies on theme-color.
+    const themeColor = isDark.value ? '#0E0D0B' : '#F7F5F2'
+    let meta = document.head.querySelector('meta[name="theme-color"]')
+    if (!meta) {
+      meta = document.createElement('meta')
+      meta.setAttribute('name', 'theme-color')
+      document.head.appendChild(meta)
+    }
+    meta.setAttribute('content', themeColor)
   }
 
   function toggleTheme() {

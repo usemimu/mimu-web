@@ -1,14 +1,17 @@
 <template>
-  <!-- Safe-area color fills: height = 0 on desktop, ~44px top / ~34px bottom on iPhone -->
+  <!-- Safe-area color fills.
+       Safari: env() gives real notch/home-indicator heights (~44px / ~34px).
+       Chrome: env() returns 0, so we probe on mount and fall back to standard
+       Android bar heights (safeTop / safeBottom refs set in script). -->
   <div
     class="fixed top-0 inset-x-0 z-[200] transition-colors duration-150"
     :class="isDark ? 'bg-neutral-900' : 'bg-neutral-50'"
-    style="height:env(safe-area-inset-top,0px)"
+    :style="{ height: safeTop }"
   />
   <div
     class="fixed bottom-0 inset-x-0 z-[200] transition-colors duration-150"
     :class="isDark ? 'bg-neutral-900' : 'bg-neutral-50'"
-    style="height:env(safe-area-inset-bottom,0px)"
+    :style="{ height: safeBottom }"
   />
 
   <div class="min-h-screen w-full overflow-x-hidden transition-colors duration-150" :class="themeClass">
@@ -39,7 +42,7 @@
 </template>
 
 <script setup>
-import { computed, watch, onBeforeUnmount } from 'vue'
+import { computed, onMounted, ref, watch, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import Navigation from './components/Navigation.vue'
@@ -49,6 +52,31 @@ const { isDark, toggleTheme } = useTheme()
 const route = useRoute()
 
 const themeClass = computed(() => (isDark.value ? 'dark bg-neutral-900' : 'bg-neutral-50'))
+
+// Probe the real env(safe-area-inset-*) values after mount.
+// Safari returns the physical notch/home-indicator sizes; Chrome returns 0.
+// For touch devices where env() gave nothing, fall back to standard bar heights
+// so the strips remain visible in Chrome too.
+const safeTop = ref('env(safe-area-inset-top, 0px)')
+const safeBottom = ref('env(safe-area-inset-bottom, 0px)')
+
+onMounted(() => {
+  const probe = document.createElement('div')
+  Object.assign(probe.style, {
+    position: 'fixed', top: '0', left: '0',
+    width: '1px', height: 'env(safe-area-inset-top, 0px)',
+    pointerEvents: 'none', visibility: 'hidden',
+  })
+  document.documentElement.appendChild(probe)
+  const envTop = probe.getBoundingClientRect().height
+  document.documentElement.removeChild(probe)
+
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+  if (envTop === 0 && isTouch) {
+    safeTop.value = '24px'
+    safeBottom.value = '20px'
+  }
+})
 
 // `standalone` routes (e.g. /pitch) own their own viewport. We hide
 // Navigation/Footer/theme toggle and tag <body> so the deck's CSS
