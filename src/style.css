@@ -12,6 +12,10 @@
   padding: 0;
 }
 
+html {
+  background-color: #B55430; /* clay-500 — bleeds into safe-area edges on mobile */
+}
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
