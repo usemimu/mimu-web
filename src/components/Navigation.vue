@@ -54,8 +54,8 @@ defineProps({
 const navLinks = [
   { label: "advertisers", href: "/#advertisers" },
   { label: "hosts", href: "/#hosts" },
-  { label: "How it Works", href: "/#how-it-works" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "how it works", href: "/#how-it-works" },
+  { label: "faq", href: "/#faq" },
 ];
 
 const socials = [

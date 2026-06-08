@@ -20,22 +20,15 @@
           </div>
 
           <div class="store-row">
-            <a href="#" class="store-btn" aria-label="Download on the App Store">
-              <i class="ph ph-apple-logo store-icon"></i>
-              <div class="store-text">
-                <span class="store-sub">Download on the</span>
-                <span class="store-name">App Store</span>
-              </div>
+            <a href="https://apps.apple.com/app/mimuads/id6775953486" target="_blank" rel="noopener noreferrer" class="store-badge-link" aria-label="Download on the App Store">
+              <img src="/apple-badge.svg" alt="Download on the App Store" class="store-badge-img" />
             </a>
-            <a href="#" class="store-btn" aria-label="Get it on Google Play">
-              <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M3.18 23.5c.35.2.76.2 1.12.01l11.65-6.57-2.52-2.52L3.18 23.5zm-1.1-20.1C2.03 3.6 2 3.83 2 4.07v15.86c0 .24.03.47.08.69l.06.06 8.89-8.89v-.21L2.14 3.34l-.06.06zM20.49 10.7l-2.43-1.37-2.82 2.82 2.82 2.82 2.45-1.38c.7-.39.7-1.5-.02-1.89zM4.3.5L15.95 7.07l-2.52 2.52L4.3.5z"/>
-              </svg>
-              <div class="store-text">
-                <span class="store-sub">Get it on</span>
-                <span class="store-name">Google Play</span>
-              </div>
-            </a>
+            <div class="store-badge-wrap">
+              <a href="#" class="store-badge-link" aria-label="Get it on Google Play">
+                <img src="/google-badge.svg" alt="Get it on Google Play" class="store-badge-img" />
+              </a>
+              <span class="coming-soon-badge">Coming soon</span>
+            </div>
           </div>
         </div>
 
@@ -276,22 +269,15 @@
           hello@usemimu.com →
         </a>
         <div class="cta-stores">
-          <a href="#" class="store-btn store-btn-light" aria-label="Download on the App Store">
-            <i class="ph ph-apple-logo store-icon"></i>
-            <div class="store-text">
-              <span class="store-sub">Download on the</span>
-              <span class="store-name">App Store</span>
-            </div>
+          <a href="https://apps.apple.com/app/mimuads/id6775953486" target="_blank" rel="noopener noreferrer" class="store-badge-link" aria-label="Download on the App Store">
+            <img src="/apple-badge.svg" alt="Download on the App Store" class="store-badge-img" />
           </a>
-          <a href="#" class="store-btn store-btn-light" aria-label="Get it on Google Play">
-            <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M3.18 23.5c.35.2.76.2 1.12.01l11.65-6.57-2.52-2.52L3.18 23.5zm-1.1-20.1C2.03 3.6 2 3.83 2 4.07v15.86c0 .24.03.47.08.69l.06.06 8.89-8.89v-.21L2.14 3.34l-.06.06zM20.49 10.7l-2.43-1.37-2.82 2.82 2.82 2.82 2.45-1.38c.7-.39.7-1.5-.02-1.89zM4.3.5L15.95 7.07l-2.52 2.52L4.3.5z"/>
-            </svg>
-            <div class="store-text">
-              <span class="store-sub">Get it on</span>
-              <span class="store-name">Google Play</span>
-            </div>
-          </a>
+          <div class="store-badge-wrap">
+            <a href="#" class="store-badge-link" aria-label="Get it on Google Play">
+              <img src="/google-badge.svg" alt="Get it on Google Play" class="store-badge-img" />
+            </a>
+            <span class="coming-soon-badge">Coming soon</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1026,57 +1012,44 @@ const faqs = reactive([
 .store-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
   margin-top: 28px;
 }
 
-.store-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 20px;
-  border-radius: 12px;
-  background: var(--text-primary);
-  color: var(--card-bg);
+.store-badge-link {
+  display: inline-block;
   text-decoration: none;
   transition: opacity 0.15s ease;
-  border: 1px solid var(--card-border);
 }
-.store-btn:hover { opacity: 0.78; }
+.store-badge-link:hover { opacity: 0.78; }
 
-.store-btn-light {
-  background: rgba(255,255,255,0.12);
+.store-badge-img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+.store-badge-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.coming-soon-badge {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background: #FF4930;
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.25);
-}
-.store-btn-light:hover { background: rgba(255,255,255,0.22); opacity: 1; }
-
-.store-icon {
-  font-size: 22px;
-  flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-}
-
-.store-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.store-sub {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 9.5px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  opacity: 0.7;
-  line-height: 1;
-}
-.store-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 20px;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 /* ── AI SELF-SERVE SECTION ──────────────────────────────────── */
