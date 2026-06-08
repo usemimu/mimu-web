@@ -1,7 +1,15 @@
 <template>
   <!-- Safe-area color fills: height = 0 on desktop, ~44px top / ~34px bottom on iPhone -->
-  <div class="fixed top-0 inset-x-0 bg-clay-500 z-[200]" style="height:env(safe-area-inset-top,0px)" />
-  <div class="fixed bottom-0 inset-x-0 bg-clay-500 z-[200]" style="height:env(safe-area-inset-bottom,0px)" />
+  <div
+    class="fixed top-0 inset-x-0 z-[200] transition-colors duration-150"
+    :class="isDark ? 'bg-neutral-900' : 'bg-neutral-50'"
+    style="height:env(safe-area-inset-top,0px)"
+  />
+  <div
+    class="fixed bottom-0 inset-x-0 z-[200] transition-colors duration-150"
+    :class="isDark ? 'bg-neutral-900' : 'bg-neutral-50'"
+    style="height:env(safe-area-inset-bottom,0px)"
+  />
 
   <div class="min-h-screen w-full overflow-x-hidden transition-colors duration-150" :class="themeClass">
     <!-- Site chrome is hidden on `standalone` routes (the investor
