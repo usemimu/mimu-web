@@ -1,7 +1,7 @@
 import { ref, watch, onMounted } from 'vue'
 
 export function useTheme() {
-  const isDark = ref(true)
+  const isDark = ref(false)
 
   // Load theme from localStorage on mount
   onMounted(() => {
