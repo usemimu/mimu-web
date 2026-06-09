@@ -13,8 +13,8 @@ const routes = [
     name: 'home',
     component: HomePage,
     meta: {
-      title: 'Mimuads — Your ad, on every street in Lagos',
-      description: "Mimuads is Lagos' neighborhood advertising network. Run your ad on screens inside pharmacies, eateries and salons across 18 LGAs — with AI-verified viewership and APCON compliance. Also known as Usemimu."
+      title: 'Mimuads — Your brand, on digital screens where your people are',
+      description: "Mimuads is Africa's first AI-native digital out-of-home platform. Launch self-serve campaigns on screens inside pharmacies, eateries and salons across Lagos — no agency needed. AI handles targeting, compliance, and viewership verification automatically. Also known as Usemimu."
     }
   },
   {
@@ -71,8 +71,8 @@ function setCanonical(href) {
 }
 
 router.afterEach((to) => {
-  const title = to.meta?.title || `${SITE_NAME} — Your ad, on every street in Lagos`
-  const description = to.meta?.description || "Mimuads is Lagos' neighborhood advertising network."
+  const title = to.meta?.title || `${SITE_NAME} — Your brand, on digital screens where your people are`
+  const description = to.meta?.description || "Mimuads is Africa's first AI-native digital out-of-home platform. Launch self-serve campaigns on neighborhood screens across Lagos. No agency needed."
   const url = `${SITE_URL}${to.path}`
 
   document.title = title
