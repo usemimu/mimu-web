@@ -6,9 +6,9 @@
       <div class="hero-inner wrap">
 
         <div class="hero-text">
-          <div class="eyebrow">AI-Powered · Neighborhood Advertising · Lagos</div>
+          <div class="eyebrow">AI-Powered · Digital Out-of-Home · Global</div>
           <h1 class="hero-headline">
-            Your ad.<br>On every street<br>in <em>Lagos.</em>
+            Your brand.<br>On digital screens<br>where your <em>people are.</em>
           </h1>
           <p class="hero-sub">
             The first AI-native outdoor ad platform in Africa. Launch campaigns yourself —
@@ -184,11 +184,10 @@
           <div class="hosts-text">
             <div class="tag">For Hosts</div>
             <h2 class="section-headline">
-              Turn your shop into<br><em>a revenue stream.</em>
+              Your walls already work.<br>Now let them <em>earn.</em>
             </h2>
             <p class="section-sub">
-              You already have foot traffic. A Mimuads screen converts that
-              into monthly income — with zero running costs on your end.
+              We place a screen, brands pay to reach your customers, and you earn every month — zero effort, zero running costs on your end.
             </p>
             <ul class="host-benefits">
               <li v-for="b in hostBenefits" :key="b">
@@ -261,9 +260,9 @@
     <!-- ── CTA BANNER ─────────────────────────────────────────── -->
     <section class="cta-banner">
       <div class="wrap cta-inner">
-        <h2 class="cta-headline">Ready to reach Lagos?</h2>
+        <h2 class="cta-headline">Ready to reach your people?</h2>
         <p class="cta-sub">
-          Start your campaign today or apply to host a screen in your shop.
+          Start your campaign today or apply to host a screen in your space.
         </p>
         <a href="mailto:hello@usemimu.com" class="btn-light">
           hello@usemimu.com →
@@ -389,7 +388,7 @@ const steps = [
 const faqs = reactive([
   {
     q: 'What is Mimuads?',
-    a: 'Mimuads is Lagos\' neighborhood advertising network. We place screens inside pharmacies, eateries and salons, then sell ad time on them to local and national brands.',
+    a: 'Mimuads is a digital out-of-home (DOOH) advertising platform. We place smart screens inside high-traffic venues — pharmacies, eateries, salons — and connect them to brands that want to reach real people in the real world.',
     open: false,
   },
   {
@@ -399,12 +398,12 @@ const faqs = reactive([
   },
   {
     q: 'What kind of businesses advertise on Mimuads?',
-    a: 'SMEs, startups, and established brands targeting everyday Lagos consumers. If your customer shops at a pharmacy or eats at a local spot, Mimuads reaches them.',
+    a: 'SMEs, startups, and established brands that want to reach everyday consumers where they already spend time. If your customer visits a pharmacy, eats out, or stops by a salon, Mimuads puts your brand in front of them.',
     open: false,
   },
   {
     q: 'Who can host a screen?',
-    a: 'Any shop with consistent foot traffic — pharmacies, eateries, salons, boutiques. We install the screen at no cost and handle all maintenance.',
+    a: 'Any venue with consistent foot traffic — pharmacies, eateries, salons, boutiques. We install the screen at no cost and handle all maintenance.',
     open: false,
   },
   {
@@ -1028,6 +1027,9 @@ const faqs = reactive([
   display: block;
   height: 48px;
   width: auto;
+}
+.is-dark .store-badge-img {
+  filter: invert(1);
 }
 
 .store-badge-wrap {

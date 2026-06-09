@@ -18,7 +18,7 @@
             <Logo :dark="dark" :size="40" />
           </a>
           <p class="text-[11px] font-mono tracking-widest uppercase" :class="mutedClass">
-            Lagos · Neighborhood Advertising
+Digital Out-of-Home · Global
           </p>
         </div>
 
