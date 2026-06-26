@@ -8,7 +8,7 @@
         <div class="hero-text">
           <div class="eyebrow">AI-Powered · Digital Out-of-Home · Global</div>
           <h1 class="hero-headline">
-            Your brand.<br>On digital screens<br>where your <em>people are.</em>
+            Your brand.<br>On digital screens<br>where your <em>audience is.</em>
           </h1>
           <p class="hero-sub">
             The first AI-native outdoor ad platform in Africa. Launch campaigns yourself —
@@ -260,7 +260,7 @@
     <!-- ── CTA BANNER ─────────────────────────────────────────── -->
     <section class="cta-banner">
       <div class="wrap cta-inner">
-        <h2 class="cta-headline">Ready to reach your people?</h2>
+        <h2 class="cta-headline">Ready to reach your audience?</h2>
         <p class="cta-sub">
           Start your campaign today or apply to host a screen in your space.
         </p>
