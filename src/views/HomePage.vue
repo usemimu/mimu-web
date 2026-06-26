@@ -105,15 +105,15 @@
 
             <div class="ai-metric-row">
               <div class="ai-metric">
-                <div class="ai-metric-val">47</div>
+                <div class="ai-metric-val">3,247</div>
                 <div class="ai-metric-lbl">Screens Live</div>
               </div>
               <div class="ai-metric">
-                <div class="ai-metric-val">2,841</div>
+                <div class="ai-metric-val">30.2M</div>
                 <div class="ai-metric-lbl">Verified Views Today</div>
               </div>
               <div class="ai-metric">
-                <div class="ai-metric-val">94<span class="ai-metric-unit">/100</span></div>
+                <div class="ai-metric-val">98<span class="ai-metric-unit">/100</span></div>
                 <div class="ai-metric-lbl">AI Score</div>
               </div>
             </div>
@@ -121,10 +121,10 @@
             <div class="ai-bar-wrap">
               <div class="ai-bar-label">
                 <span>Campaign performance</span>
-                <span class="text-clay-500">94%</span>
+                <span class="text-clay-500">97%</span>
               </div>
               <div class="ai-bar-track">
-                <div class="ai-bar-fill" style="width:94%"></div>
+                <div class="ai-bar-fill" style="width:97%"></div>
               </div>
             </div>
 
@@ -140,7 +140,7 @@
                 <span class="ai-dot ai-dot-sm"></span>
                 AI optimizing…
               </span>
-              <span class="ai-cost">₦0.47 <span class="ai-cost-lbl">/ verified view</span></span>
+              <span class="ai-cost">₦0.12 <span class="ai-cost-lbl">/ verified view</span></span>
             </div>
           </div>
 
@@ -326,11 +326,11 @@ const aiFeatures = [
 ]
 
 const aiLogs = [
-  { time: '09:41', msg: 'Screen #LK-04 added — high-traffic pharmacy' },
-  { time: '09:43', msg: 'Creative approved by APCON AI checker' },
-  { time: '09:44', msg: 'Campaign deployed to 47 screens' },
-  { time: '09:51', msg: 'Reallocating budget → top 12 screens' },
-  { time: '10:02', msg: '2,841 verified impressions recorded' },
+  { time: '09:41', msg: 'Screen #LK-312 added — high-traffic pharmacy, Yaba' },
+  { time: '09:43', msg: '14 creatives cleared by APCON AI checker' },
+  { time: '09:44', msg: 'Campaign deployed across 3,247 screens' },
+  { time: '09:51', msg: 'AI reallocating budget → top 48 screens (↑32% ROI)' },
+  { time: '10:02', msg: '1.4M verified impressions logged today' },
 ]
 
 const advertiserFeatures = [
