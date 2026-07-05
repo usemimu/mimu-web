@@ -101,6 +101,8 @@ const socials = [
   },
 ];
 
+
+
 const footerLinks = [
   { label: "Privacy" },
   { label: "Terms", to: "/terms" },
