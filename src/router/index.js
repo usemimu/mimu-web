@@ -1,30 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
+import AgenciesPage from '@/views/AgenciesPage.vue'
 import TermsPage from '@/views/TermsPage.vue'
 import NotFoundPage from '@/views/NotFoundPage.vue'
-
-const SITE_URL = 'https://usemimu.com'
-const SITE_NAME = 'Mimuads'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, ROUTE_META } from '@/seo/site-meta'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomePage,
-    meta: {
-      title: 'Mimuads — Your brand, on digital screens where your audience is',
-      description: "Mimuads is Africa's first AI-native digital out-of-home platform. Launch self-serve campaigns on screens inside pharmacies, eateries and salons across Lagos — no agency needed. AI handles targeting, compliance, and viewership verification automatically. Also known as Usemimu."
-    }
+    meta: ROUTE_META['/']
+  },
+  {
+    path: '/agencies',
+    name: 'agencies',
+    component: AgenciesPage,
+    meta: ROUTE_META['/agencies']
   },
   {
     path: '/terms',
     name: 'terms',
     component: TermsPage,
-    meta: {
-      title: 'Terms & Conditions — Mimuads',
-      description: 'Plain-language Terms of Service for Mimuads — covering advertisers, hosts, payments, refunds, content rules, data, and disputes under Nigerian law.'
-    }
+    meta: ROUTE_META['/terms']
   },
   {
     path: '/:pathMatch(.*)*',
@@ -36,18 +34,6 @@ const routes = [
     }
   }
 ]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  }
-})
 
 function setMeta(selector, attr, value) {
   let el = document.head.querySelector(selector)
@@ -70,7 +56,12 @@ function setCanonical(href) {
   el.setAttribute('href', href)
 }
 
-router.afterEach((to) => {
+// Runtime <head> sync as the SPA navigates. During SSR/SSG there is no
+// `document` — the static <head> is written by scripts/prerender.mjs from
+// the same ROUTE_META, so we simply no-op here on the server.
+function applyMeta(to) {
+  if (typeof document === 'undefined') return
+
   const title = to.meta?.title || `${SITE_NAME} — Your brand, on digital screens where your audience is`
   const description = to.meta?.description || "Mimuads is Africa's first AI-native digital out-of-home platform. Launch self-serve campaigns on neighborhood screens across Lagos. No agency needed."
   const url = `${SITE_URL}${to.path}`
@@ -89,12 +80,9 @@ router.afterEach((to) => {
   setMeta('meta[name="twitter:description"]', 'content', description)
   setMeta('meta[name="twitter:image"]', 'content', DEFAULT_OG_IMAGE)
 
-  // Per-route robots policy. The site is index/follow by default
-  // (set in index.html); any route flagged with `meta.noindex: true`
-  // gets an explicit override so it can't slip into the public index
-  // even if linked. No routes use this today — kept as a generic
-  // hook for future private surfaces (data room, investor deck,
-  // internal docs).
+  // Per-route robots policy. Index/follow by default; a route flagged with
+  // `meta.noindex: true` gets an explicit override so it can't slip into the
+  // public index even if linked. No routes use this today — kept as a hook.
   setMeta(
     'meta[name="robots"]',
     'content',
@@ -104,6 +92,20 @@ router.afterEach((to) => {
   )
 
   setCanonical(url)
-})
+}
 
-export default router
+// Factory: one router instance per app instance. The client passes nothing
+// (defaults to HTML5 history); the SSG server entry passes a memory history.
+export function createAppRouter(history = createWebHistory()) {
+  const router = createRouter({
+    history,
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) return savedPosition
+      return { top: 0 }
+    }
+  })
+
+  router.afterEach(applyMeta)
+  return router
+}

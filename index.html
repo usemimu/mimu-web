@@ -16,7 +16,7 @@
     />
     <meta
       name="keywords"
-      content="Mimu, MimuAds, Mimu Ads, Usemimu, use mimu, mimu advertising, mimu DOOH, mimu screens, mimu Nigeria, AI outdoor advertising, AI-native DOOH, self-serve advertising Nigeria, digital out of home Lagos, Nigeria DOOH, Africa DOOH platform, pharmacy screen ads Lagos, APCON compliant ads, SME advertising Nigeria, Naira advertising, host a screen Lagos, mimuads app"
+      content="Mimu, MimuAds, Mimu Ads, Usemimu, use mimu, mimu advertising, mimu DOOH, mimu screens, mimu Nigeria, AI outdoor advertising, AI-native DOOH, self-serve advertising Nigeria, digital out of home Lagos, Nigeria DOOH, Africa DOOH platform, programmatic DOOH Africa, DOOH supply-side platform, agency DOOH Nigeria, white-label DOOH, verified DOOH impressions, pharmacy screen ads Lagos, APCON compliant ads, SME advertising Nigeria, Naira advertising, host a screen Lagos, mimuads app"
     />
     <meta name="author" content="Mimuads" />
     <meta name="application-name" content="Mimuads" />
@@ -90,8 +90,8 @@
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@usemimu" />
-    <meta name="twitter:creator" content="@usemimu" />
+    <meta name="twitter:site" content="@mimuads" />
+    <meta name="twitter:creator" content="@mimuads" />
     <meta
       name="twitter:title"
       content="Mimuads — Your brand, on digital screens where your audience is"
@@ -123,7 +123,14 @@
           "height": 140
         },
         "image": "https://usemimu.com/og-image.png",
-        "description": "Mimuads is Africa's first AI-native digital out-of-home advertising platform. Launch self-serve campaigns on screens inside pharmacies, eateries and salons across 18 Lagos LGAs — AI handles targeting, APCON compliance, and viewership verification. No agency needed.",
+        "description": "Mimuads is Africa's AI-native digital out-of-home advertising platform and DOOH supply layer. SMEs launch self-serve campaigns on screens inside pharmacies, eateries and salons across 18 Lagos LGAs, while agencies, brands and buying platforms activate the same verified inventory at scale — programmatically or white-label. AI handles targeting, APCON compliance, and computer-vision viewership verification.",
+        "knowsAbout": [
+          "Digital out-of-home advertising",
+          "Programmatic DOOH",
+          "Computer-vision impression verification",
+          "White-label DOOH infrastructure",
+          "APCON-compliant advertising"
+        ],
         "foundingLocation": {
           "@type": "Place",
           "name": "Lagos, Nigeria"
@@ -155,15 +162,7 @@
         "name": "Mimuads",
         "alternateName": ["Mimu", "MimuAds", "Usemimu"],
         "inLanguage": "en-NG",
-        "publisher": { "@id": "https://usemimu.com/#organization" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://usemimu.com/network?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
+        "publisher": { "@id": "https://usemimu.com/#organization" }
       }
     </script>
 
@@ -183,6 +182,27 @@
       }
     </script>
 
+    <!-- Structured data: Service — agency & programmatic infrastructure -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Programmatic DOOH Infrastructure",
+        "provider": { "@id": "https://usemimu.com/#organization" },
+        "name": "Mimuads for Agencies",
+        "url": "https://usemimu.com/agencies",
+        "description": "The DOOH supply layer for agencies, brands and buying platforms in Africa. Buy against computer-vision-verified impressions, activate inventory programmatically via a supply-side API, report to clients with standardised analytics, or run the whole network white-label under your own brand — with volume rates for agency budgets.",
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Nigeria"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "Advertising agencies, brands and programmatic buying platforms"
+        }
+      }
+    </script>
+
     <!-- Structured data: FAQ — surfaces rich results for brand queries -->
     <script type="application/ld+json">
       {
@@ -194,7 +214,7 @@
             "name": "What is Mimuads?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Mimuads is a digital out-of-home (DOOH) advertising platform. We place smart screens inside high-traffic venues — pharmacies, eateries, salons — and connect them to brands that want to reach real people in the real world. It is Africa's first AI-native outdoor ad platform, also known as Usemimu."
+              "text": "Mimuads is Africa's AI-native digital out-of-home (DOOH) platform — and the infrastructure layer beneath it. SMEs self-serve campaigns on smart screens inside high-traffic venues like pharmacies, eateries and salons, while agencies, brands and buying platforms activate the same verified network at scale. AI handles targeting, APCON compliance and on-device viewership verification. Also known as Usemimu."
             }
           },
           {
@@ -202,7 +222,7 @@
             "name": "How does the viewership verification work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Each screen runs an on-device AI model that counts real viewers anonymously — no camera data leaves the device. Advertisers see verified impression counts, not inflated estimates."
+              "text": "Each screen runs an on-device AI model that counts real viewers anonymously — no camera data leaves the device. You buy against verified proof of play, not inflated estimates, which is the standard agency finance and clients require to sign off spend."
             }
           },
           {
@@ -210,7 +230,23 @@
             "name": "What kind of businesses advertise on Mimuads?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "SMEs, startups, and established brands that want to reach everyday consumers where they already spend time. If your customer visits a pharmacy, eats out, or stops by a salon, Mimuads puts your brand in front of them."
+              "text": "Everyone from SMEs and startups to established brands and the agencies that represent them. If your customer visits a pharmacy, eats out or stops by a salon, Mimuads puts your brand in front of them — self-serve for a single shop, or across the whole network for a national campaign."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can agencies and brands buy at scale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Agencies book across the whole verified network on behalf of clients today, with volume rates on larger campaigns and client-ready reporting — verified impressions, reach by LGA and peak-time performance. See the Agencies page for the full breakdown."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I buy programmatically or run Mimuads white-label?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That's the roadmap. Beyond direct booking, Mimuads is building a supply-side API so agencies and DSPs can activate our inventory programmatically, plus white-label infrastructure to run a DOOH network — player software, AI targeting and computer-vision verification — under your own brand. Email hello@usemimu.com for early access."
             }
           },
           {
@@ -235,432 +271,6 @@
   </head>
   <body>
     <div id="app"></div>
-
-    <!-- Crawler + no-JS fallback: full-fidelity page matching the homepage design -->
-    <noscript>
-      <style>
-        #ns * { box-sizing: border-box; margin: 0; padding: 0; }
-        #ns {
-          background: #F7F5F2;
-          color: #0E0D0B;
-          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-          -webkit-font-smoothing: antialiased;
-        }
-        .ns-wrap {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 clamp(20px, 5vw, 48px);
-        }
-
-        /* Nav */
-        .ns-nav { padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.08); background: #F7F5F2; }
-        .ns-nav-inner { display: flex; align-items: center; justify-content: space-between; }
-        .ns-logo {
-          font-family: 'Cormorant', Georgia, serif;
-          font-size: 24px; font-weight: 500; letter-spacing: -0.02em;
-          color: #0E0D0B; text-decoration: none;
-        }
-        .ns-nav-links { display: flex; gap: 28px; list-style: none; }
-        .ns-nav-links a { font-size: 13px; font-weight: 500; color: #5E574F; text-decoration: none; }
-
-        /* Hero */
-        .ns-hero { padding: clamp(64px,10vw,100px) 0 clamp(48px,7vw,80px); }
-        .ns-hero-inner {
-          display: grid; grid-template-columns: 1fr;
-          gap: clamp(48px,7vw,80px); align-items: center;
-        }
-        @media (min-width: 900px) { .ns-hero-inner { grid-template-columns: 1fr 1fr; } }
-        .ns-eyebrow {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em;
-          text-transform: uppercase; color: #B55430; margin-bottom: 20px;
-        }
-        .ns-h1 {
-          font-family: 'Cormorant', Georgia, serif;
-          font-weight: 400; font-size: clamp(52px,8vw,88px);
-          line-height: 1.0; letter-spacing: -0.04em; color: #0E0D0B; margin: 0 0 24px;
-        }
-        .ns-h1 em { font-style: italic; color: #B55430; }
-        .ns-hero-sub {
-          font-size: clamp(15px,1.6vw,18px); line-height: 1.7;
-          color: #5E574F; max-width: 480px; margin: 0 0 36px;
-        }
-        .ns-ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-        .ns-btn-primary {
-          display: inline-flex; align-items: center;
-          padding: 13px 24px; border-radius: 999px; background: #B55430; color: #fff;
-          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
-          letter-spacing: -0.01em; text-decoration: none;
-        }
-        .ns-btn-ghost {
-          display: inline-flex; align-items: center;
-          padding: 13px 24px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.08);
-          color: #5E574F; font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 14px; font-weight: 500; text-decoration: none;
-        }
-        .ns-screen-box {
-          width: 100%; aspect-ratio: 16/9;
-          background: linear-gradient(135deg, rgba(181,84,48,0.10) 0%, transparent 60%), #fffaf6;
-          border: 1px solid rgba(0,0,0,0.08); border-radius: 14px;
-          display: flex; align-items: center; justify-content: center;
-        }
-        .ns-live-indicator {
-          display: flex; align-items: center; gap: 8px;
-          font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
-          letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,0,0,0.45);
-        }
-        .ns-live-dot {
-          width: 7px; height: 7px; border-radius: 50%;
-          background: #B55430; flex-shrink: 0;
-        }
-        .ns-screen-caption {
-          font-family: 'Cormorant', Georgia, serif; font-style: italic;
-          font-size: clamp(14px,1.4vw,17px); line-height: 1.5;
-          text-align: center; color: #5E574F; margin-top: 20px;
-        }
-        .ns-screen-caption em { color: #B55430; }
-
-        /* Trust strip */
-        .ns-trust {
-          background: #F0EBE6;
-          border-top: 1px solid rgba(0,0,0,0.08);
-          border-bottom: 1px solid rgba(0,0,0,0.08);
-          padding: 28px 0;
-        }
-        .ns-trust-inner { display: flex; flex-wrap: wrap; justify-content: center; }
-        .ns-trust-item {
-          display: flex; flex-direction: column; align-items: center; gap: 4px;
-          padding: 12px 32px; border-right: 1px solid rgba(0,0,0,0.08);
-        }
-        .ns-trust-item:last-child { border-right: none; }
-        @media (max-width: 600px) { .ns-trust-item { border-right: none; padding: 10px 20px; } }
-        .ns-trust-value {
-          font-family: 'Cormorant', Georgia, serif;
-          font-size: clamp(22px,3vw,30px); font-weight: 500;
-          letter-spacing: -0.02em; color: #0E0D0B; line-height: 1;
-        }
-        .ns-trust-label {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #A89F94;
-        }
-
-        /* Sections */
-        .ns-section { padding: clamp(72px,10vw,112px) 0; }
-        .ns-section-alt {
-          background: #FBF4F0;
-          border-top: 1px solid rgba(0,0,0,0.08);
-          border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-        .ns-tag {
-          display: inline-block; font-family: 'JetBrains Mono', monospace;
-          font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em;
-          text-transform: uppercase; color: #B55430; margin-bottom: 20px;
-        }
-        .ns-h2 {
-          font-family: 'Cormorant', Georgia, serif; font-weight: 400;
-          font-size: clamp(36px,5vw,60px); line-height: 1.07;
-          letter-spacing: -0.03em; color: #0E0D0B; margin: 0 0 20px;
-        }
-        .ns-h2 em { font-style: italic; color: #B55430; }
-        .ns-section-sub {
-          font-size: clamp(15px,1.5vw,17px); line-height: 1.7;
-          color: #5E574F; max-width: 540px;
-        }
-        .ns-section-header { margin-bottom: clamp(40px,6vw,64px); }
-
-        /* Feature grid */
-        .ns-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-          gap: 20px;
-        }
-        .ns-card {
-          background: #fff; border: 1px solid rgba(0,0,0,0.07);
-          border-radius: 20px; padding: 28px;
-          display: flex; flex-direction: column; gap: 12px;
-        }
-        .ns-card-num {
-          font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
-          font-weight: 500; letter-spacing: 0.14em; color: #B55430;
-        }
-        .ns-card-title {
-          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px;
-          font-weight: 600; letter-spacing: -0.01em; color: #0E0D0B;
-        }
-        .ns-card-body { font-size: 14px; line-height: 1.65; color: #5E574F; }
-
-        /* Hosts */
-        .ns-two-col {
-          display: grid; grid-template-columns: 1fr;
-          gap: clamp(48px,7vw,80px); align-items: start;
-        }
-        @media (min-width: 800px) { .ns-two-col { grid-template-columns: 1fr 1fr; } }
-        .ns-list { list-style: none; margin: 28px 0 0; display: flex; flex-direction: column; gap: 14px; }
-        .ns-list li {
-          display: flex; align-items: flex-start; gap: 12px;
-          font-size: 15px; line-height: 1.55; color: #5E574F;
-        }
-        .ns-check {
-          color: #B55430; font-size: 15px; margin-top: 2px;
-          flex-shrink: 0; font-weight: 600;
-        }
-        .ns-stat-cards { display: flex; flex-direction: column; gap: 16px; }
-        .ns-stat-card {
-          background: #fff; border: 1px solid rgba(0,0,0,0.07);
-          border-radius: 20px; padding: 28px 32px;
-        }
-        .ns-stat-value {
-          font-family: 'Cormorant', Georgia, serif; font-size: clamp(36px,5vw,52px);
-          font-weight: 400; letter-spacing: -0.03em; color: #B55430; line-height: 1;
-        }
-        .ns-stat-label {
-          font-family: 'JetBrains Mono', monospace; font-size: 10px;
-          letter-spacing: 0.16em; text-transform: uppercase; color: #A89F94; margin-top: 6px;
-        }
-
-        /* Steps */
-        .ns-steps {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-          gap: 20px;
-        }
-        .ns-step {
-          background: #fff; border: 1px solid rgba(0,0,0,0.07);
-          border-radius: 20px; padding: 32px 28px;
-          display: flex; flex-direction: column; gap: 14px;
-        }
-        .ns-step-num {
-          font-family: 'JetBrains Mono', monospace; font-size: 12px;
-          font-weight: 500; letter-spacing: 0.12em; color: #B55430;
-        }
-        .ns-step-title {
-          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px;
-          font-weight: 600; letter-spacing: -0.02em; color: #0E0D0B;
-        }
-        .ns-step-body { font-size: 14px; line-height: 1.65; color: #5E574F; }
-
-        /* CTA banner */
-        .ns-cta-banner { background: #B55430; padding: clamp(64px,9vw,100px) 0; }
-        .ns-cta-inner {
-          display: flex; flex-direction: column; align-items: center;
-          text-align: center; gap: 20px;
-        }
-        .ns-cta-h {
-          font-family: 'Cormorant', Georgia, serif; font-weight: 400;
-          font-size: clamp(40px,6vw,72px); letter-spacing: -0.04em;
-          line-height: 1.05; color: #fff;
-        }
-        .ns-cta-sub {
-          font-size: clamp(15px,1.5vw,17px); line-height: 1.65;
-          color: rgba(255,255,255,0.75); max-width: 440px;
-        }
-        .ns-btn-light {
-          display: inline-flex; align-items: center;
-          padding: 14px 28px; border-radius: 999px; background: #fff; color: #B55430;
-          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px;
-          font-weight: 600; text-decoration: none;
-        }
-
-        /* Footer */
-        .ns-footer {
-          padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08);
-          text-align: center; font-family: 'JetBrains Mono', monospace;
-          font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #A89F94;
-        }
-        .ns-footer a { color: #B55430; text-decoration: none; }
-        .ns-mt-cta { margin-top: 32px; }
-        .ns-section-cta { margin-top: clamp(36px,5vw,56px); }
-      </style>
-
-      <div id="ns">
-
-        <!-- Nav -->
-        <nav class="ns-nav">
-          <div class="ns-wrap ns-nav-inner">
-            <a href="/" class="ns-logo">Mimuads</a>
-            <ul class="ns-nav-links">
-              <li><a href="/advertisers">Advertisers</a></li>
-              <li><a href="/hosts">Hosts</a></li>
-              <li><a href="/pricing">Pricing</a></li>
-              <li><a href="/network">Network</a></li>
-              <li><a href="/about">About</a></li>
-            </ul>
-          </div>
-        </nav>
-
-        <!-- Hero -->
-        <section class="ns-hero">
-          <div class="ns-wrap ns-hero-inner">
-            <div>
-              <div class="ns-eyebrow">AI-Powered · Digital Out-of-Home · Global</div>
-              <h1 class="ns-h1">Your brand.<br>On digital screens<br>where your <em>audience is.</em></h1>
-              <p class="ns-hero-sub">
-                The first AI-native outdoor ad platform in Africa. Launch campaigns yourself —
-                no agency needed. AI handles targeting, compliance, and viewership verification automatically.
-              </p>
-              <div class="ns-ctas">
-                <a href="mailto:hello@usemimu.com" class="ns-btn-primary">Start a Campaign</a>
-                <a href="#ns-how" class="ns-btn-ghost">See how it works ↓</a>
-              </div>
-            </div>
-            <div>
-              <div class="ns-screen-box">
-                <div class="ns-live-indicator">
-                  <span class="ns-live-dot"></span>
-                  Live · Lagos
-                </div>
-              </div>
-              <p class="ns-screen-caption">An ad. On a screen. In a shop. <em>Where the customer already is.</em></p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Trust strip -->
-        <div class="ns-trust">
-          <div class="ns-wrap ns-trust-inner">
-            <div class="ns-trust-item">
-              <span class="ns-trust-value">18 LGAs</span>
-              <span class="ns-trust-label">Lagos coverage</span>
-            </div>
-            <div class="ns-trust-item">
-              <span class="ns-trust-value">AI-Native</span>
-              <span class="ns-trust-label">From the ground up</span>
-            </div>
-            <div class="ns-trust-item">
-              <span class="ns-trust-value">APCON</span>
-              <span class="ns-trust-label">Fully compliant</span>
-            </div>
-            <div class="ns-trust-item">
-              <span class="ns-trust-value">24 hrs</span>
-              <span class="ns-trust-label">Go-live time</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- For Advertisers -->
-        <section id="ns-advertisers" class="ns-section">
-          <div class="ns-wrap">
-            <div class="ns-section-header">
-              <div class="ns-tag">For Advertisers</div>
-              <h2 class="ns-h2">Reach customers<br>where <em>they already are.</em></h2>
-              <p class="ns-section-sub">
-                Your audience is in their neighbourhood right now. Put your brand
-                on the screens they walk past every single day.
-              </p>
-            </div>
-            <div class="ns-grid">
-              <div class="ns-card">
-                <div class="ns-card-title">AI-Verified Viewership</div>
-                <p class="ns-card-body">On-device AI counts real viewers anonymously. You pay only for verified attention — not estimates, not guesses.</p>
-              </div>
-              <div class="ns-card">
-                <div class="ns-card-title">APCON Compliant</div>
-                <p class="ns-card-body">Every creative is reviewed and vetted before it goes live. Regulatory peace of mind, built in.</p>
-              </div>
-              <div class="ns-card">
-                <div class="ns-card-title">Live in 24 Hours</div>
-                <p class="ns-card-body">Upload your creative, choose your screens, and your ad is running the next day. No agency in between.</p>
-              </div>
-              <div class="ns-card">
-                <div class="ns-card-title">Real Neighbourhoods</div>
-                <p class="ns-card-body">Pharmacies, eateries, salons — the everyday places your customers already visit, across 18 Lagos LGAs.</p>
-              </div>
-            </div>
-            <div class="ns-section-cta">
-              <a href="mailto:hello@usemimu.com" class="ns-btn-primary">Start a Campaign →</a>
-            </div>
-          </div>
-        </section>
-
-        <!-- For Hosts -->
-        <section id="ns-hosts" class="ns-section ns-section-alt">
-          <div class="ns-wrap">
-            <div class="ns-two-col">
-              <div>
-                <div class="ns-tag">For Hosts</div>
-                <h2 class="ns-h2">Your walls already work.<br>Now let them <em>earn.</em></h2>
-                <p class="ns-section-sub">
-                  We place a screen, brands pay to reach your customers, and you earn every month —
-                  zero effort, zero running costs on your end.
-                </p>
-                <ul class="ns-list">
-                  <li><span class="ns-check">✓</span><span>Screen installed at zero cost to you</span></li>
-                  <li><span class="ns-check">✓</span><span>Earn passive income every month</span></li>
-                  <li><span class="ns-check">✓</span><span>Paid directly to your bank account, every Friday</span></li>
-                  <li><span class="ns-check">✓</span><span>No maintenance or running costs on your end</span></li>
-                  <li><span class="ns-check">✓</span><span>Serve ads that matter to your community</span></li>
-                </ul>
-                <div class="ns-mt-cta">
-                  <a href="https://host.usemimu.com" class="ns-btn-primary">Apply to Host →</a>
-                </div>
-              </div>
-              <div class="ns-stat-cards">
-                <div class="ns-stat-card">
-                  <div class="ns-stat-value">₦0</div>
-                  <div class="ns-stat-label">Installation cost</div>
-                </div>
-                <div class="ns-stat-card">
-                  <div class="ns-stat-value">Weekly</div>
-                  <div class="ns-stat-label">Payment schedule</div>
-                </div>
-                <div class="ns-stat-card">
-                  <div class="ns-stat-value">Zero</div>
-                  <div class="ns-stat-label">Running costs</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- How it Works -->
-        <section id="ns-how" class="ns-section">
-          <div class="ns-wrap">
-            <div class="ns-section-header">
-              <div class="ns-tag">How it Works</div>
-              <h2 class="ns-h2">Simple. Fast. <em>Live.</em></h2>
-            </div>
-            <div class="ns-steps">
-              <div class="ns-step">
-                <div class="ns-step-num">01</div>
-                <h3 class="ns-step-title">Upload Your Creative</h3>
-                <p class="ns-step-body">Send us your ad — image or short video. Our team handles APCON vetting so you're always compliant, without extra work.</p>
-              </div>
-              <div class="ns-step">
-                <div class="ns-step-num">02</div>
-                <h3 class="ns-step-title">Pick Your Screens</h3>
-                <p class="ns-step-body">Choose locations by LGA, venue type, or daily foot traffic. See exactly where your ad will run before you commit.</p>
-              </div>
-              <div class="ns-step">
-                <div class="ns-step-num">03</div>
-                <h3 class="ns-step-title">Go Live</h3>
-                <p class="ns-step-body">Your ad plays on real screens inside real Lagos shops. Verified impression counts reported as they happen.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA Banner -->
-        <section class="ns-cta-banner">
-          <div class="ns-wrap ns-cta-inner">
-            <h2 class="ns-cta-h">Ready to reach your audience?</h2>
-            <p class="ns-cta-sub">Start your campaign today or apply to host a screen in your space.</p>
-            <a href="mailto:hello@usemimu.com" class="ns-btn-light">hello@usemimu.com →</a>
-          </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="ns-footer">
-          <div class="ns-wrap">
-            © 2025 Mimuads · Nigeria's Neighborhood Advertising Network ·
-            <a href="/advertisers">Advertisers</a> ·
-            <a href="/hosts">Hosts</a> ·
-            <a href="/about">About</a> ·
-            <a href="/terms">Terms</a>
-          </div>
-        </footer>
-
-      </div>
-    </noscript>
 
     <script type="module" src="/src/main.js"></script>
   </body>

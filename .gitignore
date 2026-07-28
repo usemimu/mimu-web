@@ -13,6 +13,11 @@ dist
 dist-ssr
 *.local
 
+# Env files (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
 # Project-specific ignores
 M Logo Explorations.html
 index-react-original.html

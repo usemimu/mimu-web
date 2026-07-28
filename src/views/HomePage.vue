@@ -15,7 +15,7 @@
             no agency needed. AI handles targeting, compliance, and viewership verification automatically.
           </p>
           <div class="hero-ctas">
-            <a href="mailto:hello@usemimu.com" class="btn-primary">Start a Campaign</a>
+            <a href="mailto:hello@usemimu.com" class="btn-primary" data-ga-event="start_campaign" data-ga-label="hero">Start a Campaign</a>
             <a href="#how-it-works" class="btn-ghost">See how it works ↓</a>
           </div>
 
@@ -89,7 +89,7 @@
                 </div>
               </li>
             </ul>
-            <a href="mailto:hello@usemimu.com" class="btn-primary mt-cta">
+            <a href="mailto:hello@usemimu.com" class="btn-primary mt-cta" data-ga-event="start_campaign" data-ga-label="ai_section">
               Launch a Campaign with AI →
             </a>
           </div>
@@ -171,13 +171,55 @@
         </div>
 
         <div class="section-cta">
-          <a href="mailto:hello@usemimu.com" class="btn-primary">Start a Campaign →</a>
+          <a href="mailto:hello@usemimu.com" class="btn-primary" data-ga-event="start_campaign" data-ga-label="advertisers">Start a Campaign →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOR AGENCIES & BRANDS ───────────────────────────────── -->
+    <section id="agencies" class="section section-alt">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="tag">For Agencies &amp; Brands</div>
+          <h2 class="section-headline">
+            The infrastructure layer<br>for DOOH <em>at scale.</em>
+          </h2>
+          <p class="section-sub">
+            Plug your clients into Africa's verified DOOH supply. Book across the
+            whole screen network, activate programmatically, and report on
+            computer-vision-verified impressions — under your own brand if you want.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div v-for="f in agencyCapabilities" :key="f.title" class="feature-card">
+            <i :class="`ph ${f.icon}`" class="feature-icon"></i>
+            <h3 class="feature-title">{{ f.title }}</h3>
+            <p class="feature-body">{{ f.body }}</p>
+          </div>
+        </div>
+
+        <div class="models-lead">Three ways to plug in</div>
+        <div class="models-rail">
+          <div v-for="m in agencyModels" :key="m.title" class="model-card">
+            <div class="model-top">
+              <span class="model-num">{{ m.num }}</span>
+              <span class="model-status" :class="`model-status-${m.state}`">{{ m.status }}</span>
+            </div>
+            <h3 class="model-title">{{ m.title }}</h3>
+            <p class="model-body">{{ m.body }}</p>
+          </div>
+        </div>
+
+        <div class="section-cta section-cta-row">
+          <router-link to="/agencies" class="btn-primary" data-ga-event="view_agencies" data-ga-label="home_section">Explore agency solutions →</router-link>
+          <a href="mailto:hello@usemimu.com?subject=Agency%20%26%20programmatic%20access" class="btn-ghost" data-ga-event="talk_to_agency" data-ga-label="home_section">Talk to our agency team</a>
         </div>
       </div>
     </section>
 
     <!-- ── FOR HOSTS ───────────────────────────────────────────── -->
-    <section id="hosts" class="section section-alt">
+    <section id="hosts" class="section">
       <div class="wrap">
         <div class="hosts-layout">
 
@@ -195,7 +237,7 @@
                 <span>{{ b }}</span>
               </li>
             </ul>
-            <a href="https://host.usemimu.com" target="_blank" rel="noopener noreferrer" class="btn-primary mt-cta">Apply to Host →</a>
+            <a href="https://host.usemimu.com/apply" target="_blank" rel="noopener noreferrer" class="btn-primary mt-cta" data-ga-event="apply_host" data-ga-label="hosts_section">Apply to Host →</a>
           </div>
 
           <div class="host-stats">
@@ -210,7 +252,7 @@
     </section>
 
     <!-- ── HOW IT WORKS ────────────────────────────────────────── -->
-    <section id="how-it-works" class="section">
+    <section id="how-it-works" class="section section-alt">
       <div class="wrap">
         <div class="section-header">
           <div class="tag">How it Works</div>
@@ -228,7 +270,7 @@
     </section>
 
     <!-- ── FAQ ────────────────────────────────────────────────── -->
-    <section id="faq" class="section section-alt">
+    <section id="faq" class="section">
       <div class="wrap faq-wrap">
         <div class="section-header">
           <div class="tag">FAQ</div>
@@ -264,7 +306,7 @@
         <p class="cta-sub">
           Start your campaign today or apply to host a screen in your space.
         </p>
-        <a href="mailto:hello@usemimu.com" class="btn-light">
+        <a href="mailto:hello@usemimu.com" class="btn-light" data-ga-event="start_campaign" data-ga-label="cta_banner">
           hello@usemimu.com →
         </a>
         <div class="cta-stores">
@@ -356,6 +398,53 @@ const advertiserFeatures = [
   },
 ]
 
+const agencyCapabilities = [
+  {
+    icon: 'ph-seal-check',
+    title: 'Verified Inventory',
+    body: 'Buy against computer-vision-verified impressions — the audited proof of play serious buyers require before committing client budgets.',
+  },
+  {
+    icon: 'ph-plugs-connected',
+    title: 'Programmatic Access',
+    body: 'A supply-side API that lets your DSP or buying platform activate African DOOH inventory the same way you buy digital today.',
+  },
+  {
+    icon: 'ph-chart-bar',
+    title: 'Client-Ready Reporting',
+    body: 'Standardised dashboards — verified impressions, reach by LGA, peak-time performance — you can hand straight to your client.',
+  },
+  {
+    icon: 'ph-swatches',
+    title: 'White-Label Ready',
+    body: 'Run the whole network under your own brand. We power the players, targeting and verification; you own the client relationship.',
+  },
+]
+
+const agencyModels = [
+  {
+    num: '01',
+    title: 'Direct booking',
+    status: 'Available now',
+    state: 'live',
+    body: 'Book campaigns on behalf of clients through the platform — the same self-serve flow, with larger budgets and more screens.',
+  },
+  {
+    num: '02',
+    title: 'Programmatic buyer',
+    status: 'In build',
+    state: 'soon',
+    body: 'Activate Mimuads inventory through Vistar, Concord or your own DSP via our supply-side API.',
+  },
+  {
+    num: '03',
+    title: 'White-label operator',
+    status: 'On roadmap',
+    state: 'road',
+    body: 'Licence the full stack — player software, AI targeting, CV verification — and run your own branded DOOH network.',
+  },
+]
+
 const hostBenefits = [
   'Screen installed at zero cost to you',
   'Earn passive income every month',
@@ -388,17 +477,27 @@ const steps = [
 const faqs = reactive([
   {
     q: 'What is Mimuads?',
-    a: 'Mimuads is a digital out-of-home (DOOH) advertising platform. We place smart screens inside high-traffic venues — pharmacies, eateries, salons — and connect them to brands that want to reach real people in the real world.',
+    a: 'Mimuads is Africa\'s AI-native digital out-of-home (DOOH) platform — and the infrastructure layer beneath it. SMEs self-serve campaigns on smart screens inside high-traffic venues like pharmacies, eateries and salons, while agencies, brands and buying platforms activate the same verified network at scale. AI handles targeting, APCON compliance and on-device viewership verification.',
     open: false,
   },
   {
     q: 'How does the viewership verification work?',
-    a: 'Each screen runs an on-device AI model that counts real viewers anonymously — no camera data leaves the device. You see verified impression counts, not inflated estimates.',
+    a: 'Each screen runs an on-device AI model that counts real viewers anonymously — no camera data leaves the device. You buy against verified proof of play, not inflated estimates, which is the standard agency finance and clients require to sign off spend.',
     open: false,
   },
   {
     q: 'What kind of businesses advertise on Mimuads?',
-    a: 'SMEs, startups, and established brands that want to reach everyday consumers where they already spend time. If your customer visits a pharmacy, eats out, or stops by a salon, Mimuads puts your brand in front of them.',
+    a: 'Everyone from SMEs and startups to established brands and the agencies that represent them. If your customer visits a pharmacy, eats out or stops by a salon, Mimuads puts your brand in front of them — self-serve for a single shop, or across the whole network for a national campaign.',
+    open: false,
+  },
+  {
+    q: 'Can agencies and brands buy at scale?',
+    a: 'Yes. Agencies book across the whole verified network on behalf of clients today, with volume rates on larger campaigns and client-ready reporting — verified impressions, reach by LGA and peak-time performance. See the Agencies page for the full breakdown.',
+    open: false,
+  },
+  {
+    q: 'Can I buy programmatically or run Mimuads white-label?',
+    a: 'That\'s the roadmap. Beyond direct booking, Mimuads is building a supply-side API so agencies and DSPs can activate our inventory programmatically, plus white-label infrastructure to run a DOOH network — player software, AI targeting and computer-vision verification — under your own brand. Email hello@usemimu.com for early access.',
     open: false,
   },
   {
@@ -535,6 +634,11 @@ const faqs = reactive([
 .section-cta {
   margin-top: clamp(36px, 5vw, 56px);
   display: flex;
+}
+.section-cta-row {
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
 }
 
 /* ── HERO ───────────────────────────────────────────────────── */
@@ -808,6 +912,68 @@ const faqs = reactive([
   margin: 0;
 }
 
+/* ── AGENCY MODELS RAIL ─────────────────────────────────────── */
+.models-lead {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 44px 0 20px;
+}
+.models-rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+.model-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.model-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.model-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #B55430;
+}
+.model-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.model-status-live { color: #2B7244; background: rgba(43,114,68,0.12); }
+.model-status-soon { color: #B55430; background: rgba(181,84,48,0.12); }
+.model-status-road { color: var(--text-muted); background: rgba(128,128,128,0.14); }
+.model-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+.model-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
 /* ── HOSTS ──────────────────────────────────────────────────── */
 .hosts-layout {
   display: grid;
@@ -960,7 +1126,7 @@ const faqs = reactive([
   background: var(--card-bg);
 }
 .faq-open .faq-a {
-  max-height: 200px;
+  max-height: 340px;
 }
 .faq-a p {
   padding: 0 28px 22px;

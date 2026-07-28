@@ -5,17 +5,19 @@
       <Logo :dark="dark" :size="28" />
     </router-link>
 
-    <!-- Desktop anchor links -->
+    <!-- Desktop anchor + route links -->
     <nav class="nav-links" aria-label="Site sections">
-      <a
+      <component
+        :is="link.to ? 'router-link' : 'a'"
         v-for="link in navLinks"
         :key="link.label"
+        :to="link.to"
         :href="link.href"
         class="nav-link"
         :class="dark ? 'text-neutral-400' : 'text-neutral-500'"
       >
         {{ link.label }}
-      </a>
+      </component>
     </nav>
 
     <!-- Social icons + CTA -->
@@ -39,7 +41,7 @@
         </a>
       </div>
 
-      <a href="mailto:femi@usemimu.com" class="nav-cta"> Start a Campaign </a>
+      <a href="mailto:femi@usemimu.com" class="nav-cta" data-ga-event="start_campaign" data-ga-label="nav"> Start a Campaign </a>
     </div>
   </header>
 </template>
@@ -53,6 +55,7 @@ defineProps({
 
 const navLinks = [
   { label: "advertisers", href: "/#advertisers" },
+  { label: "agencies", to: "/agencies" },
   { label: "hosts", href: "/#hosts" },
   { label: "how it works", href: "/#how-it-works" },
   { label: "faq", href: "/#faq" },
