@@ -1,7 +1,6 @@
 // Shared app factory used by both entries:
 //   • src/main.js        (browser — hydrates the prerendered markup)
 //   • src/entry-server.js (build-time SSG — renders each route to a string)
-//
 // `ssr: true` builds with createSSRApp so the client can hydrate the exact
 // DOM the server produced. In dev (empty #app) main.js passes ssr: false to
 // get a normal client-side mount.
