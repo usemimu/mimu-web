@@ -23,12 +23,9 @@
             <a href="https://apps.apple.com/app/mimuads/id6775953486" target="_blank" rel="noopener noreferrer" class="store-badge-link" aria-label="Download on the App Store">
               <img src="/apple-badge.svg" alt="Download on the App Store" class="store-badge-img" />
             </a>
-            <div class="store-badge-wrap">
-              <a href="#" class="store-badge-link" aria-label="Get it on Google Play">
-                <img src="/google-badge.svg" alt="Get it on Google Play" class="store-badge-img" />
-              </a>
-              <span class="coming-soon-badge">Coming soon</span>
-            </div>
+            <a href="https://play.google.com/store/apps/details?id=ng.mimu.advertiser" target="_blank" rel="noopener noreferrer" class="store-badge-link" aria-label="Get it on Google Play">
+              <img src="/google-badge.svg" alt="Get it on Google Play" class="store-badge-img" />
+            </a>
           </div>
         </div>
 
@@ -313,12 +310,9 @@
           <a href="https://apps.apple.com/app/mimuads/id6775953486" target="_blank" rel="noopener noreferrer" class="store-badge-link" aria-label="Download on the App Store">
             <img src="/apple-badge.svg" alt="Download on the App Store" class="store-badge-img" />
           </a>
-          <div class="store-badge-wrap">
-            <a href="#" class="store-badge-link" aria-label="Get it on Google Play">
-              <img src="/google-badge.svg" alt="Get it on Google Play" class="store-badge-img" />
-            </a>
-            <span class="coming-soon-badge">Coming soon</span>
-          </div>
+          <a href="https://play.google.com/store/apps/details?id=ng.mimu.advertiser" target="_blank" rel="noopener noreferrer" class="store-badge-link" aria-label="Get it on Google Play">
+            <img src="/google-badge.svg" alt="Get it on Google Play" class="store-badge-img" />
+          </a>
         </div>
       </div>
     </section>
