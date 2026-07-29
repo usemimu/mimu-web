@@ -19,7 +19,7 @@ dist-ssr
 !.env.example
 
 # Project-specific ignores
-M Logo Explorations.html
+Logo Explorations.html
 index-react-original.html
 assets/
 uploads/
