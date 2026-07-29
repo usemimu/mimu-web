@@ -65,7 +65,8 @@
           </component>
         </div>
         <p class="text-[11px]" :class="mutedClass">
-          Lagos, Nigeria · APCON registered
+          10, Jejenwa Street, Ketu, Lagos, Lagos State, Nigeria · APCON
+          registered
         </p>
       </div>
     </div>
