@@ -41,13 +41,15 @@
         </a>
       </div>
 
-      <a href="mailto:femi@usemimu.com" class="nav-cta" data-ga-event="start_campaign" data-ga-label="nav"> Start a Campaign </a>
+      <a :href="loginUrl()" class="nav-login" :class="dark ? 'text-neutral-300' : 'text-neutral-600'" data-ga-event="log_in" data-ga-label="nav">Log in</a>
+      <a :href="signupUrl('nav')" class="nav-cta" data-ga-event="start_campaign" data-ga-label="nav"> Start a Campaign </a>
     </div>
   </header>
 </template>
 
 <script setup>
 import Logo from "./Logo.vue";
+import { signupUrl, loginUrl } from "../links.js";
 
 defineProps({
   dark: { type: Boolean, default: false },
@@ -218,5 +220,24 @@ const socials = [
 }
 .nav-cta:hover {
   opacity: 0.82;
+}
+
+/* ── Log in link ────────────────────────────────────────────── */
+.nav-login {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 10px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+.nav-login:hover {
+  opacity: 0.7;
 }
 </style>

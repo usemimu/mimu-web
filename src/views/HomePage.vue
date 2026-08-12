@@ -15,7 +15,7 @@
             no agency needed. AI handles targeting, compliance, and viewership verification automatically.
           </p>
           <div class="hero-ctas">
-            <a href="mailto:hello@usemimu.com" class="btn-primary" data-ga-event="start_campaign" data-ga-label="hero">Start a Campaign</a>
+            <a :href="signupUrl('hero')" class="btn-primary" data-ga-event="start_campaign" data-ga-label="hero">Start a Campaign</a>
             <a href="#how-it-works" class="btn-ghost">See how it works ↓</a>
           </div>
 
@@ -86,7 +86,7 @@
                 </div>
               </li>
             </ul>
-            <a href="mailto:hello@usemimu.com" class="btn-primary mt-cta" data-ga-event="start_campaign" data-ga-label="ai_section">
+            <a :href="signupUrl('ai_section')" class="btn-primary mt-cta" data-ga-event="start_campaign" data-ga-label="ai_section">
               Launch a Campaign with AI →
             </a>
           </div>
@@ -168,7 +168,7 @@
         </div>
 
         <div class="section-cta">
-          <a href="mailto:hello@usemimu.com" class="btn-primary" data-ga-event="start_campaign" data-ga-label="advertisers">Start a Campaign →</a>
+          <a :href="signupUrl('advertisers')" class="btn-primary" data-ga-event="start_campaign" data-ga-label="advertisers">Start a Campaign →</a>
         </div>
       </div>
     </section>
@@ -322,6 +322,7 @@
 
 <script setup>
 import { computed, reactive } from 'vue'
+import { signupUrl } from '../links.js'
 
 const props = defineProps({
   dark: { type: Boolean, default: false },

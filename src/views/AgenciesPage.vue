@@ -195,6 +195,7 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { signupUrl } from '../links.js'
 
 defineProps({
   dark: { type: Boolean, default: false },
@@ -287,7 +288,7 @@ const tiers = [
       'Verified-view billing',
       'Standard campaign reporting',
     ],
-    cta: { label: 'Start self-serve', href: 'mailto:hello@usemimu.com?subject=Agency%20self-serve%20access' },
+    cta: { label: 'Start self-serve', href: signupUrl('agencies') },
   },
   {
     name: 'Volume',
