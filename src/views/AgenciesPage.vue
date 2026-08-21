@@ -398,7 +398,7 @@ const faqs = reactive([
   display: inline-flex; align-items: center;
   padding: 13px 24px; border-radius: 999px;
   background: #B55430; color: #fff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
   text-decoration: none; transition: opacity 0.15s ease;
 }
@@ -408,7 +408,7 @@ const faqs = reactive([
   display: inline-flex; align-items: center;
   padding: 13px 24px; border-radius: 999px;
   border: 1px solid var(--divider); color: var(--text-secondary);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: 14px; font-weight: 500;
   text-decoration: none;
   transition: border-color 0.15s ease, color 0.15s ease;
@@ -419,7 +419,7 @@ const faqs = reactive([
   display: inline-flex; align-items: center;
   padding: 14px 28px; border-radius: 999px;
   background: #fff; color: #B55430;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: 15px; font-weight: 600;
   text-decoration: none; transition: opacity 0.15s ease;
 }
@@ -428,13 +428,13 @@ const faqs = reactive([
 /* ── Shared section typography ──────────────────────────────── */
 .tag {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 10.5px; font-weight: 500;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: #B55430; margin-bottom: 20px;
 }
 .section-headline {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Aeonik', Georgia, serif;
   font-weight: 400; font-size: clamp(36px, 5vw, 60px);
   line-height: 1.07; letter-spacing: -0.03em;
   color: var(--text-primary); margin: 0 0 20px;
@@ -457,13 +457,13 @@ const faqs = reactive([
 .hero { padding: clamp(72px, 11vw, 120px) 0 clamp(48px, 7vw, 80px); }
 .hero-inner { max-width: 820px; }
 .eyebrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 10.5px; font-weight: 500;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: #B55430; margin-bottom: 20px;
 }
 .hero-headline {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Aeonik', Georgia, serif;
   font-weight: 400; font-size: clamp(48px, 7.5vw, 82px);
   line-height: 1.0; letter-spacing: -0.04em;
   margin: 0 0 24px; color: var(--text-primary);
@@ -485,12 +485,12 @@ const faqs = reactive([
 }
 .hero-stat { display: flex; flex-direction: column; gap: 4px; }
 .hero-stat-val {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Aeonik', Georgia, serif;
   font-size: clamp(24px, 3vw, 32px); font-weight: 500;
   letter-spacing: -0.02em; color: var(--text-primary); line-height: 1;
 }
 .hero-stat-lbl {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 9.5px; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--text-muted);
 }
@@ -510,7 +510,7 @@ const faqs = reactive([
 .feature-card:hover { border-color: rgba(181,84,48,0.3); }
 .feature-icon { font-size: 26px; color: #B55430; line-height: 1; }
 .feature-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
   color: var(--text-primary); margin: 0;
 }
@@ -540,12 +540,12 @@ const faqs = reactive([
   .model-index { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
 .model-num {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Aeonik', Georgia, serif;
   font-size: clamp(40px, 6vw, 64px); font-weight: 400;
   letter-spacing: -0.03em; color: #B55430; line-height: 1;
 }
 .model-status {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 4px 10px; border-radius: 999px; white-space: nowrap;
 }
@@ -554,7 +554,7 @@ const faqs = reactive([
 .model-status-road { color: var(--text-muted); background: rgba(128,128,128,0.14); }
 
 .model-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: clamp(18px, 2.4vw, 22px); font-weight: 600;
   letter-spacing: -0.02em; color: var(--text-primary); margin: 0 0 8px;
 }
@@ -577,7 +577,7 @@ const faqs = reactive([
 }
 .model-meta-item {
   display: flex; align-items: center; gap: 7px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 10.5px; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--text-muted);
 }
@@ -602,17 +602,17 @@ const faqs = reactive([
 .rate-flag {
   position: absolute; top: -11px; left: 28px;
   background: #B55430; color: #fff;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 9px; font-weight: 500; letter-spacing: 0.1em;
   text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
 }
 .rate-name {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--text-muted);
 }
 .rate-headline {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Aeonik', Georgia, serif;
   font-size: clamp(30px, 4vw, 40px); font-weight: 500;
   letter-spacing: -0.03em; color: var(--text-primary); line-height: 1.05;
 }
@@ -631,7 +631,7 @@ const faqs = reactive([
 .rate-cta {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 12px 20px; border-radius: 999px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: 13.5px; font-weight: 600;
   text-decoration: none; transition: opacity 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
@@ -656,11 +656,11 @@ const faqs = reactive([
   display: flex; flex-direction: column; gap: 14px;
 }
 .step-num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Aeonik', monospace;
   font-size: 12px; font-weight: 500; letter-spacing: 0.12em; color: #B55430;
 }
 .step-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: 17px; font-weight: 600; letter-spacing: -0.02em;
   color: var(--text-primary); margin: 0;
 }
@@ -678,7 +678,7 @@ const faqs = reactive([
   width: 100%; display: flex; align-items: center; justify-content: space-between;
   gap: 16px; padding: 22px 28px; background: var(--card-bg);
   border: none; cursor: pointer; text-align: left;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Aeonik', sans-serif;
   font-size: 15px; font-weight: 500; letter-spacing: -0.01em;
   color: var(--text-primary); transition: background 0.1s ease;
 }
@@ -701,7 +701,7 @@ const faqs = reactive([
   text-align: center; gap: 20px;
 }
 .cta-headline {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Aeonik', Georgia, serif;
   font-weight: 400; font-size: clamp(38px, 5.5vw, 66px);
   letter-spacing: -0.04em; line-height: 1.05; color: #fff; margin: 0;
   max-width: 720px;

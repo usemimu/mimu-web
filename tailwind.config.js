@@ -58,9 +58,9 @@ export default {
         }
       },
       fontFamily: {
-        display: ['Cormorant', 'Georgia', 'serif'],
-        body: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
+        display: ['Aeonik', 'Georgia', 'serif'],
+        body: ['Aeonik', 'system-ui', 'sans-serif'],
+        mono: ['Aeonik', 'Courier New', 'monospace'],
       },
     },
   },
