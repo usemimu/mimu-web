@@ -1,14 +1,47 @@
 @import url('https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css');
 @import url('https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css');
-/* Aeonik — licensed (CoType / This Is Our Shop), self-hosted so no
-   third-party CDN serves it. Only the Regular weight is bundled; bolder
-   text is browser-synthesized until the Bold/Light weight files are
-   added alongside this @font-face. */
+/* Aeonik (licensed) — self-hosted, full weight range (Light 300 / Regular 400 /
+   Bold 700, upright + italic). No third-party CDN serves it. */
 @font-face {
   font-family: 'Aeonik';
-  src: url('/fonts/Aeonik-Regular.woff2') format('woff2');
+  src: url('/fonts/AeonikLICENSED-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikLICENSED-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikLICENSED-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikLICENSED-RegularItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikLICENSED-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikLICENSED-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
