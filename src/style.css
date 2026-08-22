@@ -1,17 +1,8 @@
 @import url('https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css');
 @import url('https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css');
-
-/* Aeonik — self-hosted. These are the TRIAL cuts (evaluation only); before
-   production, replace the files in /public/fonts/aeonik with the licensed
-   family, keeping the same filenames so nothing below needs to change.
-   Trial ships only 300/400/700 — intermediate weights (500/600) are
-   synthesised by the browser. */
-@font-face { font-family: 'Aeonik'; src: url('/fonts/aeonik/AeonikTRIAL-Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Aeonik'; src: url('/fonts/aeonik/AeonikTRIAL-LightItalic.otf') format('opentype'); font-weight: 300; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Aeonik'; src: url('/fonts/aeonik/AeonikTRIAL-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Aeonik'; src: url('/fonts/aeonik/AeonikTRIAL-RegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Aeonik'; src: url('/fonts/aeonik/AeonikTRIAL-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Aeonik'; src: url('/fonts/aeonik/AeonikTRIAL-BoldItalic.otf') format('opentype'); font-weight: 700; font-style: italic; font-display: swap; }
+/* Hanken Grotesk — free, OFL geometric sans (Aeonik-style look-alike),
+   served from Google Fonts. Replaces the previous evaluation-only Aeonik. */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -33,21 +24,21 @@ html.dark {
 }
 
 body {
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .font-display {
-  font-family: 'Aeonik', Georgia, serif;
+  font-family: 'Hanken Grotesk', Georgia, serif;
 }
 
 .font-body {
-  font-family: 'Aeonik', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
 }
 
 .font-mono {
-  font-family: 'Aeonik', 'Courier New', monospace;
+  font-family: 'Hanken Grotesk', 'Courier New', monospace;
 }
 
 .tabular-nums {

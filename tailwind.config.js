@@ -58,9 +58,9 @@ export default {
         }
       },
       fontFamily: {
-        display: ['Aeonik', 'Georgia', 'serif'],
-        body: ['Aeonik', 'system-ui', 'sans-serif'],
-        mono: ['Aeonik', 'Courier New', 'monospace'],
+        display: ['Hanken Grotesk', 'Georgia', 'serif'],
+        body: ['Hanken Grotesk', 'system-ui', 'sans-serif'],
+        mono: ['Hanken Grotesk', 'Courier New', 'monospace'],
       },
     },
   },

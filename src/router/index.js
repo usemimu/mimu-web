@@ -24,6 +24,28 @@ const routes = [
     component: TermsPage,
     meta: ROUTE_META['/terms']
   },
+  // ── Offer portal (QR + email links) ──────────────────────────────────────
+  // Dynamic, client-rendered, and `standalone` (no marketing nav/footer).
+  // `noindex` keeps these transactional pages out of search. Not in
+  // ROUTE_META, so they're never prerendered — they hydrate + fetch at runtime.
+  {
+    path: '/deal/:code',
+    name: 'claim-offer',
+    component: () => import('@/views/ClaimOfferPage.vue'),
+    meta: { standalone: true, noindex: true, title: 'Your deal — Mimuads' }
+  },
+  {
+    path: '/portal/confirm/:token',
+    name: 'confirm-offer',
+    component: () => import('@/views/ConfirmOfferPage.vue'),
+    meta: { standalone: true, noindex: true, title: 'Confirm — Mimuads' }
+  },
+  {
+    path: '/portal/unsubscribe/:token',
+    name: 'unsubscribe-offer',
+    component: () => import('@/views/UnsubscribePage.vue'),
+    meta: { standalone: true, noindex: true, title: 'Unsubscribe — Mimuads' }
+  },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',

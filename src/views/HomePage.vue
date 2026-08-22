@@ -552,7 +552,7 @@ const faqs = reactive([
   border-radius: 999px;
   background: #B55430;
   color: #fff;
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -568,7 +568,7 @@ const faqs = reactive([
   border-radius: 999px;
   border: 1px solid var(--divider);
   color: var(--text-secondary);
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -583,7 +583,7 @@ const faqs = reactive([
   border-radius: 999px;
   background: #fff;
   color: #B55430;
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -594,7 +594,7 @@ const faqs = reactive([
 /* ── Shared section typography ──────────────────────────────── */
 .tag {
   display: inline-block;
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -604,7 +604,7 @@ const faqs = reactive([
 }
 
 .section-headline {
-  font-family: 'Aeonik', Georgia, serif;
+  font-family: 'Hanken Grotesk', Georgia, serif;
   font-weight: 400;
   font-size: clamp(36px, 5vw, 60px);
   line-height: 1.07;
@@ -653,7 +653,7 @@ const faqs = reactive([
 }
 
 .eyebrow {
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -663,7 +663,7 @@ const faqs = reactive([
 }
 
 .hero-headline {
-  font-family: 'Aeonik', Georgia, serif;
+  font-family: 'Hanken Grotesk', Georgia, serif;
   font-weight: 400;
   font-size: clamp(52px, 8vw, 88px);
   line-height: 1.0;
@@ -765,7 +765,7 @@ const faqs = reactive([
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 10.5px;
   letter-spacing: 0.18em;
   z-index: 2;
@@ -806,7 +806,7 @@ const faqs = reactive([
 }
 
 .screen-caption {
-  font-family: 'Aeonik', Georgia, serif;
+  font-family: 'Hanken Grotesk', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   font-size: clamp(14px, 1.4vw, 17px);
@@ -844,7 +844,7 @@ const faqs = reactive([
 }
 
 .trust-value {
-  font-family: 'Aeonik', Georgia, serif;
+  font-family: 'Hanken Grotesk', Georgia, serif;
   font-size: clamp(22px, 3vw, 30px);
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -852,7 +852,7 @@ const faqs = reactive([
   line-height: 1;
 }
 .trust-label {
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 9.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -893,7 +893,7 @@ const faqs = reactive([
   line-height: 1;
 }
 .feature-title {
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -909,7 +909,7 @@ const faqs = reactive([
 
 /* ── AGENCY MODELS RAIL ─────────────────────────────────────── */
 .models-lead {
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -937,14 +937,14 @@ const faqs = reactive([
   justify-content: space-between;
 }
 .model-num {
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   color: #B55430;
 }
 .model-status {
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -955,7 +955,7 @@ const faqs = reactive([
 .model-status-soon { color: #B55430; background: rgba(181,84,48,0.12); }
 .model-status-road { color: var(--text-muted); background: rgba(128,128,128,0.14); }
 .model-title {
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -1020,7 +1020,7 @@ const faqs = reactive([
   gap: 6px;
 }
 .host-stat-value {
-  font-family: 'Aeonik', Georgia, serif;
+  font-family: 'Hanken Grotesk', Georgia, serif;
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -1028,7 +1028,7 @@ const faqs = reactive([
   line-height: 1;
 }
 .host-stat-label {
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1051,14 +1051,14 @@ const faqs = reactive([
   gap: 14px;
 }
 .step-num {
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   color: #B55430;
 }
 .step-title {
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -1098,7 +1098,7 @@ const faqs = reactive([
   border: none;
   cursor: pointer;
   text-align: left;
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -1144,7 +1144,7 @@ const faqs = reactive([
   gap: 20px;
 }
 .cta-headline {
-  font-family: 'Aeonik', Georgia, serif;
+  font-family: 'Hanken Grotesk', Georgia, serif;
   font-weight: 400;
   font-size: clamp(40px, 6vw, 72px);
   letter-spacing: -0.04em;
@@ -1204,7 +1204,7 @@ const faqs = reactive([
   right: -9px;
   background: #FF4930;
   color: #fff;
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -1247,7 +1247,7 @@ const faqs = reactive([
   margin-top: 2px;
 }
 .ai-feature-title {
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -1265,7 +1265,7 @@ const faqs = reactive([
   border-radius: 20px;
   border: 1px solid var(--card-border);
   overflow: hidden;
-  font-family: 'Aeonik', monospace;
+  font-family: 'Hanken Grotesk', monospace;
 }
 .ai-card-light {
   background: #fff;
