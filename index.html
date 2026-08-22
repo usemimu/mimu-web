@@ -49,10 +49,14 @@
     <link rel="mask-icon" href="/favicon.svg" color="#B55430" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Hanken Grotesk (Google Fonts) — loaded via @import in src/style.css.
-         Preconnect so the font CSS/fetch starts early. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Aeonik (licensed, self-hosted) — preload the base weight so first
+         paint uses the brand font. @font-face is declared in src/style.css. -->
+    <link
+      rel="preload"
+      href="/fonts/Aeonik-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Mimuads" />

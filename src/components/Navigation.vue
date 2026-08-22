@@ -129,7 +129,7 @@ const socials = [
 }
 
 .nav-wordmark {
-  font-family: "Hanken Grotesk", Georgia, serif;
+  font-family: "Aeonik", Georgia, serif;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: -0.03em;
@@ -154,7 +154,7 @@ const socials = [
 }
 
 .nav-link {
-  font-family: "Hanken Grotesk", sans-serif;
+  font-family: "Aeonik", sans-serif;
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
@@ -209,7 +209,7 @@ const socials = [
   border-radius: 999px;
   background: #b55430;
   color: #fff;
-  font-family: "Hanken Grotesk", sans-serif;
+  font-family: "Aeonik", sans-serif;
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -228,7 +228,7 @@ const socials = [
   align-items: center;
   height: 36px;
   padding: 0 10px;
-  font-family: "Hanken Grotesk", sans-serif;
+  font-family: "Aeonik", sans-serif;
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
