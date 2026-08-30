@@ -7,8 +7,9 @@
 
         <div class="hero-text">
           <div class="eyebrow">AI-Powered · Digital Out-of-Home · Global</div>
+          
           <h1 class="hero-headline">
-            Your brand.<br>On digital screens<br>where your <em>audience is.</em>
+            <span class="headline-lead">Your <span class="rotator">{{ typedWord }}<span class="caret" aria-hidden="true"></span></span>.</span><br>On digital screens<br>where your <em>audience is.</em>
           </h1>
           <p class="hero-sub">
             The first AI-native outdoor ad platform in Africa. Launch campaigns yourself —
@@ -321,7 +322,7 @@
 </template>
 
 <script setup>
-import { computed, reactive } from 'vue'
+import { computed, reactive, ref, onMounted, onBeforeUnmount } from 'vue'
 import { signupUrl } from '../links.js'
 
 const props = defineProps({
@@ -331,6 +332,55 @@ const props = defineProps({
 const reelSrc = computed(() =>
   props.dark ? '/fallback/mimu_m_dark.mp4' : '/fallback/mimu_m_clay.mp4'
 )
+
+// Rotating hero word — typewriter: each word is spelled out letter by
+// letter (left→right), held, then erased before the next word types in.
+// Honours prefers-reduced-motion by showing the first word statically.
+const rotatingWords = ['brand', 'products', 'business', 'story', 'message']
+const typedWord = ref('')
+
+let typeTimer = null
+let wordIdx = 0
+let charIdx = 0
+let deleting = false
+const TYPE_SPEED = 95    // ms per letter while typing
+const DELETE_SPEED = 55  // ms per letter while erasing (snappier)
+const HOLD_FULL = 1600   // pause on the complete word
+const HOLD_EMPTY = 350   // pause before the next word starts
+
+function typeLoop() {
+  const word = rotatingWords[wordIdx]
+  if (!deleting) {
+    charIdx++
+    typedWord.value = word.slice(0, charIdx)
+    if (charIdx === word.length) {
+      deleting = true
+      typeTimer = setTimeout(typeLoop, HOLD_FULL)
+      return
+    }
+    typeTimer = setTimeout(typeLoop, TYPE_SPEED)
+  } else {
+    charIdx--
+    typedWord.value = word.slice(0, charIdx)
+    if (charIdx === 0) {
+      deleting = false
+      wordIdx = (wordIdx + 1) % rotatingWords.length
+      typeTimer = setTimeout(typeLoop, HOLD_EMPTY)
+      return
+    }
+    typeTimer = setTimeout(typeLoop, DELETE_SPEED)
+  }
+}
+
+onMounted(() => {
+  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
+  if (reduce) {
+    typedWord.value = rotatingWords[0]
+  } else {
+    typeTimer = setTimeout(typeLoop, 400)
+  }
+})
+onBeforeUnmount(() => clearTimeout(typeTimer))
 
 const stats = [
   { value: '18 LGAs',    label: 'Lagos coverage' },
@@ -672,6 +722,25 @@ const faqs = reactive([
   color: var(--text-primary);
 }
 .hero-headline em { font-style: italic; color: #B55430; }
+
+/* Rotating hero word — typewriter, clay-coloured with a blinking caret. */
+/* Keep "Your {word}." together so a growing word never wraps mid-type. */
+.headline-lead { white-space: nowrap; }
+.rotator { display: inline-block; color: #B55430; }
+.caret {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.85em;
+  margin-left: 0.04em;
+  background: currentColor;
+  vertical-align: baseline;
+  transform: translateY(0.1em);
+  animation: caretBlink 1s steps(1) infinite;
+}
+@keyframes caretBlink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .caret { animation: none; opacity: 0; }
+}
 
 .hero-sub {
   font-size: clamp(15px, 1.6vw, 18px);
