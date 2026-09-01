@@ -7,6 +7,7 @@
 
         <div class="hero-text">
           <div class="eyebrow">AI-Powered · Digital Out-of-Home · Global</div>
+
           
           <h1 class="hero-headline">
             <span class="headline-lead">Your <span class="rotator">{{ typedWord }}<span class="caret" aria-hidden="true"></span></span>.</span><br>On digital screens<br>where your <em>audience is.</em>
