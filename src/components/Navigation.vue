@@ -41,6 +41,23 @@
         </a>
       </div>
 
+      <a
+        :href="PLAYER_APK_URL"
+        class="nav-social nav-download"
+        :class="
+          dark
+            ? 'text-neutral-400 hover:text-neutral-100'
+            : 'text-neutral-400 hover:text-neutral-800'
+        "
+        aria-label="Download the Mimu TV player (Android APK)"
+        title="Download TV player (Android)"
+        download
+        data-ga-event="download_player"
+        data-ga-label="nav"
+      >
+        <i class="ph ph-download-simple text-base"></i>
+      </a>
+
       <a :href="loginUrl()" class="nav-login" :class="dark ? 'text-neutral-300' : 'text-neutral-600'" data-ga-event="log_in" data-ga-label="nav">Log in</a>
       <a :href="signupUrl('nav')" class="nav-cta" data-ga-event="start_campaign" data-ga-label="nav"> Start a Campaign </a>
     </div>
@@ -49,7 +66,7 @@
 
 <script setup>
 import Logo from "./Logo.vue";
-import { signupUrl, loginUrl } from "../links.js";
+import { signupUrl, loginUrl, PLAYER_APK_URL } from "../links.js";
 
 defineProps({
   dark: { type: Boolean, default: false },
