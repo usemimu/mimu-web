@@ -79,7 +79,7 @@ const props = defineProps({
 });
 
 const PLAYER_APK_URL =
-  "https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/v12/app-field.apk";
+  "https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/vc21/app-field.apk";
 
 const socials = [
   {
