@@ -11,7 +11,7 @@
         <template v-else-if="state === 'done'">
           <h1 class="font-display text-[26px] text-neutral-900 mb-2">You're unsubscribed</h1>
           <p class="text-neutral-500 text-[15px]">
-            You won't get any more offer emails from Mimuads. Change your mind? Just scan a screen again.
+            You won't get any more offers from Mimuads — email, phone notifications, or ads on other platforms. Change your mind? Just scan a screen again.
           </p>
         </template>
 

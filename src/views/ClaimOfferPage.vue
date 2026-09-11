@@ -35,6 +35,20 @@
         >
           {{ ctaLabel }}
         </a>
+        <!-- Web-push opt-in: the real "notification on your phone" channel -->
+        <button
+          v-if="pushState === 'idle' && consent"
+          @click="enablePushNotifications"
+          class="block w-full text-center rounded-xl border border-neutral-300 text-neutral-800 font-semibold py-3.5 mb-3"
+        >
+          🔔 Get deals on your phone
+        </button>
+        <p v-else-if="pushState === 'subscribed'" class="text-[13px] text-green-700 text-center mb-3">
+          You're set — we'll notify you about deals near you.
+        </p>
+        <p v-else-if="pushState === 'denied'" class="text-[13px] text-neutral-500 text-center mb-3">
+          Notifications are blocked in your browser — we'll email you instead.
+        </p>
         <p v-if="needsConfirm" class="text-[13px] text-neutral-500 text-center">
           Check your inbox to confirm and keep getting deals from places you visit.
         </p>
@@ -58,9 +72,19 @@
             placeholder="Your email"
             class="w-full rounded-xl border border-neutral-300 px-4 py-3.5 text-[15px] outline-none focus:border-clay-500"
           />
+          <input
+            v-model="phone"
+            type="tel"
+            placeholder="Phone (optional, e.g. +2348012345678)"
+            class="w-full rounded-xl border border-neutral-300 px-4 py-3.5 text-[15px] outline-none focus:border-clay-500"
+          />
           <label class="flex items-start gap-2.5 text-[13px] text-neutral-600 leading-snug">
             <input v-model="consent" type="checkbox" class="mt-0.5 accent-[#B55430]" />
             <span>Send me offers from businesses at venues I visit. Unsubscribe anytime.</span>
+          </label>
+          <label class="flex items-start gap-2.5 text-[13px] text-neutral-600 leading-snug">
+            <input v-model="consentAds" type="checkbox" class="mt-0.5 accent-[#B55430]" />
+            <span>Also show me these deals as ads on Facebook, Instagram &amp; Google.</span>
           </label>
           <button
             type="submit"
@@ -83,7 +107,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { portalApi } from '@/lib/portalApi'
+import { portalApi, enablePush } from '@/lib/portalApi'
 
 const route = useRoute()
 const state = ref('loading') // loading | form | claimed | no-offer
@@ -91,9 +115,13 @@ const offer = ref(null)
 const venueName = ref('')
 const code = ref('')
 const needsConfirm = ref(false)
+const claimId = ref('')
+const pushState = ref('idle') // idle | subscribed | denied | unsupported
 
 const email = ref('')
+const phone = ref('')
 const consent = ref(true)
+const consentAds = ref(true)
 const busy = ref(false)
 const error = ref('')
 
@@ -123,15 +151,26 @@ async function submit() {
     const res = await portalApi.claim({
       screenCode: route.params.code,
       email: email.value.trim(),
+      phone: phone.value.trim() || undefined,
       consentOffers: consent.value,
+      consentAdPlatforms: consentAds.value,
     })
     code.value = res.redemptionCode
     needsConfirm.value = res.needsConfirm
+    claimId.value = res.claimId
     state.value = 'claimed'
   } catch (e) {
     error.value = e.message || 'Something went wrong. Try again.'
   } finally {
     busy.value = false
+  }
+}
+
+async function enablePushNotifications() {
+  try {
+    pushState.value = await enablePush(claimId.value)
+  } catch {
+    pushState.value = 'denied'
   }
 }
 </script>
