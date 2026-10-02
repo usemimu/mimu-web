@@ -10,4 +10,4 @@ export const loginUrl = () => `${CONSOLE_URL}/login`
 // bucket (same artifact SelfUpdateWorker pulls). Bump the version path (vN)
 // whenever a new player build ships — see mimu-player release flow.
 export const PLAYER_APK_URL =
-  'https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/vc21/app-field.apk'
+  'https://mimu-player-apks-prod.s3.eu-north-1.amazonaws.com/vc23/app-field.apk'
