@@ -20,12 +20,10 @@
          always sits below the safe-area color strip (no clip on notch). -->
     <div
       v-if="!isStandalone"
-      class="sticky top-0 z-[100]"
+      class="fixed top-0 inset-x-0 z-[100]"
       :style="{ paddingTop: safeTop }"
     >
-      <div class="px-4 pt-3 pb-3">
-        <Navigation :dark="isDark" />
-      </div>
+      <Navigation :dark="isDark" />
     </div>
 
     <main class="w-full">

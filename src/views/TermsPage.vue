@@ -16,7 +16,7 @@
 
       <div class="text-[17px] leading-loose flex flex-col gap-6" :class="textSecondary">
         <p>
-          These Terms govern your use of Mimuads — operated by Mimuads Technologies Ltd
+          These Terms govern your use of Mimuads, operated by Mimuads Technologies Ltd
           (&ldquo;<strong :class="textPrimary">Mimuads</strong>&rdquo;,
           &ldquo;<strong :class="textPrimary">we</strong>&rdquo;,
           &ldquo;<strong :class="textPrimary">us</strong>&rdquo;), incorporated in Lagos, Nigeria.
@@ -24,10 +24,10 @@
           using the platform you agree to these Terms.
         </p>
         <p>
-          Mimuads is a neighborhood digital-out-of-home advertising network. We connect
-          <em>advertisers</em> who want to run ads with <em>hosts</em> — local businesses
+          Mimuads is a neighborhood digital out of home advertising network. We connect
+          <em>advertisers</em> who want to run ads with <em>hosts</em>, local businesses
           that operate one or more Mimuads screens. The platform records playback,
-          measures viewership on-device, and settles payments in Naira.
+          measures viewership on device, and settles payments in Naira.
         </p>
       </div>
 
@@ -53,8 +53,8 @@
           Questions?
         </div>
         <p class="text-[16px] leading-relaxed" :class="textSecondary">
-          Email <a href="mailto:legal@usemimu.com" class="font-semibold text-clay-500 hover:text-clay-600">legal@usemimu.com</a>
-          or write to us at the address listed in the Contact section. We respond
+          Email <a href="mailto:hello@usemimu.com" class="font-semibold text-clay-500 hover:text-clay-600">hello@usemimu.com</a>.
+          We respond
           within two business days.
         </p>
       </div>
@@ -76,7 +76,7 @@ const props = defineProps({
 const lastUpdated = 'April 27, 2026'
 
 // Plain-language Terms for a Nigerian DOOH ad-tech platform. Each section
-// is intentionally short — legalese drives users to skim, and clarity is
+// is intentionally short, legalese drives users to skim, and clarity is
 // what keeps disputes out of the support queue.
 const sections = [
   {
@@ -85,7 +85,7 @@ const sections = [
     title: 'Who can use Mimuads',
     body: [
       'You must be at least 18 years old and legally able to enter into a contract under Nigerian law. Business accounts (advertiser or host) must be registered with CAC, or operating as a sole trader with a verifiable identity (NIN, BVN, or international passport).',
-      'Hosts onboard via an invite link from our team. Advertisers self-serve through the Advertisers app at <strong>app.usemimu.com</strong>. We may require KYB / KYC verification before a campaign goes live or a host receives payouts.',
+      'Hosts onboard via an invite link from our team. Advertisers self serve through the Advertisers app at <strong>app.usemimu.com</strong>. We may require KYB / KYC verification before a campaign goes live or a host receives payouts.',
     ],
   },
   {
@@ -93,8 +93,8 @@ const sections = [
     eyebrow: 'Accounts',
     title: 'Your account and credentials',
     body: [
-      'You are responsible for activity under your account. Keep your password and OTP secure; never share them. Notify us immediately at <a href="mailto:security@usemimu.com" class="text-clay-500 font-semibold">security@usemimu.com</a> if you suspect unauthorized access.',
-      'We may suspend or terminate accounts that violate these Terms, applicable law, or APCON regulations — with notice, except in cases of fraud, abuse, or safety risk.',
+      'You are responsible for activity under your account. Keep your password and OTP secure; never share them. Notify us immediately at <a href="mailto:hello@usemimu.com" class="text-clay-500 font-semibold">hello@usemimu.com</a> if you suspect unauthorized access.',
+      'We may suspend or terminate accounts that violate these Terms, applicable law, or APCON regulations, with notice, except in cases of fraud, abuse, or safety risk.',
     ],
   },
   {
@@ -102,9 +102,9 @@ const sections = [
     eyebrow: 'For advertisers',
     title: 'Running campaigns',
     body: [
-      'All creatives must be APCON-compliant. We submit creatives for APCON vetting on your behalf, but APCON&rsquo;s decision is final. Rejected creatives do not run; budget reserved for them is returned to your wallet.',
-      'Wallet balances are pre-paid in Naira via Paystack. Spend is debited per play. Unspent balance is refundable subject to our Refund Policy in Section 09. Ad placement is best-effort: we do not guarantee specific screens, time slots, or impressions beyond what each campaign brief explicitly purchases.',
-      'You retain ownership of your creatives. By submitting them, you grant Mimuads a non-exclusive license to display them on the network solely for the purpose of running your campaign.',
+      'All creatives must be APCON compliant. We submit creatives for APCON vetting on your behalf, but APCON&rsquo;s decision is final. Rejected creatives do not run; budget reserved for them is returned to your wallet.',
+      'Wallet balances are prepaid in Naira via Paystack. Spend is debited per play. Unspent balance is refundable subject to our Refund Policy in Section 09. Ad placement is best effort: we do not guarantee specific screens, time slots, or impressions beyond what each campaign brief explicitly purchases.',
+      'You retain ownership of your creatives. By submitting them, you grant Mimuads a nonexclusive license to display them on the network solely for the purpose of running your campaign.',
     ],
   },
   {
@@ -112,8 +112,8 @@ const sections = [
     eyebrow: 'For hosts',
     title: 'Operating a Mimuads screen',
     body: [
-      'You agree to keep the screen powered on during the operating hours you set, in the location agreed at onboarding, and reasonably visible to walk-in customers. You will not tamper with the device, the playback log, or attempt to inflate viewership.',
-      'Earnings are calculated from on-device verified plays at the rates in effect for your venue category. Payouts are made every Friday to the verified bank account on file, less the 5% Withholding Tax (WHT) we remit to FIRS on your behalf. WHT certificates are issued annually.',
+      'You agree to keep the screen powered on during the operating hours you set, in the location agreed at onboarding, and reasonably visible to walk in customers. You will not tamper with the device, the playback log, or attempt to inflate viewership.',
+      'Earnings are calculated from on device verified plays at the rates in effect for your venue category. Payouts are made every Friday to the verified bank account on file, less the 5% Withholding Tax (WHT) we remit to FIRS on your behalf. WHT certificates are issued annually.',
       'You are entitled to 20% of screen time as a free slot for your own promotions, subject to APCON approval and our content guidelines.',
     ],
   },
@@ -131,8 +131,8 @@ const sections = [
     eyebrow: 'Content',
     title: 'What you may not run',
     body: [
-      'You may not submit creatives that are illegal, defamatory, obscene, hateful, deceptive, that infringe third-party IP, or that violate APCON&rsquo;s Nigerian Code of Advertising. Political and religious advertising follows additional disclosure rules under the APCON Act.',
-      'We reserve the right to reject or pull any creative that breaches these standards or that we believe poses reputational or safety risk to the network — with the budget for that creative refunded to your wallet.',
+      'You may not submit creatives that are illegal, defamatory, obscene, hateful, deceptive, that infringe third party IP, or that violate APCON&rsquo;s Nigerian Code of Advertising. Political and religious advertising follows additional disclosure rules under the APCON Act.',
+      'We reserve the right to reject or pull any creative that breaches these standards or that we believe poses reputational or safety risk to the network, with the budget for that creative refunded to your wallet.',
     ],
   },
   {
@@ -140,17 +140,17 @@ const sections = [
     eyebrow: 'Data and privacy',
     title: 'How we handle data',
     body: [
-      'On-device viewership measurement is anonymous and aggregate-only — we do not collect personally identifiable information about people who walk past a screen, and no images are stored.',
+      'On device viewership measurement is anonymous and aggregate only, we do not collect personally identifiable information about people who walk past a screen, and no images are stored.',
       'Account, KYB / KYC, payment, and support data are handled in accordance with the <strong>Nigerian Data Protection Act 2023 (NDPA)</strong> and our <a href="#" class="text-clay-500 font-semibold">Privacy Policy</a>. You may request access, correction, or deletion of your personal data at any time.',
     ],
   },
   {
     id: 'fraud',
     eyebrow: 'Fraud and abuse',
-    title: 'Anti-fraud measures',
+    title: 'Anti fraud measures',
     body: [
-      'We continuously monitor for click fraud, fake plays, account takeover, and host-side tampering. Confirmed fraud results in suspension of the offending account, reversal of associated payouts or charges, and — where applicable — referral to law enforcement.',
-      'Advertisers affected by confirmed host-side fraud are eligible for a refund equal to the spend attributed to the affected screens.',
+      'We continuously monitor for click fraud, fake plays, account takeover, and host side tampering. Confirmed fraud results in suspension of the offending account, reversal of associated payouts or charges, and, where applicable, referral to law enforcement.',
+      'Advertisers affected by confirmed host side fraud are eligible for a refund equal to the spend attributed to the affected screens.',
     ],
   },
   {
@@ -159,7 +159,7 @@ const sections = [
     title: 'When refunds are issued',
     body: [
       'Wallet refunds for unspent balances are processed back to the original Paystack source within 7 business days. Campaigns rejected by APCON or pulled by our content review get the unspent portion of their budget refunded automatically.',
-      'Disputed plays — where you believe a play was not delivered as briefed — should be raised within 14 days. We review the on-device evidence and issue a refund if the dispute is upheld.',
+      'Disputed plays, where you believe a play was not delivered as briefed, should be raised within 14 days. We review the on device evidence and issue a refund if the dispute is upheld.',
     ],
   },
   {
@@ -167,7 +167,7 @@ const sections = [
     eyebrow: 'Liability',
     title: 'What we are responsible for',
     body: [
-      'Mimuads is provided &ldquo;as available&rdquo;. We make best-effort commitments on uptime, viewership measurement accuracy, and payout timing — but we do not guarantee outcomes (sales, foot traffic, brand awareness) generated by your campaign.',
+      'Mimuads is provided &ldquo;as available&rdquo;. We make best effort commitments on uptime, viewership measurement accuracy, and payout timing, but we do not guarantee outcomes (sales, foot traffic, brand awareness) generated by your campaign.',
       'To the maximum extent permitted by Nigerian law, our aggregate liability for any claim arising from your use of the platform is limited to the amount you paid to Mimuads in the 12 months preceding the claim. Nothing in these Terms excludes liability for fraud or for any liability that cannot lawfully be excluded.',
     ],
   },
@@ -176,7 +176,7 @@ const sections = [
     eyebrow: 'Changes',
     title: 'Updates to these Terms',
     body: [
-      'We may update these Terms from time to time. Material changes will be notified by email and via an in-app banner at least 14 days before they take effect. Continued use of the platform after the effective date constitutes acceptance of the updated Terms.',
+      'We may update these Terms from time to time. Material changes will be notified by email and via an in app banner at least 14 days before they take effect. Continued use of the platform after the effective date constitutes acceptance of the updated Terms.',
     ],
   },
   {

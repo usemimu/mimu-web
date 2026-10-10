@@ -44,6 +44,12 @@ const props = defineProps({
     type: Number,
     default: 68
   },
+  // Overrides the mark colour. Defaults to brand clay; pass e.g. '#FDF7F1'
+  // to render the mark in cream over the rust hero.
+  color: {
+    type: String,
+    default: null
+  },
   showWordmark: {
     type: Boolean,
     default: false
@@ -107,7 +113,7 @@ function buildMark(s) {
 
 const mark = buildMark(logoConfig)
 
-const strokeColor = computed(() => '#B55430')
+const strokeColor = computed(() => props.color || '#B55430')
 const pathD = computed(() => mark.d)
 const dotCx = computed(() => mark.dotCx)
 const dotCy = computed(() => mark.dotCy)

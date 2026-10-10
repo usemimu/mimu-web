@@ -9,14 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Primary meta -->
-    <title>Mimuads — Your brand, on digital screens where your audience is</title>
+    <title>Mimuads | The infrastructure layer for physical ad buying</title>
     <meta
       name="description"
-      content="Mimuads is Africa's first AI-native digital out-of-home platform. Launch self-serve campaigns on screens inside pharmacies, eateries and salons across Lagos — no agency needed. AI handles targeting, compliance, and viewership verification automatically. Also known as Usemimu."
-    />
-    <meta
-      name="keywords"
-      content="Mimu, MimuAds, Mimu Ads, Usemimu, use mimu, mimu advertising, mimu DOOH, mimu screens, mimu Nigeria, AI outdoor advertising, AI-native DOOH, self-serve advertising Nigeria, digital out of home Lagos, Nigeria DOOH, Africa DOOH platform, programmatic DOOH Africa, DOOH supply-side platform, agency DOOH Nigeria, white-label DOOH, verified DOOH impressions, pharmacy screen ads Lagos, APCON compliant ads, SME advertising Nigeria, Naira advertising, host a screen Lagos, mimuads app"
+      content="Mimuads is the infrastructure for physical advertising in Africa. Every DOOH screen, verified and programmatic, on one connected network. Buy self-serve, build on the API, or host a screen. Also known as Usemimu."
     />
     <meta name="author" content="Mimuads" />
     <meta name="application-name" content="Mimuads" />
@@ -56,17 +52,18 @@
       href="/fonts/AeonikLICENSED-Regular.woff2"
       as="font"
       type="font/woff2"
-      crossorigin />
+      crossorigin
+    />
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Mimuads" />
     <meta
       property="og:title"
-      content="Mimuads — Your brand, on digital screens where your audience is"
+      content="Mimuads | The infrastructure layer for physical ad buying"
     />
     <meta
       property="og:description"
-      content="Africa's first AI-native outdoor ad platform. Put your brand on screens inside the shops your customers visit every day. Self-serve, APCON-compliant, live in 24 hours. No agency needed."
+      content="The infrastructure for physical advertising in Africa. Every DOOH screen, verified and programmatic, on one connected network. Buy self-serve, build on the API, or host a screen."
     />
     <meta property="og:url" content="https://usemimu.com/" />
     <meta property="og:type" content="website" />
@@ -78,12 +75,11 @@
       content="https://usemimu.com/og-image.png"
     />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
     <meta
       property="og:image:alt"
-      content="Mimuads — Africa's first AI-native digital out-of-home platform. Your brand on screens inside pharmacies, eateries and salons. AI-verified viewership. Also known as Usemimu."
-
+      content="Mimuads — the infrastructure layer for physical ad buying. Every DOOH screen, verified and programmatic. Also known as Usemimu."
     />
 
     <!-- Twitter / X -->
@@ -92,16 +88,16 @@
     <meta name="twitter:creator" content="@mimuads" />
     <meta
       name="twitter:title"
-      content="Mimuads — Your brand, on digital screens where your audience is"
+      content="Mimuads | The infrastructure layer for physical ad buying"
     />
     <meta
       name="twitter:description"
-      content="Africa's first AI-native DOOH platform. Self-serve campaigns on neighborhood screens — pharmacies, eateries, salons. AI-verified viewership. No agency needed."
+      content="The infrastructure for physical advertising in Africa. Every DOOH screen, verified and programmatic, on one connected network. Buy, build, or host."
     />
     <meta name="twitter:image" content="https://usemimu.com/og-image.png" />
     <meta
       name="twitter:image:alt"
-      content="Mimuads — Africa's first AI-native digital out-of-home platform"
+      content="Mimuads — the infrastructure layer for physical ad buying"
     />
 
     <!-- Structured data: Organization (primary) -->
@@ -121,13 +117,14 @@
           "height": 140
         },
         "image": "https://usemimu.com/og-image.png",
-        "description": "Mimuads is Africa's AI-native digital out-of-home advertising platform and DOOH supply layer. SMEs launch self-serve campaigns on screens inside pharmacies, eateries and salons across 18 Lagos LGAs, while agencies, brands and buying platforms activate the same verified inventory at scale — programmatically or white-label. AI handles targeting, APCON compliance, and computer-vision viewership verification.",
+        "description": "Mimuads is the infrastructure layer for physical ad buying in Africa. We connect DOOH screens into one verified, programmatic network with on-device proof of play, so any business can buy ads self-serve, agencies and platforms can activate inventory at scale, and venues can host screens. Mimuads is not an agency or another ad platform — it is the infrastructure underneath.",
         "knowsAbout": [
+          "Physical advertising infrastructure",
           "Digital out-of-home advertising",
           "Programmatic DOOH",
+          "On-device proof of play",
           "Computer-vision impression verification",
-          "White-label DOOH infrastructure",
-          "APCON-compliant advertising"
+          "White-label DOOH infrastructure"
         ],
         "foundingLocation": {
           "@type": "Place",
@@ -144,7 +141,7 @@
           "addressCountry": "NG"
         },
         "sameAs": [
-          "https://twitter.com/mimuads",
+          "https://x.com/mimuads",
           "https://www.instagram.com/mimuads",
           "https://www.linkedin.com/company/mimuads"
         ]
@@ -164,104 +161,65 @@
       }
     </script>
 
-    <!-- Structured data: Service -->
+    <!-- Structured data: site navigation — signals the primary sections to
+         search engines (a hierarchy hint that feeds Google sitelinks). The
+         per-page JSON-LD (breadcrumb / Service / FAQ / WebPage) is injected
+         at build time by scripts/prerender.mjs from src/seo/site-meta.js. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Digital Out-of-Home Advertising",
-        "provider": { "@id": "https://usemimu.com/#organization" },
-        "name": "Mimuads AI Platform",
-        "description": "Africa's first AI-native digital out-of-home advertising platform. Launch self-serve campaigns on neighborhood screens across Lagos — AI handles targeting, APCON compliance, and viewership verification automatically. No agency markup, no platform fees.",
-        "areaServed": {
-          "@type": "AdministrativeArea",
-          "name": "Nigeria"
-        }
-      }
-    </script>
-
-    <!-- Structured data: Service — agency & programmatic infrastructure -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Programmatic DOOH Infrastructure",
-        "provider": { "@id": "https://usemimu.com/#organization" },
-        "name": "Mimuads for Agencies",
-        "url": "https://usemimu.com/agencies",
-        "description": "The DOOH supply layer for agencies, brands and buying platforms in Africa. Buy against computer-vision-verified impressions, activate inventory programmatically via a supply-side API, report to clients with standardised analytics, or run the whole network white-label under your own brand — with volume rates for agency budgets.",
-        "areaServed": {
-          "@type": "AdministrativeArea",
-          "name": "Nigeria"
-        },
-        "audience": {
-          "@type": "BusinessAudience",
-          "name": "Advertising agencies, brands and programmatic buying platforms"
-        }
-      }
-    </script>
-
-    <!-- Structured data: FAQ — surfaces rich results for brand queries -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
+        "@type": "ItemList",
+        "@id": "https://usemimu.com/#sitenav",
+        "name": "Mimuads",
+        "itemListElement": [
           {
-            "@type": "Question",
-            "name": "What is Mimuads?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Mimuads is Africa's AI-native digital out-of-home (DOOH) platform — and the infrastructure layer beneath it. SMEs self-serve campaigns on smart screens inside high-traffic venues like pharmacies, eateries and salons, while agencies, brands and buying platforms activate the same verified network at scale. AI handles targeting, APCON compliance and on-device viewership verification. Also known as Usemimu."
-            }
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Get started",
+            "description": "For SMBs, startups, businesses, brands and FMCG. Launch verified, programmatic DOOH campaigns self-serve on the infrastructure for physical ad buying. No agency needed, live in a day.",
+            "url": "https://usemimu.com/get-started"
           },
           {
-            "@type": "Question",
-            "name": "How does the viewership verification work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Each screen runs an on-device AI model that counts real viewers anonymously — no camera data leaves the device. You buy against verified proof of play, not inflated estimates, which is the standard agency finance and clients require to sign off spend."
-            }
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Host a screen",
+            "description": "For venues — restaurants, train stations, airports, malls, supermarkets, salons, pharmacies. Host a Mimuads screen and earn from the verified network, with free installation and weekly payouts.",
+            "url": "https://usemimu.com/hosts"
           },
           {
-            "@type": "Question",
-            "name": "What kind of businesses advertise on Mimuads?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Everyone from SMEs and startups to established brands and the agencies that represent them. If your customer visits a pharmacy, eats out or stops by a salon, Mimuads puts your brand in front of them — self-serve for a single shop, or across the whole network for a national campaign."
-            }
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Intelligence Layer",
+            "description": "The agentic ML player that runs the network. On-device computer vision verification and proof of play on every impression. Download it and run it on your screens.",
+            "url": "https://usemimu.com/player"
           },
           {
-            "@type": "Question",
-            "name": "Can agencies and brands buy at scale?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Agencies book across the whole verified network on behalf of clients today, with volume rates on larger campaigns and client-ready reporting — verified impressions, reach by LGA and peak-time performance. See the Agencies page for the full breakdown."
-            }
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "For Agencies",
+            "description": "Agentic ML runs the verified network for agencies and brands — programmatic buying, client-ready reporting and white-label infrastructure, with volume rates.",
+            "url": "https://usemimu.com/agencies"
           },
           {
-            "@type": "Question",
-            "name": "Can I buy programmatically or run Mimuads white-label?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "That's the roadmap. Beyond direct booking, Mimuads is building a supply-side API so agencies and DSPs can activate our inventory programmatically, plus white-label infrastructure to run a DOOH network — player software, AI targeting and computer-vision verification — under your own brand. Email hello@usemimu.com for early access."
-            }
+            "@type": "SiteNavigationElement",
+            "position": 5,
+            "name": "Pricing",
+            "description": "Pay for verified views, nothing else. Transparent unit pricing with no agency markup or platform fees.",
+            "url": "https://usemimu.com/pricing"
           },
           {
-            "@type": "Question",
-            "name": "Who can host a Mimuads screen?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Any venue with consistent foot traffic — pharmacies, eateries, salons, boutiques. We install the screen at no cost to you and handle all maintenance. Hosts earn passive income paid directly to their bank account every Friday."
-            }
+            "@type": "SiteNavigationElement",
+            "position": 6,
+            "name": "About",
+            "description": "The infrastructure for physical advertising in Africa — a verified network, on-device proof of play, and one way to buy.",
+            "url": "https://usemimu.com/about"
           },
           {
-            "@type": "Question",
-            "name": "Is Mimuads APCON registered?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Every creative on the Mimuads network is vetted for APCON compliance before it goes live. Advertisers don't manage that process separately — it's built into the platform."
-            }
+            "@type": "SiteNavigationElement",
+            "position": 7,
+            "name": "Contact",
+            "description": "Talk to the Mimuads team about buying, building, or hosting a screen. Email hello@usemimu.com.",
+            "url": "https://usemimu.com/contact"
           }
         ]
       }

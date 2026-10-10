@@ -1,6 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
 import AgenciesPage from '@/views/AgenciesPage.vue'
+import AboutPage from '@/views/AboutPage.vue'
+import GetStartedPage from '@/views/GetStartedPage.vue'
+import PricingPage from '@/views/PricingPage.vue'
+import ContactPage from '@/views/ContactPage.vue'
+import HostsPage from '@/views/HostsPage.vue'
+import PlayerPage from '@/views/PlayerPage.vue'
 import TermsPage from '@/views/TermsPage.vue'
 import NotFoundPage from '@/views/NotFoundPage.vue'
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, ROUTE_META } from '@/seo/site-meta'
@@ -17,6 +23,45 @@ const routes = [
     name: 'agencies',
     component: AgenciesPage,
     meta: ROUTE_META['/agencies']
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutPage,
+    meta: ROUTE_META['/about']
+  },
+  {
+    path: '/get-started',
+    name: 'get-started',
+    component: GetStartedPage,
+    meta: ROUTE_META['/get-started']
+  },
+  // Developers was folded into the Player page. Client-side catch for the old
+  // path; a permanent server redirect lives in vercel.json.
+  { path: '/developers', redirect: '/player' },
+  {
+    path: '/pricing',
+    name: 'pricing',
+    component: PricingPage,
+    meta: ROUTE_META['/pricing']
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactPage,
+    meta: ROUTE_META['/contact']
+  },
+  {
+    path: '/hosts',
+    name: 'hosts',
+    component: HostsPage,
+    meta: ROUTE_META['/hosts']
+  },
+  {
+    path: '/player',
+    name: 'player',
+    component: PlayerPage,
+    meta: ROUTE_META['/player']
   },
   {
     path: '/terms',

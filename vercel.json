@@ -1,3 +1,6 @@
 {
+  "redirects": [
+    { "source": "/developers", "destination": "/player", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

@@ -44,6 +44,21 @@ function setLink(html, relValue, href) {
   return html.replace(re, `$1${href}$2`)
 }
 
+// Serialize a route's JSON-LD blocks and inject them just before </head>.
+// These are page-specific (breadcrumb, Service, FAQ, WebPage); the global
+// Organization + WebSite + SiteNavigationElement already live in index.html.
+// `<` is escaped to `<` so no payload string can break out of the tag.
+function injectJsonLd(html, blocks) {
+  if (!blocks || !blocks.length) return html
+  const tags = blocks
+    .map(
+      (b) =>
+        `<script type="application/ld+json">${JSON.stringify(b).replace(/</g, '\\u003c')}</script>`,
+    )
+    .join('\n    ')
+  return html.replace('</head>', `    ${tags}\n  </head>`)
+}
+
 function injectHead(html, path, meta) {
   const url = SITE_URL + (path === '/' ? '/' : path)
   const title = esc(meta.title)
@@ -58,6 +73,7 @@ function injectHead(html, path, meta) {
   out = setMeta(out, 'property="og:url"', url)
   out = setMeta(out, 'name="twitter:title"', title)
   out = setMeta(out, 'name="twitter:description"', desc)
+  out = injectJsonLd(out, meta.jsonLd)
   return out
 }
 
