@@ -4,11 +4,11 @@
        Chrome: env() returns 0, so we probe on mount and fall back to standard
        Android bar heights (safeTop / safeBottom refs set in script). -->
   <div
-    class="fixed top-0 inset-x-0 z-[200] bg-[#AE4828]"
+    class="safe-fill fixed top-0 inset-x-0 z-[200]"
     :style="{ height: safeTop }"
   />
   <div
-    class="fixed bottom-0 inset-x-0 z-[200] bg-[#AE4828]"
+    class="safe-fill fixed bottom-0 inset-x-0 z-[200]"
     :style="{ height: safeBottom }"
   />
 
@@ -104,3 +104,28 @@ onBeforeUnmount(() => {
   }
 })
 </script>
+
+<style scoped>
+/* Safe-area strips mirror the hero: clay base + Tall Poppy pattern tile.
+   Same values as .hero / .hero-pattern in HomePage.vue so the notch and
+   home-indicator fills read as an extension of the brand hero. */
+.safe-fill {
+  background: #ae4828;
+  overflow: hidden;
+}
+.safe-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: #bc3433; /* Tall Poppy */
+  -webkit-mask-image: url("/hero/pattern.png");
+  mask-image: url("/hero/pattern.png");
+  -webkit-mask-size: 520px;
+  mask-size: 520px;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.7;
+}
+</style>
