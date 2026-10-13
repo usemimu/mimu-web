@@ -4,13 +4,11 @@
        Chrome: env() returns 0, so we probe on mount and fall back to standard
        Android bar heights (safeTop / safeBottom refs set in script). -->
   <div
-    class="fixed top-0 inset-x-0 z-[200] transition-colors duration-150"
-    :class="isDark ? 'bg-neutral-900' : 'bg-neutral-50'"
+    class="fixed top-0 inset-x-0 z-[200] bg-[#AE4828]"
     :style="{ height: safeTop }"
   />
   <div
-    class="fixed bottom-0 inset-x-0 z-[200] transition-colors duration-150"
-    :class="isDark ? 'bg-neutral-900' : 'bg-neutral-50'"
+    class="fixed bottom-0 inset-x-0 z-[200] bg-[#AE4828]"
     :style="{ height: safeBottom }"
   />
 

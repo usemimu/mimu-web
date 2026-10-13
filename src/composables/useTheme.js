@@ -27,7 +27,8 @@ export function useTheme() {
 
     // Keep Chrome Android's browser chrome (status bar + nav bar) in sync.
     // Safari uses the fixed safe-area divs in App.vue; Chrome relies on theme-color.
-    const themeColor = isDark.value ? '#0E0D0B' : '#F7F5F2'
+    // Brand clay in both modes — the chrome is always Mimu orange, never black/white.
+    const themeColor = '#AE4828'
     let meta = document.head.querySelector('meta[name="theme-color"]')
     if (!meta) {
       meta = document.createElement('meta')
