@@ -5,7 +5,7 @@
   <!-- Homepage — primary landing and conversion entry point -->
   <url>
     <loc>https://usemimu.com/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/" />
@@ -15,7 +15,7 @@
   <!-- Agencies — high-value B2B landing (verified inventory, programmatic, white-label) -->
   <url>
     <loc>https://usemimu.com/agencies</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/agencies" />
@@ -25,7 +25,7 @@
   <!-- Get started — buy-side funnel landing (into signup) -->
   <url>
     <loc>https://usemimu.com/get-started</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/get-started" />
@@ -35,7 +35,7 @@
   <!-- Pricing -->
   <url>
     <loc>https://usemimu.com/pricing</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/pricing" />
@@ -45,7 +45,7 @@
   <!-- About — the thesis / infrastructure positioning -->
   <url>
     <loc>https://usemimu.com/about</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/about" />
@@ -55,7 +55,7 @@
   <!-- Mimuads Player — the agentic ML player that runs the screens -->
   <url>
     <loc>https://usemimu.com/player</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/player" />
@@ -65,7 +65,7 @@
   <!-- Hosts — supply-side landing (host a screen, earn from the network) -->
   <url>
     <loc>https://usemimu.com/hosts</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/hosts" />
@@ -75,7 +75,7 @@
   <!-- Contact -->
   <url>
     <loc>https://usemimu.com/contact</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en-ng" href="https://usemimu.com/contact" />
@@ -85,7 +85,7 @@
   <!-- Terms — legal, low crawl priority -->
   <url>
     <loc>https://usemimu.com/terms</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
