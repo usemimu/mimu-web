@@ -3,7 +3,7 @@
     <div class="w-full max-w-[440px]">
       <!-- Brand -->
       <div class="flex items-center gap-2 mb-8">
-        <img src="/favicon.svg" alt="" class="w-8 h-8" onerror="this.style.display='none'" />
+        <img src="/favicon-192.png" alt="" class="w-8 h-8" onerror="this.style.display='none'" />
         <span class="font-display text-xl font-medium text-neutral-900">Mimuads</span>
       </div>
 
