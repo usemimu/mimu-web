@@ -20,27 +20,45 @@
         </h1>
         <p class="hero-sub">Every DOOH screen, verified and programmatic.</p>
 
-        <div class="hero-dl">
-          <span class="hero-dl-label">Available for download</span>
-          <div class="hero-badges">
+        <div class="hero-cta">
+          <!-- SMBs download the app -->
+          <div class="hero-dl">
+            <span class="hero-dl-label">For SMBs</span>
+            <div class="hero-badges">
+              <a
+                href="https://apps.apple.com/app/mimuads/id6775953486"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download on the App Store"
+              >
+                <img
+                  src="/hero/badge-apple.svg"
+                  alt="Download on the App Store"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=ng.mimu.advertiser"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get it on Google Play"
+              >
+                <img src="/hero/badge-google.svg" alt="Get it on Google Play" />
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-cta-sep" aria-hidden="true"></div>
+
+          <!-- Startups, businesses & FMCG go to the web console -->
+          <div class="hero-dl">
+            <span class="hero-dl-label">For Startups, Businesses &amp; FMCG</span>
             <a
-              href="https://apps.apple.com/app/mimuads/id6775953486"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download on the App Store"
+              :href="signupUrl('hero')"
+              class="hero-get-started"
+              data-ga-event="start_campaign"
+              data-ga-label="hero"
             >
-              <img
-                src="/hero/badge-apple.svg"
-                alt="Download on the App Store"
-              />
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=ng.mimu.advertiser"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Get it on Google Play"
-            >
-              <img src="/hero/badge-google.svg" alt="Get it on Google Play" />
+              Get started<i class="ph ph-arrow-right"></i>
             </a>
           </div>
         </div>
@@ -150,6 +168,7 @@
 
 <script setup>
 import { reactive, ref, onMounted, onBeforeUnmount } from "vue";
+import { signupUrl } from "../links.js";
 
 defineProps({
   dark: { type: Boolean, default: false },
@@ -402,6 +421,21 @@ const faqs = reactive([
   max-width: 460px;
 }
 
+/* Two audience-segmented paths: SMBs download the app, everyone else (startups,
+   businesses, FMCG) starts on the web console. */
+.hero-cta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.hero-cta-sep {
+  align-self: stretch;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.22);
+  margin: 2px 0;
+}
 .hero-dl {
   display: flex;
   flex-direction: column;
@@ -424,6 +458,36 @@ const faqs = reactive([
   height: 48px;
   width: auto;
   display: block;
+}
+.hero-get-started {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: #fdf7f1;
+  color: #ae4828;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.hero-get-started:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.hero-get-started .ph {
+  font-size: 16px;
+}
+@media (max-width: 560px) {
+  .hero-cta {
+    gap: 22px;
+  }
+  .hero-cta-sep {
+    display: none;
+  }
 }
 
 /* ── Hero flying-plane sky (behind the headline) ────────────── */
