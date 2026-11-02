@@ -192,7 +192,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 /* ── Shell ──────────────────────────────────────────────────── */
 .site-nav {
   width: 100%;
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Inter', sans-serif;
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   border-bottom: 1px solid transparent;
 }

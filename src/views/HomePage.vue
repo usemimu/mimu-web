@@ -317,7 +317,7 @@ const faqs = reactive([
 /* ── Shared section typography ──────────────────────────────── */
 .tag {
   display: inline-block;
-  font-family: "Aeonik", monospace;
+  font-family: 'Plus Jakarta Sans', monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -327,7 +327,7 @@ const faqs = reactive([
 }
 
 .section-headline {
-  font-family: "Aeonik", Georgia, serif;
+  font-family: 'Plus Jakarta Sans', Georgia, serif;
   font-weight: 400;
   font-size: clamp(36px, 5vw, 60px);
   line-height: 1.07;
@@ -400,7 +400,7 @@ const faqs = reactive([
 }
 
 .hero-head {
-  font-family: "Aeonik", Georgia, serif;
+  font-family: 'Plus Jakarta Sans', Georgia, serif;
   font-weight: 400;
   font-size: clamp(44px, 6.4vw, 82px);
   line-height: 1.01;
@@ -529,7 +529,7 @@ const faqs = reactive([
 }
 
 .eyebrow {
-  font-family: "Aeonik", monospace;
+  font-family: 'Plus Jakarta Sans', monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -539,7 +539,7 @@ const faqs = reactive([
 }
 
 .hero-headline {
-  font-family: "Aeonik", Georgia, serif;
+  font-family: 'Plus Jakarta Sans', Georgia, serif;
   font-weight: 400;
   font-size: clamp(52px, 8vw, 88px);
   line-height: 1;
@@ -633,7 +633,7 @@ const faqs = reactive([
 }
 .reframe-tag { color: #d9754a; }
 .reframe-title {
-  font-family: "Aeonik", Georgia, serif;
+  font-family: 'Plus Jakarta Sans', Georgia, serif;
   font-weight: 400;
   font-size: clamp(34px, 5vw, 58px);
   line-height: 1.04;
@@ -751,7 +751,7 @@ const faqs = reactive([
   text-align: left;
 }
 .faq-qtext {
-  font-family: "Aeonik", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15.5px;
   font-weight: 500;
   letter-spacing: -0.01em;
