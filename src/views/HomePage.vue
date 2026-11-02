@@ -751,7 +751,7 @@ const faqs = reactive([
   text-align: left;
 }
 .faq-qtext {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Google Sans', sans-serif;
   font-size: 15.5px;
   font-weight: 500;
   letter-spacing: -0.01em;

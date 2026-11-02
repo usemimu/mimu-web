@@ -177,7 +177,7 @@ const socialCls = computed(() =>
 
 <style scoped>
 .site-footer {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Google Sans', sans-serif;
   transition: border-color 0.15s ease;
 }
 .is-light { border-color: #e5ddd3; background: #faf7f3; }
