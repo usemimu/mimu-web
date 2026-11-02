@@ -10,7 +10,7 @@ A Vue.js application for the Mimuads advertising network platform. Built with Vu
 -  **Fast Development**: Powered by Vite for instant HMR
 -  **Responsive**: Mobile-first design with Tailwind CSS
 -  **Accessible**: Semantic HTML and proper ARIA attributes
--  **Typography**: Cormorant (display), Plus Jakarta Sans (body), JetBrains Mono (mono)
+-  **Typography**: Space Grotesk (display), Inter (body)
 -  **Icons**: Phosphor Icons library
 
 ## Project Structure
@@ -152,9 +152,8 @@ Theme preference is automatically saved to localStorage.
 
 ## Typography
 
-- **Display**: Cormorant - For headings and large text
-- **Body**: Plus Jakarta Sans - For body text and UI elements
-- **Mono**: JetBrains Mono - For code and technical data
+- **Display**: Space Grotesk - For headings and large text
+- **Body**: Inter - For body text and UI elements
 
 ## Routes
 

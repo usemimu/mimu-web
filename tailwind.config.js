@@ -58,7 +58,7 @@ export default {
         }
       },
       fontFamily: {
-        display: ['Plus Jakarta Sans', 'Georgia', 'serif'],
+        display: ['Space Grotesk', 'Georgia', 'serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['ui-monospace', 'Courier New', 'monospace'],
       },

@@ -237,7 +237,7 @@ const faqs = reactive([
 /* ── Shared section typography ──────────────────────────────── */
 .tag {
   display: inline-block;
-  font-family: 'Plus Jakarta Sans', monospace;
+  font-family: 'Space Grotesk', monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -251,7 +251,7 @@ const faqs = reactive([
   border-top: 1px solid var(--divider);
 }
 .section-headline {
-  font-family: 'Plus Jakarta Sans', Georgia, serif;
+  font-family: 'Space Grotesk', Georgia, serif;
   font-weight: 400;
   font-size: clamp(34px, 5vw, 56px);
   line-height: 1.05;
@@ -298,7 +298,7 @@ const faqs = reactive([
 }
 @media (min-width: 940px) { .hero-grid { grid-template-columns: 1.12fr 0.88fr; } }
 .hero-eyebrow {
-  font-family: 'Plus Jakarta Sans', monospace;
+  font-family: 'Space Grotesk', monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -307,7 +307,7 @@ const faqs = reactive([
   margin: 0 0 20px;
 }
 .hero-head {
-  font-family: 'Plus Jakarta Sans', Georgia, serif;
+  font-family: 'Space Grotesk', Georgia, serif;
   font-weight: 400;
   font-size: clamp(40px, 5.6vw, 70px);
   line-height: 1.03;
@@ -472,7 +472,7 @@ const faqs = reactive([
 .plug-header { position: relative; margin-bottom: clamp(40px, 6vw, 60px); max-width: 640px; }
 .plug-tag { color: #d9754a; }
 .plug-title {
-  font-family: 'Plus Jakarta Sans', Georgia, serif;
+  font-family: 'Space Grotesk', Georgia, serif;
   font-weight: 400;
   font-size: clamp(32px, 5vw, 54px);
   line-height: 1.05;
@@ -510,13 +510,13 @@ const faqs = reactive([
 }
 .plug-top { display: flex; align-items: center; }
 .plug-num {
-  font-family: 'Plus Jakarta Sans', Georgia, serif;
+  font-family: 'Space Grotesk', Georgia, serif;
   font-size: 26px;
   letter-spacing: -0.02em;
   color: #d9754a;
 }
 .plug-card-title {
-  font-family: 'Plus Jakarta Sans', Georgia, serif;
+  font-family: 'Space Grotesk', Georgia, serif;
   font-weight: 400;
   font-size: clamp(22px, 2.6vw, 28px);
   letter-spacing: -0.02em;
