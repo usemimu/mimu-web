@@ -91,35 +91,27 @@
       <div class="wrap">
         <div class="plat-header reveal">
           <div class="tag plat-tag">The platform</div>
-          <h2 class="section-headline plat-headline">
-            Five layers,<br /><em>one infrastructure.</em>
-          </h2>
+          <h2 class="section-headline plat-headline">Five layers, one <em>infrastructure.</em></h2>
         </div>
-      </div>
-      <div class="plat-rows">
-        <div
-          v-for="(p, i) in pillars"
-          :key="p.name"
-          class="plat-row reveal"
-          :class="{ 'plat-row--flip': i % 2 === 1 }"
-          :style="{ '--i': i + 1 }"
-        >
-          <div class="plat-stage">
-            <div class="plat-stage-halo" aria-hidden="true"></div>
-            <div
-              class="plat-stage-ring plat-stage-ring-1"
-              aria-hidden="true"
-            ></div>
-            <div
-              class="plat-stage-ring plat-stage-ring-2"
-              aria-hidden="true"
-            ></div>
-            <img :src="p.icon" :alt="p.name" class="plat-row-icon" />
-          </div>
-          <div class="plat-body">
-            <span class="plat-num">{{ String(i + 1).padStart(2, "0") }}</span>
-            <h3 class="plat-row-name">{{ p.name }}</h3>
-            <p class="plat-row-copy">{{ p.copy }}</p>
+        <div class="plat-cards">
+          <div
+            v-for="(p, i) in pillars"
+            :key="p.name"
+            class="plat-card reveal"
+            :style="{ '--i': i + 1 }"
+            :ref="el => { if (el) platCardEls[i] = el }"
+            @mousemove="tiltCard($event, i)"
+            @mouseleave="resetCard(i)"
+          >
+            <div class="plat-card-stage">
+              <div class="plat-card-halo" aria-hidden="true"></div>
+              <img :src="p.icon" :alt="p.name" class="plat-card-icon" />
+            </div>
+            <div class="plat-card-body">
+              <span class="plat-card-num">{{ String(i + 1).padStart(2, '0') }}</span>
+              <h3 class="plat-card-name">{{ p.name }}</h3>
+              <p class="plat-card-copy">{{ p.copy }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -138,9 +130,6 @@
               Inventory organised by venue type. Buy an audience and a moment,
               not just a location.
             </p>
-          </div>
-          <div class="venue-live reveal" style="--i: 1">
-            <span class="venue-live-dot" aria-hidden="true"></span>Live · Lagos
           </div>
         </div>
       </div>
@@ -432,6 +421,25 @@ onBeforeUnmount(() => {
   clearTimeout(planeTimer);
   planeAnim?.cancel();
 });
+
+/* 3-D tilt on platform cards */
+const platCardEls = []
+function tiltCard(e, i) {
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return
+  const el = platCardEls[i]
+  if (!el) return
+  const { left, top, width, height } = el.getBoundingClientRect()
+  const x = (e.clientX - left) / width - 0.5
+  const y = (e.clientY - top) / height - 0.5
+  el.style.transform = `perspective(900px) rotateX(${-y * 9}deg) rotateY(${x * 9}deg) translateY(-10px) scale(1.02)`
+  el.style.transition = 'transform 0.08s ease, box-shadow 0.08s ease'
+}
+function resetCard(i) {
+  const el = platCardEls[i]
+  if (!el) return
+  el.style.transform = ''
+  el.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s ease'
+}
 
 const pillars = [
   {
@@ -1003,199 +1011,67 @@ const faqs = reactive([
 
 /* ── PLATFORM ──────────────────────────────────────────────── */
 .plat-section {
-  background: #0e0d0b;
-  padding: clamp(80px, 11vw, 120px) 0 0;
+  background: #fdf8f3;
+  padding: clamp(80px, 11vw, 120px) 0;
 }
-.plat-header {
-  margin-bottom: clamp(56px, 7vw, 80px);
-}
-.plat-tag {
-  color: #d9754a;
-}
-.plat-headline {
-  color: #f7f1ea;
-  margin: 0;
-}
-.plat-headline em {
-  color: #d9754a;
-  font-style: italic;
-}
+.plat-header { margin-bottom: clamp(48px, 6vw, 72px); }
+.plat-tag { color: #b55430; }
+.plat-headline { color: #0e0d0b; margin: 0; }
+.plat-headline em { color: #b55430; font-style: italic; }
 
-/* Alternating full-width feature rows */
-.plat-rows {
-  display: flex;
-  flex-direction: column;
-}
-
-.plat-row {
+.plat-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 400px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+@media (max-width: 1100px) { .plat-cards { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .plat-cards { grid-template-columns: repeat(2, 1fr); } }
+
+.plat-card {
+  border-radius: 28px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
   overflow: hidden;
-  transition: background 0.4s ease;
-}
-.plat-row:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-.plat-row:hover {
-  background: rgba(255, 255, 255, 0.015);
-}
-.plat-row--flip .plat-stage {
-  order: 2;
-}
-.plat-row--flip .plat-body {
-  order: 1;
-}
-
-/* Stage — the icon side, cream so riso icon backgrounds blend */
-.plat-stage {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px;
-  background: linear-gradient(160deg, #fdf8f3 0%, #f0e4d4 100%);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-  overflow: hidden;
-}
-.plat-row--flip .plat-stage {
-  border-right: none;
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
-}
-.plat-stage-halo {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(181, 84, 48, 0.1) 0%,
-    transparent 65%
-  );
-  animation: haloPulse 4s ease-in-out infinite;
-  pointer-events: none;
-}
-.plat-stage-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(181, 84, 48, 0.15);
-  pointer-events: none;
-}
-.plat-stage-ring-1 {
-  width: 220px;
-  height: 220px;
-  animation: ringOrbit 12s linear infinite;
-}
-.plat-stage-ring-2 {
-  width: 300px;
-  height: 300px;
-  border-style: dashed;
-  border-color: rgba(181, 84, 48, 0.09);
-  animation: ringOrbit 20s linear infinite reverse;
-}
-
-.plat-row-icon {
-  position: relative;
-  z-index: 1;
-  width: 160px;
-  height: 160px;
-  display: block;
-  transition:
-    filter 0.4s ease,
-    transform 0.4s ease;
-  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5));
-}
-.plat-row:hover .plat-row-icon {
-  filter: drop-shadow(0 0 24px rgba(181, 84, 48, 0.5))
-    drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5));
-  transform: scale(1.06) translateY(-6px);
-}
-
-/* Body — the text side */
-.plat-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 60px clamp(32px, 5vw, 72px);
-  gap: 16px;
+  cursor: default;
+  will-change: transform;
+  transition: box-shadow 0.5s ease, border-color 0.5s ease;
 }
-.plat-num {
-  font-family: "Space Grotesk", monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: rgba(181, 84, 48, 0.4);
+.plat-card:hover {
+  border-color: rgba(181,84,48,0.22);
+  box-shadow: 0 28px 64px -20px rgba(181,84,48,0.22), 0 8px 24px -8px rgba(0,0,0,0.08);
 }
-.plat-row-name {
-  font-family: "Space Grotesk", Georgia, serif;
-  font-size: clamp(26px, 3vw, 38px);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  color: #f7f1ea;
-  margin: 0;
-  line-height: 1.1;
+.plat-card-stage {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 260px;
+  background: linear-gradient(160deg, #fdf8f3 0%, #f0e4d4 100%);
+  overflow: hidden;
 }
-.plat-row-copy {
-  font-size: clamp(14px, 1.4vw, 16px);
-  line-height: 1.7;
-  color: rgba(244, 237, 228, 0.5);
-  margin: 0;
-  max-width: 440px;
+.plat-card-halo {
+  position: absolute; inset: -20px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 55%, rgba(181,84,48,0.13) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.4s ease;
+  animation: haloPulse 4s ease-in-out infinite;
 }
+.plat-card:hover .plat-card-halo { opacity: 1; }
+.plat-card-icon {
+  position: relative; z-index: 1;
+  width: 200px; height: 200px; display: block;
+  transition: filter 0.4s ease;
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.08));
+}
+.plat-card:hover .plat-card-icon {
+  filter: drop-shadow(0 10px 28px rgba(181,84,48,0.22)) drop-shadow(0 4px 12px rgba(0,0,0,0.06));
+}
+.plat-card-body { padding: 18px 20px 24px; display: flex; flex-direction: column; gap: 7px; }
+.plat-card-num { font-family: "Space Grotesk", monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: rgba(181,84,48,0.4); }
+.plat-card-name { font-family: "Space Grotesk", Georgia, serif; font-size: 15.5px; font-weight: 500; letter-spacing: -0.015em; color: #0e0d0b; margin: 0; line-height: 1.2; }
+.plat-card-copy { font-size: 12.5px; line-height: 1.65; color: #5e574f; margin: 0; }
 
-@keyframes haloPulse {
-  0%,
-  100% {
-    transform: scale(0.85);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-}
-@keyframes ringOrbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (max-width: 760px) {
-  .plat-row {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .plat-row--flip .plat-stage {
-    order: 0;
-    border-left: none;
-  }
-  .plat-row--flip .plat-body {
-    order: 1;
-  }
-  .plat-stage {
-    min-height: 260px;
-    padding: 40px;
-  }
-  .plat-row-icon {
-    width: 120px;
-    height: 120px;
-  }
-  .plat-stage-ring-1 {
-    width: 160px;
-    height: 160px;
-  }
-  .plat-stage-ring-2 {
-    width: 220px;
-    height: 220px;
-  }
-  .plat-body {
-    padding: 36px 24px;
-  }
-}
+@keyframes haloPulse { 0%, 100% { transform: scale(0.8); opacity: 0.7; } 50% { transform: scale(1.2); opacity: 1; } }
+@keyframes ringOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 /* ── AUDIENCE BY VENUE ─────────────────────────────────────── */
 .venue-section {
@@ -1327,8 +1203,8 @@ const faqs = reactive([
 .venue-tower-icon {
   position: relative;
   z-index: 1;
-  width: 96px;
-  height: 96px;
+  width: 120px;
+  height: 120px;
   display: block;
   transition:
     transform 0.35s ease,
@@ -1464,8 +1340,8 @@ const faqs = reactive([
 .biz-icon {
   position: relative;
   z-index: 1;
-  width: 128px;
-  height: 128px;
+  width: 160px;
+  height: 160px;
   display: block;
   transition:
     transform 0.4s ease,
@@ -1673,8 +1549,8 @@ const faqs = reactive([
 .measure-monument-icon {
   position: relative;
   z-index: 1;
-  width: 88px;
-  height: 88px;
+  width: 110px;
+  height: 110px;
   display: block;
   /* Engraving icons are brown-on-cream — natural on this background */
   transition:
@@ -1811,8 +1687,8 @@ const faqs = reactive([
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
+  width: 90px;
+  height: 90px;
   display: block;
   filter: invert(1) sepia(0.15) saturate(0.4) brightness(1.1);
   animation: iconFloat 3.8s ease-in-out infinite;
