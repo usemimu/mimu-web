@@ -129,6 +129,131 @@
       </div>
     </section>
 
+    <!-- ── PLATFORM ─────────────────────────────────────────────── -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="tag">The platform</div>
+          <h2 class="section-headline">Five layers, one <em>infrastructure.</em></h2>
+        </div>
+        <div class="platform-grid">
+          <div v-for="p in pillars" :key="p.name" class="platform-card">
+            <img :src="p.icon" :alt="p.name + ' icon'" class="platform-icon" />
+            <h3 class="platform-name">{{ p.name }}</h3>
+            <p class="platform-copy">{{ p.copy }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AUDIENCE BY VENUE ──────────────────────────────────────── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="tag">Audience by venue</div>
+          <h2 class="section-headline">Verified screens in the places<br /><em>Lagos spends its day.</em></h2>
+          <p class="section-sub">
+            Mimuads inventory is organised by venue type, so a business buys an audience and a moment,
+            not just a location. Live in Lagos today.
+          </p>
+        </div>
+        <div class="venue-grid">
+          <div v-for="v in venues" :key="v.name" class="venue-card">
+            <img :src="v.icon" :alt="v.name + ' icon'" class="venue-icon" />
+            <h3 class="venue-name">{{ v.name }}</h3>
+            <p class="venue-who">{{ v.who }}</p>
+            <p class="venue-moment">{{ v.moment }}</p>
+          </div>
+        </div>
+        <div class="venue-chain">
+          <div class="venue-chain-inner">
+            <h3 class="venue-chain-h">Buy one venue, or a whole chain.</h3>
+            <p class="venue-chain-p">Where a chain is on the network, one campaign can run in a single branch or across every location. The same screen standard, the same verified reporting, and reach that grows from one site to the whole chain.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOR BUSINESSES ────────────────────────────────────────── -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="tag">For businesses</div>
+          <h2 class="section-headline">Buy physical media<br /><em>the way you buy digital.</em></h2>
+          <p class="section-sub">Any budget, live in 24 hours, verified. All four use one wallet, the same screens and one report.</p>
+        </div>
+        <div class="biz-grid">
+          <div v-for="b in businesses" :key="b.type" class="biz-card">
+            <img :src="b.icon" :alt="b.type + ' icon'" class="biz-icon" />
+            <div class="biz-type">{{ b.type }}</div>
+            <p class="biz-who">{{ b.who }}</p>
+            <div class="biz-problem-wrap">
+              <span class="biz-problem-label">Today</span>
+              <p class="biz-problem">{{ b.problem }}</p>
+            </div>
+            <div class="biz-solution-wrap">
+              <span class="biz-solution-label">With Mimuads</span>
+              <p class="biz-solution">{{ b.solution }}</p>
+            </div>
+            <a :href="b.ctaUrl" class="biz-cta">{{ b.cta }}<i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="biz-perks">
+          <h3 class="biz-perks-h">What every business gets</h3>
+          <ul class="biz-perks-list">
+            <li v-for="perk in bizPerks" :key="perk" class="biz-perk">
+              <i class="ph ph-check-circle biz-check"></i>
+              <span>{{ perk }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MEASUREMENT ───────────────────────────────────────────── -->
+    <section class="section measure-section">
+      <div class="wrap measure-wrap">
+        <div class="measure-head">
+          <div class="tag measure-tag">Measurement and reporting</div>
+          <h2 class="section-headline measure-headline">See who saw it.<br /><em>Pay for what's verified.</em></h2>
+          <p class="section-sub measure-sub">Every campaign comes with a dashboard that shows real numbers, not estimates.</p>
+        </div>
+        <div class="measure-metrics">
+          <div v-for="m in metrics" :key="m.label" class="measure-metric">
+            <img :src="m.icon" :alt="m.label + ' icon'" class="measure-icon" />
+            <span class="measure-label">{{ m.label }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRICING ───────────────────────────────────────────────── -->
+    <section class="pricing-section">
+      <div class="wrap pricing-wrap">
+        <div class="pricing-head">
+          <div class="pricing-tag">Pricing</div>
+          <h2 class="pricing-headline">Start with <em>any budget.</em></h2>
+        </div>
+        <div class="pricing-points">
+          <div class="pricing-point">
+            <img src="/icons/engraving/top-up.svg" alt="Top up icon" class="pricing-icon" />
+            <p>Fund your wallet with any amount.</p>
+          </div>
+          <div class="pricing-point">
+            <img src="/icons/engraving/receipt.svg" alt="Receipt icon" class="pricing-icon" />
+            <p>You pay per verified impression.</p>
+          </div>
+          <div class="pricing-point">
+            <img src="/icons/engraving/weekly-payout.svg" alt="Weekly payout icon" class="pricing-icon" />
+            <p>Venue owners are paid weekly from campaign revenue.</p>
+          </div>
+        </div>
+        <div class="pricing-cta">
+          <a :href="signupUrl('pricing')" class="pricing-btn">Start advertising<i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
     <!-- ── FAQ ────────────────────────────────────────────────── -->
     <section id="faq" class="section">
       <div class="wrap faq-grid">
@@ -221,6 +346,72 @@ onBeforeUnmount(() => {
   clearTimeout(planeTimer)
   planeAnim?.cancel()
 })
+
+const pillars = [
+  { name: 'Mimuads Studio', copy: 'Build video, image and motion-graphic creative in the app. No designer or agency needed.', icon: '/icons/riso/studio.svg' },
+  { name: 'ML Intelligence', copy: 'Matches every campaign to a screen using venue type, location, time of day, creative format and the audience that venue draws.', icon: '/icons/riso/ml.svg' },
+  { name: 'Agentic Player', copy: 'Schedules, monitors, caches and reports on its own. Keeps playing through internet drops and restarts after power cuts.', icon: '/icons/riso/player.svg' },
+  { name: 'Verified Attention', copy: 'Computer vision confirms real human impressions and logs proof of play for every campaign.', icon: '/icons/riso/verified.svg' },
+  { name: 'Proximity conversion', copy: 'Sends offers to opted-in phones near the screen, linking straight to the advertiser\'s page, app or offer.', icon: '/icons/riso/proximity.svg' },
+]
+
+const venues = [
+  { name: 'Airports', icon: '/icons/riso/airport.svg', who: 'Business and leisure travellers', moment: 'Long waits before departure, high intent' },
+  { name: 'Train stations', icon: '/icons/riso/train-station.svg', who: 'Daily commuters', moment: 'Repeat exposure on the same route' },
+  { name: 'Pharmacies', icon: '/icons/riso/pharmacy.svg', who: 'Health-conscious shoppers and families', moment: 'Waiting for advice or a prescription, trusted setting' },
+  { name: 'Supermarkets', icon: '/icons/riso/supermarket.svg', who: 'Households shopping', moment: 'Point of purchase' },
+  { name: 'Salons', icon: '/icons/riso/salon.svg', who: 'Beauty and grooming customers', moment: 'Seated for long stretches, relaxed attention' },
+  { name: 'Restaurants', icon: '/icons/riso/restaurant.svg', who: 'Workers, students and families', moment: 'Seated, waiting and eating' },
+  { name: 'Malls', icon: '/icons/riso/mall.svg', who: 'Shoppers, families and groups', moment: 'Browsing with buying intent' },
+]
+
+const businesses = [
+  {
+    type: 'SMBs', icon: '/icons/riso/smb.svg',
+    who: 'Pharmacies, salons, restaurants, shops and service businesses.',
+    problem: 'Agencies and minimum budgets price them out, and flyers can\'t be measured.',
+    solution: 'Launch from the mobile app. Verify your business, fund your wallet, build creative in Mimuads Studio, choose screens near your customers and go live in 24 hours.',
+    cta: 'Start advertising', ctaUrl: 'https://apps.apple.com/app/mimuads/id6775953486',
+  },
+  {
+    type: 'Startups', icon: '/icons/riso/startup.svg',
+    who: 'Fintechs, delivery apps, consumer apps and marketplaces.',
+    problem: 'They need users in specific neighbourhoods and can\'t prove that offline spend works.',
+    solution: 'Run app-download campaigns on screens in the venue types and areas where your users are. Proximity offers send a tap-to-download link to phones nearby.',
+    cta: 'Launch a campaign', ctaUrl: signupUrl('biz-startup'),
+  },
+  {
+    type: 'Agencies', icon: '/icons/riso/agency.svg',
+    who: 'Media and creative agencies buying for clients.',
+    problem: 'Out-of-home buying is manual, one vendor at a time, with estimated reach.',
+    solution: 'Plan and fund campaigns across venue types and areas from one dashboard, and report verified results to every client. API access is coming for programmatic buying.',
+    cta: 'Book a demo', ctaUrl: '/contact',
+  },
+  {
+    type: 'FMCG brands', icon: '/icons/riso/fmcg.svg',
+    who: 'Consumer goods brands.',
+    problem: 'They want a presence where their products are bought, and proof that it was seen.',
+    solution: 'Target pharmacies, supermarkets and their chains by location and audience, and pair the ad with a voucher sent to nearby phones. Get verified impressions by venue.',
+    cta: 'Book a demo', ctaUrl: '/contact',
+  },
+]
+
+const bizPerks = [
+  'One wallet, any budget, no minimum spend',
+  'Mimuads Studio for image, video and motion-graphic creative',
+  'Screens chosen by venue type, location and footfall density',
+  'Live in 24 hours',
+  'Verified impressions and proof of play',
+  'Proximity offers that turn attention into action',
+]
+
+const metrics = [
+  { label: 'Verified impressions', icon: '/icons/engraving/computer-vision.svg' },
+  { label: 'Dwell time', icon: '/icons/engraving/dwell-time.svg' },
+  { label: 'Results by venue', icon: '/icons/engraving/screen-map.svg' },
+  { label: 'Spend against budget', icon: '/icons/engraving/report.svg' },
+  { label: 'Proof of play', icon: '/icons/engraving/proof-of-play.svg' },
+]
 
 const faqs = reactive([
   {
@@ -692,6 +883,382 @@ const faqs = reactive([
 @media (prefers-reduced-motion: reduce) {
   .spoke, .nodes .n-dot, .n-glow { animation: none; }
 }
+
+/* ── PLATFORM ──────────────────────────────────────────────── */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1100px) { .platform-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px)  { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.platform-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.platform-card:hover {
+  border-color: rgba(181, 84, 48, 0.3);
+  box-shadow: 0 10px 32px -12px rgba(181, 84, 48, 0.18);
+}
+.platform-icon {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+.platform-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+.platform-copy {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── AUDIENCE BY VENUE ─────────────────────────────────────── */
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1024px) { .venue-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px)  { .venue-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.venue-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.venue-card:hover {
+  border-color: rgba(181, 84, 48, 0.3);
+  box-shadow: 0 10px 32px -12px rgba(181, 84, 48, 0.18);
+}
+.venue-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+.venue-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+.venue-who {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.venue-moment {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+.venue-chain {
+  margin-top: 40px;
+  background: var(--section-alt-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 48px);
+}
+.venue-chain-h {
+  font-family: 'Space Grotesk', Georgia, serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+}
+.venue-chain-p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0;
+}
+
+/* ── FOR BUSINESSES ────────────────────────────────────────── */
+.biz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (max-width: 720px) { .biz-grid { grid-template-columns: 1fr; } }
+
+.biz-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.biz-icon {
+  width: 52px;
+  height: 52px;
+  display: block;
+  margin-bottom: 4px;
+}
+.biz-type {
+  font-family: 'Space Grotesk', Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.biz-who {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+.biz-problem-wrap,
+.biz-solution-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.biz-problem-label,
+.biz-solution-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.biz-problem {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.biz-solution {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.biz-cta {
+  margin-top: auto;
+  padding-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b55430;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: gap 0.15s ease, opacity 0.15s ease;
+}
+.biz-cta:hover { gap: 10px; opacity: 0.85; }
+
+.biz-perks {
+  margin-top: 40px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 48px);
+}
+.biz-perks-h {
+  font-family: 'Space Grotesk', Georgia, serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+}
+.biz-perks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px 32px;
+}
+.biz-perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.biz-check {
+  color: #b55430;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ── MEASUREMENT ───────────────────────────────────────────── */
+.measure-section {
+  background: #15120e;
+}
+.measure-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+@media (max-width: 860px) { .measure-wrap { grid-template-columns: 1fr; } }
+
+.measure-tag { color: #d9754a; }
+.measure-headline { color: #f7f1ea; }
+.measure-headline em { color: #d9754a; font-style: italic; }
+.measure-sub { color: rgba(244, 237, 228, 0.65); max-width: 380px; }
+
+.measure-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.measure-metric:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: start; }
+
+.measure-metric {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.measure-icon {
+  width: 44px;
+  height: 44px;
+  display: block;
+  opacity: 0.9;
+  /* Engraving icons are brown-on-cream — tint them to cream on dark background */
+  filter: invert(1) sepia(0.3) saturate(0.5) brightness(1.1);
+}
+.measure-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(244, 237, 228, 0.85);
+  line-height: 1.4;
+}
+
+/* ── PRICING ───────────────────────────────────────────────── */
+.pricing-section {
+  background: #ae4828;
+  padding: clamp(72px, 10vw, 108px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #bc3433;
+  -webkit-mask-image: url('/hero/pattern.png');
+  mask-image: url('/hero/pattern.png');
+  -webkit-mask-size: 520px;
+  mask-size: 520px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.pricing-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+.pricing-tag {
+  display: inline-block;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(253, 247, 241, 0.7);
+  margin-bottom: 14px;
+}
+.pricing-headline {
+  font-family: 'Space Grotesk', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0;
+}
+.pricing-headline em { font-style: italic; color: #ffd3b6; }
+
+.pricing-points {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pricing-point {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 24px 22px;
+  width: clamp(200px, 28vw, 240px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.pricing-icon {
+  width: 52px;
+  height: 52px;
+  display: block;
+  /* Cream-ify the engraving icons for the rust background */
+  filter: invert(1) sepia(0.2) saturate(0.4) brightness(1.15);
+  opacity: 0.9;
+}
+.pricing-point p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+.pricing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: #fdf7f1;
+  color: #ae4828;
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.pricing-btn:hover { opacity: 0.92; transform: translateY(-1px); }
 
 /* ── FAQ ────────────────────────────────────────────────────── */
 .faq-grid {
