@@ -6,12 +6,31 @@
 
       <!-- Flying-plane sky: plane streaks across the top, wave trails + a few clouds -->
       <div class="hero-sky" aria-hidden="true">
-        <img src="/hero/cloud4.png" class="hs-cloud" style="left: 5%; top: 15%; width: 15%; animation-delay: -3s" />
-        <img src="/hero/cloud3.png" class="hs-cloud" style="right: 6%; top: 19%; width: 14%; animation-delay: -6s" />
-        <img src="/hero/cloud1.png" class="hs-cloud" style="left: 11%; top: 72%; width: 14%; opacity: 0.85; animation-delay: -2s" />
-        <img src="/hero/arrow7.svg" class="hs-wave" style="left: 13%; top: 7%; width: 24%; animation-delay: -4s" />
-        <img src="/hero/arrow8.svg" class="hs-wave" style="right: 18%; top: 9%; width: 20%; animation-delay: -1s" />
-        <img ref="planeEl" src="/hero/plane.png" class="hs-plane" style="width: 15%" />
+        <!-- <img src="/hero/cloud4.png" class="hs-cloud" style="left: 5%; top: 15%; width: 15%; animation-delay: -3s" /> -->
+        <img
+          src="/hero/cloud3.png"
+          class="hs-cloud"
+          style="right: 6%; top: 19%; width: 14%; animation-delay: -6s"
+        />
+        <img
+          src="/hero/cloud1.png"
+          class="hs-cloud"
+          style="
+            left: 11%;
+            top: 72%;
+            width: 14%;
+            opacity: 0.85;
+            animation-delay: -2s;
+          "
+        />
+        <!-- <img src="/hero/arrow7.svg" class="hs-wave" style="left: 13%; top: 7%; width: 24%; animation-delay: -4s" />
+        <img src="/hero/arrow8.svg" class="hs-wave" style="right: 18%; top: 9%; width: 20%; animation-delay: -1s" /> -->
+        <img
+          ref="planeEl"
+          src="/hero/plane.png"
+          class="hs-plane"
+          style="width: 15%"
+        />
       </div>
 
       <div class="wrap hero-center">
@@ -51,7 +70,9 @@
 
           <!-- Startups, businesses & FMCG go to the web console -->
           <div class="hero-dl">
-            <span class="hero-dl-label">For Startups, Businesses &amp; FMCG</span>
+            <span class="hero-dl-label"
+              >For Startups, Businesses &amp; FMCG</span
+            >
             <a
               :href="signupUrl('hero')"
               class="hero-get-started"
@@ -70,17 +91,35 @@
       <div class="wrap">
         <div class="plat-header reveal">
           <div class="tag plat-tag">The platform</div>
-          <h2 class="section-headline plat-headline">Five layers,<br /><em>one infrastructure.</em></h2>
+          <h2 class="section-headline plat-headline">
+            Five layers,<br /><em>one infrastructure.</em>
+          </h2>
         </div>
-        <div class="plat-grid">
-          <div v-for="(p, i) in pillars" :key="p.name" class="plat-card reveal" :style="{ '--i': i + 1 }">
-            <span class="plat-num">{{ String(i + 1).padStart(2, '0') }}</span>
-            <div class="plat-icon-wrap">
-              <div class="plat-halo" aria-hidden="true"></div>
-              <img :src="p.icon" :alt="p.name" class="plat-icon" />
-            </div>
-            <h3 class="plat-name">{{ p.name }}</h3>
-            <p class="plat-copy">{{ p.copy }}</p>
+      </div>
+      <div class="plat-rows">
+        <div
+          v-for="(p, i) in pillars"
+          :key="p.name"
+          class="plat-row reveal"
+          :class="{ 'plat-row--flip': i % 2 === 1 }"
+          :style="{ '--i': i + 1 }"
+        >
+          <div class="plat-stage">
+            <div class="plat-stage-halo" aria-hidden="true"></div>
+            <div
+              class="plat-stage-ring plat-stage-ring-1"
+              aria-hidden="true"
+            ></div>
+            <div
+              class="plat-stage-ring plat-stage-ring-2"
+              aria-hidden="true"
+            ></div>
+            <img :src="p.icon" :alt="p.name" class="plat-row-icon" />
+          </div>
+          <div class="plat-body">
+            <span class="plat-num">{{ String(i + 1).padStart(2, "0") }}</span>
+            <h3 class="plat-row-name">{{ p.name }}</h3>
+            <p class="plat-row-copy">{{ p.copy }}</p>
           </div>
         </div>
       </div>
@@ -92,25 +131,46 @@
         <div class="venue-header">
           <div class="venue-header-left reveal">
             <div class="tag venue-tag">Audience by venue</div>
-            <h2 class="section-headline venue-headline">Verified screens in the<br /><em>places Lagos spends its day.</em></h2>
-            <p class="section-sub venue-sub">Inventory organised by venue type. Buy an audience and a moment, not just a location.</p>
+            <h2 class="section-headline venue-headline">
+              Verified screens in the<br /><em>places Lagos spends its day.</em>
+            </h2>
+            <p class="section-sub venue-sub">
+              Inventory organised by venue type. Buy an audience and a moment,
+              not just a location.
+            </p>
           </div>
-          <div class="venue-live reveal" style="--i:1">
+          <div class="venue-live reveal" style="--i: 1">
             <span class="venue-live-dot" aria-hidden="true"></span>Live · Lagos
           </div>
         </div>
-        <div class="venue-grid">
-          <div v-for="(v, i) in venues" :key="v.name" class="venue-card reveal" :style="{ '--i': i + 1 }">
-            <div class="venue-icon-bg" aria-hidden="true"></div>
-            <img :src="v.icon" :alt="v.name" class="venue-icon" />
-            <h3 class="venue-name">{{ v.name }}</h3>
-            <p class="venue-who">{{ v.who }}</p>
-            <p class="venue-moment">{{ v.moment }}</p>
+      </div>
+      <!-- Full-bleed tower strip — no wrap constraint -->
+      <div class="venue-towers">
+        <div
+          v-for="(v, i) in venues"
+          :key="v.name"
+          class="venue-tower reveal"
+          :style="{ '--i': i + 1 }"
+        >
+          <div class="venue-tower-stage">
+            <div class="venue-tower-glow" aria-hidden="true"></div>
+            <img :src="v.icon" :alt="v.name" class="venue-tower-icon" />
+          </div>
+          <div class="venue-tower-info">
+            <h3 class="venue-tower-name">{{ v.name }}</h3>
+            <p class="venue-tower-who">{{ v.who }}</p>
+            <p class="venue-tower-moment">{{ v.moment }}</p>
           </div>
         </div>
-        <div class="venue-chain reveal" style="--i:2">
+      </div>
+      <div class="wrap">
+        <div class="venue-chain reveal" style="--i: 2">
           <h3 class="venue-chain-h">Buy one venue, or a whole chain.</h3>
-          <p class="venue-chain-p">Where a chain is on the network, one campaign can run in a single branch or across every location. Same screen standard, same verified reporting, reach that scales.</p>
+          <p class="venue-chain-p">
+            Where a chain is on the network, one campaign can run in a single
+            branch or across every location. Same screen standard, same verified
+            reporting, reach that scales.
+          </p>
         </div>
       </div>
     </section>
@@ -120,33 +180,54 @@
       <div class="wrap">
         <div class="section-header reveal">
           <div class="tag">For businesses</div>
-          <h2 class="section-headline">Buy physical media<br /><em>the way you buy digital.</em></h2>
-          <p class="section-sub">Any budget, live in 24 hours, verified. All use one wallet, the same screens and one report.</p>
+          <h2 class="section-headline">
+            Buy physical media<br /><em>the way you buy digital.</em>
+          </h2>
+          <p class="section-sub">
+            Any budget, live in 24 hours, verified. All use one wallet, the same
+            screens and one report.
+          </p>
         </div>
         <div class="biz-grid">
-          <div v-for="(b, i) in businesses" :key="b.type" class="biz-card reveal" :style="{ '--i': i + 1 }">
-            <div class="biz-top">
+          <div
+            v-for="(b, i) in businesses"
+            :key="b.type"
+            class="biz-card reveal"
+            :style="{ '--i': i + 1 }"
+          >
+            <div class="biz-stage">
+              <div class="biz-stage-glow" aria-hidden="true"></div>
+              <div class="biz-stage-ring" aria-hidden="true"></div>
               <img :src="b.icon" :alt="b.type" class="biz-icon" />
-              <span class="biz-num">{{ String(i + 1).padStart(2, '0') }}</span>
             </div>
-            <h3 class="biz-type">{{ b.type }}</h3>
-            <p class="biz-who">{{ b.who }}</p>
-            <div class="biz-block">
-              <span class="biz-label">Today</span>
-              <p class="biz-text">{{ b.problem }}</p>
+            <div class="biz-body">
+              <div class="biz-title-row">
+                <h3 class="biz-type">{{ b.type }}</h3>
+                <span class="biz-num">{{
+                  String(i + 1).padStart(2, "0")
+                }}</span>
+              </div>
+              <p class="biz-who">{{ b.who }}</p>
+              <div class="biz-block">
+                <span class="biz-label">Today</span>
+                <p class="biz-text">{{ b.problem }}</p>
+              </div>
+              <div class="biz-block">
+                <span class="biz-label">With Mimuads</span>
+                <p class="biz-text">{{ b.solution }}</p>
+              </div>
+              <a :href="b.ctaUrl" class="biz-cta"
+                >{{ b.cta }}<i class="ph ph-arrow-right"></i
+              ></a>
             </div>
-            <div class="biz-block">
-              <span class="biz-label">With Mimuads</span>
-              <p class="biz-text">{{ b.solution }}</p>
-            </div>
-            <a :href="b.ctaUrl" class="biz-cta">{{ b.cta }}<i class="ph ph-arrow-right"></i></a>
           </div>
         </div>
-        <div class="biz-perks reveal" style="--i:2">
+        <div class="biz-perks reveal" style="--i: 2">
           <h3 class="biz-perks-h">What every business gets</h3>
           <ul class="biz-perks-list">
             <li v-for="perk in bizPerks" :key="perk" class="biz-perk">
-              <i class="ph ph-check-circle biz-check"></i><span>{{ perk }}</span>
+              <i class="ph ph-check-circle biz-check"></i
+              ><span>{{ perk }}</span>
             </li>
           </ul>
         </div>
@@ -155,18 +236,31 @@
 
     <!-- ── MEASUREMENT ───────────────────────────────────────────── -->
     <section class="measure-section">
-      <div class="wrap measure-wrap">
+      <div class="wrap">
         <div class="measure-head reveal">
           <div class="tag measure-tag">Measurement</div>
-          <h2 class="section-headline measure-headline">See who saw it.<br /><em>Pay for what's verified.</em></h2>
-          <p class="section-sub measure-sub">Every campaign comes with a dashboard that shows real numbers, not estimates.</p>
+          <h2 class="section-headline measure-headline">
+            See who saw it.<br /><em>Pay for what's verified.</em>
+          </h2>
+          <p class="section-sub measure-sub">
+            Every campaign comes with a dashboard that shows real numbers, not
+            estimates.
+          </p>
         </div>
-        <div class="measure-metrics">
-          <div v-for="(m, i) in metrics" :key="m.label" class="measure-metric reveal" :style="{ '--i': i + 1 }">
-            <div class="measure-icon-bg" aria-hidden="true"></div>
-            <img :src="m.icon" :alt="m.label" class="measure-icon" />
-            <span class="measure-label">{{ m.label }}</span>
+      </div>
+      <!-- Full-bleed monument strip -->
+      <div class="measure-strip">
+        <div
+          v-for="(m, i) in metrics"
+          :key="m.label"
+          class="measure-monument reveal"
+          :style="{ '--i': i + 1 }"
+        >
+          <div class="measure-monument-stage">
+            <div class="measure-monument-glow" aria-hidden="true"></div>
+            <img :src="m.icon" :alt="m.label" class="measure-monument-icon" />
           </div>
+          <span class="measure-monument-label">{{ m.label }}</span>
         </div>
       </div>
     </section>
@@ -179,15 +273,22 @@
           <h2 class="pricing-headline">Start with <em>any budget.</em></h2>
         </div>
         <div class="pricing-points">
-          <div v-for="(pt, i) in pricingPts" :key="pt.text" class="pricing-point reveal" :style="{ '--i': i + 1 }">
-            <div class="pricing-ring" aria-hidden="true">
-              <div class="pricing-ring-inner"></div>
+          <div
+            v-for="(pt, i) in pricingPts"
+            :key="pt.text"
+            class="pricing-point reveal"
+            :style="{ '--i': i + 1 }"
+          >
+            <div class="pricing-stage" aria-hidden="true">
+              <div class="pricing-ring pricing-ring-1"></div>
+              <div class="pricing-ring pricing-ring-2"></div>
+              <div class="pricing-ring-core"></div>
             </div>
             <img :src="pt.icon" :alt="pt.alt" class="pricing-icon" />
             <p>{{ pt.text }}</p>
           </div>
         </div>
-        <div class="pricing-cta reveal" style="--i:4">
+        <div class="pricing-cta reveal" style="--i: 4">
           <a :href="signupUrl('pricing')" class="pricing-btn">
             <span>Start advertising</span><i class="ph ph-arrow-right"></i>
           </a>
@@ -201,9 +302,12 @@
         <!-- Intro -->
         <div class="faq-intro">
           <div class="tag">FAQ</div>
-          <h2 class="section-headline">Questions<br /><em>&amp; answers.</em></h2>
+          <h2 class="section-headline">
+            Questions<br /><em>&amp; answers.</em>
+          </h2>
           <p class="faq-intro-sub">
-            Everything about buying, hosting, verification and compliance on Mimuads.
+            Everything about buying, hosting, verification and compliance on
+            Mimuads.
           </p>
           <a href="mailto:hello@usemimu.com" class="faq-contact">
             Still have a question? <span>hello@usemimu.com&nbsp;→</span>
@@ -218,12 +322,20 @@
             class="faq-item"
             :class="{ 'faq-open': item.open }"
           >
-            <button class="faq-q" :aria-expanded="item.open" @click="item.open = !item.open">
+            <button
+              class="faq-q"
+              :aria-expanded="item.open"
+              @click="item.open = !item.open"
+            >
               <span class="faq-qtext">{{ item.q }}</span>
-              <span class="faq-icon"><i class="ph" :class="item.open ? 'ph-minus' : 'ph-plus'"></i></span>
+              <span class="faq-icon"
+                ><i class="ph" :class="item.open ? 'ph-minus' : 'ph-plus'"></i
+              ></span>
             </button>
             <div class="faq-a">
-              <div class="faq-a-inner"><p>{{ item.a }}</p></div>
+              <div class="faq-a-inner">
+                <p>{{ item.a }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -240,133 +352,244 @@ defineProps({
   dark: { type: Boolean, default: false },
 });
 
-
 /* ── Hero plane flight — JS-driven straight diagonal: in from the bottom-left,
    slows at the centre, out the top-right, nose-first. Path, exit height, speed
    and the gap between passes are re-randomised each time. ── */
-const planeEl = ref(null)
-let planeTimer = null
-let planeAnim = null
-let planeDead = false
-const rnd = (a, b) => a + Math.random() * (b - a)
+const planeEl = ref(null);
+let planeTimer = null;
+let planeAnim = null;
+let planeDead = false;
+const rnd = (a, b) => a + Math.random() * (b - a);
 
 function flyPlane() {
-  const el = planeEl.value
-  if (!el || planeDead) return
-  const vw = window.innerWidth || 1440
-  const vh = window.innerHeight || 820
+  const el = planeEl.value;
+  if (!el || planeDead) return;
+  const vw = window.innerWidth || 1440;
+  const vh = window.innerHeight || 820;
   // Straight diagonal: in from the bottom-left, slow at the centre, out the top-right.
-  const sx = -0.25 * vw, sy = rnd(1.02, 1.22) * vh // off-screen bottom-left
-  const ex = rnd(1.16, 1.3) * vw, ey = -0.25 * vh  // off-screen top-right
-  const mx = (sx + ex) / 2, my = (sy + ey) / 2     // midpoint ≈ centre → the slow point
+  const sx = -0.25 * vw,
+    sy = rnd(1.02, 1.22) * vh; // off-screen bottom-left
+  const ex = rnd(1.16, 1.3) * vw,
+    ey = -0.25 * vh; // off-screen top-right
+  const mx = (sx + ex) / 2,
+    my = (sy + ey) / 2; // midpoint ≈ centre → the slow point
   // Nose points up-right by default; align it to the BL→TR heading (front-first both ways).
-  const rotZ = (Math.atan2(ey - sy, ex - sx) * 180) / Math.PI + 45
-  const dur = rnd(3800, 5200)
+  const rotZ = (Math.atan2(ey - sy, ex - sx) * 180) / Math.PI + 45;
+  const dur = rnd(3800, 5200);
 
   planeAnim = el.animate(
     [
-      { offset: 0,   transform: `translate(${sx}px, ${sy}px) rotate(${rotZ}deg)`, easing: 'cubic-bezier(0.2, 0.7, 0.35, 1)' }, // rush in → decelerate to centre
-      { offset: 0.5, transform: `translate(${mx}px, ${my}px) rotate(${rotZ}deg)`, easing: 'cubic-bezier(0.6, 0, 0.8, 0.35)' },  // slow at centre → accelerate out
-      { offset: 1,   transform: `translate(${ex}px, ${ey}px) rotate(${rotZ}deg)` },                                             // off the top-right
+      {
+        offset: 0,
+        transform: `translate(${sx}px, ${sy}px) rotate(${rotZ}deg)`,
+        easing: "cubic-bezier(0.2, 0.7, 0.35, 1)",
+      }, // rush in → decelerate to centre
+      {
+        offset: 0.5,
+        transform: `translate(${mx}px, ${my}px) rotate(${rotZ}deg)`,
+        easing: "cubic-bezier(0.6, 0, 0.8, 0.35)",
+      }, // slow at centre → accelerate out
+      {
+        offset: 1,
+        transform: `translate(${ex}px, ${ey}px) rotate(${rotZ}deg)`,
+      }, // off the top-right
     ],
-    { duration: dur, fill: 'forwards' },
-  )
+    { duration: dur, fill: "forwards" },
+  );
   planeAnim.onfinish = () => {
-    if (planeDead) return
-    planeTimer = setTimeout(flyPlane, rnd(300, 1500)) // unpredictable gap before the next pass
-  }
+    if (planeDead) return;
+    planeTimer = setTimeout(flyPlane, rnd(300, 1500)); // unpredictable gap before the next pass
+  };
 }
 
 onMounted(() => {
-  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
-  if (!reduce) planeTimer = setTimeout(flyPlane, 250)
+  const reduce = window.matchMedia?.(
+    "(prefers-reduced-motion: reduce)",
+  )?.matches;
+  if (!reduce) planeTimer = setTimeout(flyPlane, 250);
 
-  if (typeof IntersectionObserver !== 'undefined') {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target) } })
-    }, { threshold: 0.1 })
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el))
+  if (typeof IntersectionObserver !== "undefined") {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("revealed");
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
   } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'))
+    document
+      .querySelectorAll(".reveal")
+      .forEach((el) => el.classList.add("revealed"));
   }
-})
+});
 onBeforeUnmount(() => {
-  planeDead = true
-  clearTimeout(planeTimer)
-  planeAnim?.cancel()
-})
+  planeDead = true;
+  clearTimeout(planeTimer);
+  planeAnim?.cancel();
+});
 
 const pillars = [
-  { name: 'Mimuads Studio', copy: 'Build video, image and motion-graphic creative in the app. No designer or agency needed.', icon: '/icons/riso/studio.svg' },
-  { name: 'ML Intelligence', copy: 'Matches every campaign to a screen using venue type, location, time of day, creative format and the audience that venue draws.', icon: '/icons/riso/ml.svg' },
-  { name: 'Agentic Player', copy: 'Schedules, monitors, caches and reports on its own. Keeps playing through internet drops and restarts after power cuts.', icon: '/icons/riso/player.svg' },
-  { name: 'Verified Attention', copy: 'Computer vision confirms real human impressions and logs proof of play for every campaign.', icon: '/icons/riso/verified.svg' },
-  { name: 'Proximity conversion', copy: 'Sends offers to opted-in phones near the screen, linking straight to the advertiser\'s page, app or offer.', icon: '/icons/riso/proximity.svg' },
-]
+  {
+    name: "Mimuads Studio",
+    copy: "Build video, image and motion-graphic creative in the app. No designer or agency needed.",
+    icon: "/icons/riso/studio.svg",
+  },
+  {
+    name: "ML Intelligence",
+    copy: "Matches every campaign to a screen using venue type, location, time of day, creative format and the audience that venue draws.",
+    icon: "/icons/riso/ml.svg",
+  },
+  {
+    name: "Agentic Player",
+    copy: "Schedules, monitors, caches and reports on its own. Keeps playing through internet drops and restarts after power cuts.",
+    icon: "/icons/riso/player.svg",
+  },
+  {
+    name: "Verified Attention",
+    copy: "Computer vision confirms real human impressions and logs proof of play for every campaign.",
+    icon: "/icons/riso/verified.svg",
+  },
+  {
+    name: "Proximity conversion",
+    copy: "Sends offers to opted-in phones near the screen, linking straight to the advertiser's page, app or offer.",
+    icon: "/icons/riso/proximity.svg",
+  },
+];
 
 const venues = [
-  { name: 'Airports', icon: '/icons/riso/airport.svg', who: 'Business and leisure travellers', moment: 'Long waits before departure, high intent' },
-  { name: 'Train stations', icon: '/icons/riso/train-station.svg', who: 'Daily commuters', moment: 'Repeat exposure on the same route' },
-  { name: 'Pharmacies', icon: '/icons/riso/pharmacy.svg', who: 'Health-conscious shoppers and families', moment: 'Waiting for advice or a prescription, trusted setting' },
-  { name: 'Supermarkets', icon: '/icons/riso/supermarket.svg', who: 'Households shopping', moment: 'Point of purchase' },
-  { name: 'Salons', icon: '/icons/riso/salon.svg', who: 'Beauty and grooming customers', moment: 'Seated for long stretches, relaxed attention' },
-  { name: 'Restaurants', icon: '/icons/riso/restaurant.svg', who: 'Workers, students and families', moment: 'Seated, waiting and eating' },
-  { name: 'Malls', icon: '/icons/riso/mall.svg', who: 'Shoppers, families and groups', moment: 'Browsing with buying intent' },
-]
+  {
+    name: "Airports",
+    icon: "/icons/riso/airport.svg",
+    who: "Business and leisure travellers",
+    moment: "Long waits before departure, high intent",
+  },
+  {
+    name: "Train stations",
+    icon: "/icons/riso/train-station.svg",
+    who: "Daily commuters",
+    moment: "Repeat exposure on the same route",
+  },
+  {
+    name: "Pharmacies",
+    icon: "/icons/riso/pharmacy.svg",
+    who: "Health-conscious shoppers and families",
+    moment: "Waiting for advice or a prescription, trusted setting",
+  },
+  {
+    name: "Supermarkets",
+    icon: "/icons/riso/supermarket.svg",
+    who: "Households shopping",
+    moment: "Point of purchase",
+  },
+  {
+    name: "Salons",
+    icon: "/icons/riso/salon.svg",
+    who: "Beauty and grooming customers",
+    moment: "Seated for long stretches, relaxed attention",
+  },
+  {
+    name: "Restaurants",
+    icon: "/icons/riso/restaurant.svg",
+    who: "Workers, students and families",
+    moment: "Seated, waiting and eating",
+  },
+  {
+    name: "Malls",
+    icon: "/icons/riso/mall.svg",
+    who: "Shoppers, families and groups",
+    moment: "Browsing with buying intent",
+  },
+];
 
 const businesses = [
   {
-    type: 'SMBs', icon: '/icons/riso/smb.svg',
-    who: 'Pharmacies, salons, restaurants, shops and service businesses.',
-    problem: 'Agencies and minimum budgets price them out, and flyers can\'t be measured.',
-    solution: 'Launch from the mobile app. Verify your business, fund your wallet, build creative in Mimuads Studio, choose screens near your customers and go live in 24 hours.',
-    cta: 'Start advertising', ctaUrl: 'https://apps.apple.com/app/mimuads/id6775953486',
+    type: "SMBs",
+    icon: "/icons/riso/smb.svg",
+    who: "Pharmacies, salons, restaurants, shops and service businesses.",
+    problem:
+      "Agencies and minimum budgets price them out, and flyers can't be measured.",
+    solution:
+      "Launch from the mobile app. Verify your business, fund your wallet, build creative in Mimuads Studio, choose screens near your customers and go live in 24 hours.",
+    cta: "Start advertising",
+    ctaUrl: "https://apps.apple.com/app/mimuads/id6775953486",
   },
   {
-    type: 'Startups', icon: '/icons/riso/startup.svg',
-    who: 'Fintechs, delivery apps, consumer apps and marketplaces.',
-    problem: 'They need users in specific neighbourhoods and can\'t prove that offline spend works.',
-    solution: 'Run app-download campaigns on screens in the venue types and areas where your users are. Proximity offers send a tap-to-download link to phones nearby.',
-    cta: 'Launch a campaign', ctaUrl: signupUrl('biz-startup'),
+    type: "Startups",
+    icon: "/icons/riso/startup.svg",
+    who: "Fintechs, delivery apps, consumer apps and marketplaces.",
+    problem:
+      "They need users in specific neighbourhoods and can't prove that offline spend works.",
+    solution:
+      "Run app-download campaigns on screens in the venue types and areas where your users are. Proximity offers send a tap-to-download link to phones nearby.",
+    cta: "Launch a campaign",
+    ctaUrl: signupUrl("biz-startup"),
   },
   {
-    type: 'Agencies', icon: '/icons/riso/agency.svg',
-    who: 'Media and creative agencies buying for clients.',
-    problem: 'Out-of-home buying is manual, one vendor at a time, with estimated reach.',
-    solution: 'Plan and fund campaigns across venue types and areas from one dashboard, and report verified results to every client. API access is coming for programmatic buying.',
-    cta: 'Book a demo', ctaUrl: '/contact',
+    type: "Agencies",
+    icon: "/icons/riso/agency.svg",
+    who: "Media and creative agencies buying for clients.",
+    problem:
+      "Out-of-home buying is manual, one vendor at a time, with estimated reach.",
+    solution:
+      "Plan and fund campaigns across venue types and areas from one dashboard, and report verified results to every client. API access is coming for programmatic buying.",
+    cta: "Book a demo",
+    ctaUrl: "/contact",
   },
   {
-    type: 'FMCG brands', icon: '/icons/riso/fmcg.svg',
-    who: 'Consumer goods brands.',
-    problem: 'They want a presence where their products are bought, and proof that it was seen.',
-    solution: 'Target pharmacies, supermarkets and their chains by location and audience, and pair the ad with a voucher sent to nearby phones. Get verified impressions by venue.',
-    cta: 'Book a demo', ctaUrl: '/contact',
+    type: "FMCG brands",
+    icon: "/icons/riso/fmcg.svg",
+    who: "Consumer goods brands.",
+    problem:
+      "They want a presence where their products are bought, and proof that it was seen.",
+    solution:
+      "Target pharmacies, supermarkets and their chains by location and audience, and pair the ad with a voucher sent to nearby phones. Get verified impressions by venue.",
+    cta: "Book a demo",
+    ctaUrl: "/contact",
   },
-]
+];
 
 const bizPerks = [
-  'One wallet, any budget, no minimum spend',
-  'Mimuads Studio for image, video and motion-graphic creative',
-  'Screens chosen by venue type, location and footfall density',
-  'Live in 24 hours',
-  'Verified impressions and proof of play',
-  'Proximity offers that turn attention into action',
-]
+  "One wallet, any budget, no minimum spend",
+  "Mimuads Studio for image, video and motion-graphic creative",
+  "Screens chosen by venue type, location and footfall density",
+  "Live in 24 hours",
+  "Verified impressions and proof of play",
+  "Proximity offers that turn attention into action",
+];
 
 const metrics = [
-  { label: 'Verified impressions', icon: '/icons/engraving/computer-vision.svg' },
-  { label: 'Dwell time', icon: '/icons/engraving/dwell-time.svg' },
-  { label: 'Results by venue', icon: '/icons/engraving/screen-map.svg' },
-  { label: 'Spend against budget', icon: '/icons/engraving/report.svg' },
-  { label: 'Proof of play', icon: '/icons/engraving/proof-of-play.svg' },
-]
+  {
+    label: "Verified impressions",
+    icon: "/icons/engraving/computer-vision.svg",
+  },
+  { label: "Dwell time", icon: "/icons/engraving/dwell-time.svg" },
+  { label: "Results by venue", icon: "/icons/engraving/screen-map.svg" },
+  { label: "Spend against budget", icon: "/icons/engraving/report.svg" },
+  { label: "Proof of play", icon: "/icons/engraving/proof-of-play.svg" },
+];
 
 const pricingPts = [
-  { icon: '/icons/engraving/top-up.svg', alt: 'Top up', text: 'Fund your wallet with any amount.' },
-  { icon: '/icons/engraving/receipt.svg', alt: 'Receipt', text: 'You pay per verified impression.' },
-  { icon: '/icons/engraving/weekly-payout.svg', alt: 'Weekly payout', text: 'Venue owners are paid weekly from campaign revenue.' },
-]
+  {
+    icon: "/icons/engraving/top-up.svg",
+    alt: "Top up",
+    text: "Fund your wallet with any amount.",
+  },
+  {
+    icon: "/icons/engraving/receipt.svg",
+    alt: "Receipt",
+    text: "You pay per verified impression.",
+  },
+  {
+    icon: "/icons/engraving/weekly-payout.svg",
+    alt: "Weekly payout",
+    text: "Venue owners are paid weekly from campaign revenue.",
+  },
+];
 
 const faqs = reactive([
   {
@@ -463,7 +686,7 @@ const faqs = reactive([
 /* ── Shared section typography ──────────────────────────────── */
 .tag {
   display: inline-block;
-  font-family: 'Space Grotesk', monospace;
+  font-family: "Space Grotesk", monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -473,7 +696,7 @@ const faqs = reactive([
 }
 
 .section-headline {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Space Grotesk", Georgia, serif;
   font-weight: 400;
   font-size: clamp(36px, 5vw, 60px);
   line-height: 1.07;
@@ -546,7 +769,7 @@ const faqs = reactive([
 }
 
 .hero-head {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Space Grotesk", Georgia, serif;
   font-weight: 400;
   font-size: clamp(44px, 6.4vw, 82px);
   line-height: 1.01;
@@ -618,7 +841,9 @@ const faqs = reactive([
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
 }
 .hero-get-started:hover {
   opacity: 0.9;
@@ -644,9 +869,16 @@ const faqs = reactive([
   overflow: hidden;
   pointer-events: none;
 }
-.hero-sky img { position: absolute; }
-.hs-cloud { animation: hs-drift 12s ease-in-out infinite; }
-.hs-wave { opacity: 0.85; animation: hs-drift 10s ease-in-out infinite; }
+.hero-sky img {
+  position: absolute;
+}
+.hs-cloud {
+  animation: hs-drift 12s ease-in-out infinite;
+}
+.hs-wave {
+  opacity: 0.85;
+  animation: hs-drift 10s ease-in-out infinite;
+}
 .hs-plane {
   left: 0;
   top: 0;
@@ -655,11 +887,19 @@ const faqs = reactive([
   will-change: transform;
 }
 @keyframes hs-drift {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-9px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hs-cloud, .hs-wave { animation: none; }
+  .hs-cloud,
+  .hs-wave {
+    animation: none;
+  }
 }
 
 .hero-inner {
@@ -675,7 +915,7 @@ const faqs = reactive([
 }
 
 .eyebrow {
-  font-family: 'Space Grotesk', monospace;
+  font-family: "Space Grotesk", monospace;
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -685,7 +925,7 @@ const faqs = reactive([
 }
 
 .hero-headline {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Space Grotesk", Georgia, serif;
   font-weight: 400;
   font-size: clamp(52px, 8vw, 88px);
   line-height: 1;
@@ -748,119 +988,218 @@ const faqs = reactive([
   border-bottom: 1px solid var(--divider);
 }
 
-
 /* ── SCROLL REVEAL ─────────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 85ms),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 85ms);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 85ms),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 85ms);
 }
-.reveal.revealed { opacity: 1; transform: translateY(0); }
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ── PLATFORM ──────────────────────────────────────────────── */
 .plat-section {
-  background: #0a0806;
-  padding: clamp(80px, 11vw, 120px) 0;
+  background: #0e0d0b;
+  padding: clamp(80px, 11vw, 120px) 0 0;
 }
-.plat-header { margin-bottom: clamp(44px, 6vw, 64px); }
-.plat-tag { color: #d9754a; }
-.plat-headline { color: #f7f1ea; margin: 0; }
-.plat-headline em { color: #d9754a; font-style: italic; }
-
-.plat-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+.plat-header {
+  margin-bottom: clamp(56px, 7vw, 80px);
 }
-@media (max-width: 1100px) { .plat-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 600px)  { .plat-grid { grid-template-columns: repeat(2, 1fr); } }
+.plat-tag {
+  color: #d9754a;
+}
+.plat-headline {
+  color: #f7f1ea;
+  margin: 0;
+}
+.plat-headline em {
+  color: #d9754a;
+  font-style: italic;
+}
 
-.plat-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 22px;
-  padding: 28px 20px 24px;
+/* Alternating full-width feature rows */
+.plat-rows {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  min-height: 310px;
-  overflow: hidden;
-  cursor: default;
-  transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
 }
-.plat-card::after {
-  content: '';
+
+.plat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+.plat-row:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.plat-row:hover {
+  background: rgba(255, 255, 255, 0.015);
+}
+.plat-row--flip .plat-stage {
+  order: 2;
+}
+.plat-row--flip .plat-body {
+  order: 1;
+}
+
+/* Stage — the icon side, cream so riso icon backgrounds blend */
+.plat-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background: linear-gradient(160deg, #fdf8f3 0%, #f0e4d4 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+.plat-row--flip .plat-stage {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+.plat-stage-halo {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 30% 70%, rgba(181,84,48,0.1) 0%, transparent 65%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(181, 84, 48, 0.1) 0%,
+    transparent 65%
+  );
+  animation: haloPulse 4s ease-in-out infinite;
   pointer-events: none;
 }
-.plat-card:hover { border-color: rgba(181,84,48,0.42); background: rgba(255,255,255,0.045); box-shadow: 0 0 0 1px rgba(181,84,48,0.06), 0 24px 56px -18px rgba(181,84,48,0.3); }
-.plat-card:hover::after { opacity: 1; }
-
-.plat-num {
+.plat-stage-ring {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  font-family: 'Space Grotesk', monospace;
+  border-radius: 50%;
+  border: 1px solid rgba(181, 84, 48, 0.15);
+  pointer-events: none;
+}
+.plat-stage-ring-1 {
+  width: 220px;
+  height: 220px;
+  animation: ringOrbit 12s linear infinite;
+}
+.plat-stage-ring-2 {
+  width: 300px;
+  height: 300px;
+  border-style: dashed;
+  border-color: rgba(181, 84, 48, 0.09);
+  animation: ringOrbit 20s linear infinite reverse;
+}
+
+.plat-row-icon {
+  position: relative;
+  z-index: 1;
+  width: 160px;
+  height: 160px;
+  display: block;
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease;
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5));
+}
+.plat-row:hover .plat-row-icon {
+  filter: drop-shadow(0 0 24px rgba(181, 84, 48, 0.5))
+    drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5));
+  transform: scale(1.06) translateY(-6px);
+}
+
+/* Body — the text side */
+.plat-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px clamp(32px, 5vw, 72px);
+  gap: 16px;
+}
+.plat-num {
+  font-family: "Space Grotesk", monospace;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: rgba(181,84,48,0.35);
-  transition: color 0.3s ease;
+  letter-spacing: 0.12em;
+  color: rgba(181, 84, 48, 0.4);
 }
-.plat-card:hover .plat-num { color: rgba(181,84,48,0.7); }
-
-.plat-icon-wrap {
-  position: relative;
-  width: 72px;
-  height: 72px;
-  flex-shrink: 0;
-}
-.plat-halo {
-  position: absolute;
-  inset: -18px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(181,84,48,0.18) 0%, transparent 68%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  animation: haloPulse 3.2s ease-in-out infinite;
-}
-.plat-card:hover .plat-halo { opacity: 1; }
-@keyframes haloPulse { 0%, 100% { transform: scale(0.8); } 50% { transform: scale(1.2); } }
-
-.plat-icon {
-  width: 72px; height: 72px; display: block;
-  transition: filter 0.35s ease, transform 0.35s ease;
-}
-.plat-card:hover .plat-icon {
-  filter: drop-shadow(0 0 12px rgba(181,84,48,0.45));
-  transform: scale(1.07) translateY(-3px);
-}
-
-.plat-name {
-  font-family: 'Space Grotesk', Georgia, serif;
-  font-size: 15.5px;
-  font-weight: 500;
-  letter-spacing: -0.015em;
+.plat-row-name {
+  font-family: "Space Grotesk", Georgia, serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
   color: #f7f1ea;
-  margin: 0 0 2px;
-  margin-top: auto;
-}
-.plat-copy {
-  font-size: 13px;
-  line-height: 1.65;
-  color: rgba(244,237,228,0.5);
   margin: 0;
+  line-height: 1.1;
+}
+.plat-row-copy {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.7;
+  color: rgba(244, 237, 228, 0.5);
+  margin: 0;
+  max-width: 440px;
+}
+
+@keyframes haloPulse {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+@keyframes ringOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .plat-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .plat-row--flip .plat-stage {
+    order: 0;
+    border-left: none;
+  }
+  .plat-row--flip .plat-body {
+    order: 1;
+  }
+  .plat-stage {
+    min-height: 260px;
+    padding: 40px;
+  }
+  .plat-row-icon {
+    width: 120px;
+    height: 120px;
+  }
+  .plat-stage-ring-1 {
+    width: 160px;
+    height: 160px;
+  }
+  .plat-stage-ring-2 {
+    width: 220px;
+    height: 220px;
+  }
+  .plat-body {
+    padding: 36px 24px;
+  }
 }
 
 /* ── AUDIENCE BY VENUE ─────────────────────────────────────── */
 .venue-section {
-  background: #0e0b08;
+  background: #fdf8f3;
   padding: clamp(80px, 11vw, 120px) 0;
 }
 .venue-header {
@@ -871,259 +1210,489 @@ const faqs = reactive([
   flex-wrap: wrap;
   margin-bottom: clamp(44px, 6vw, 64px);
 }
-.venue-tag { color: #d9754a; }
-.venue-headline { color: #f7f1ea; margin: 0; }
-.venue-headline em { color: #d9754a; font-style: italic; }
-.venue-sub { color: rgba(244,237,228,0.55); margin-top: 16px; }
+.venue-tag {
+  color: #b55430;
+}
+.venue-headline {
+  color: #0e0d0b;
+  margin: 0;
+}
+.venue-headline em {
+  color: #b55430;
+  font-style: italic;
+}
+.venue-sub {
+  color: #5e574f;
+  margin-top: 16px;
+}
 
 .venue-live {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 999px;
   padding: 9px 18px;
   font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: rgba(244,237,228,0.65);
+  color: #5e574f;
   white-space: nowrap;
   align-self: flex-start;
   margin-top: 10px;
 }
 .venue-live-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 8px rgba(74,222,128,0.8);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
   animation: livePulse 2s ease-in-out infinite;
 }
 @keyframes livePulse {
-  0%, 100% { box-shadow: 0 0 6px rgba(74,222,128,0.7); }
-  50% { box-shadow: 0 0 16px rgba(74,222,128,1); }
+  0%,
+  100% {
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(34, 197, 94, 1);
+  }
 }
 
-.venue-grid {
+/* 7-tower strip — full bleed, horizontally scrollable on mobile */
+.venue-towers {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  padding: 0 clamp(20px, 5vw, 48px);
+  max-width: 1200px;
+  margin: 0 auto;
 }
-@media (max-width: 1024px) { .venue-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 600px)  { .venue-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+  .venue-towers {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .venue-towers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-.venue-card {
-  position: relative;
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 20px;
-  padding: 22px 18px 20px;
+.venue-tower {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  border-radius: 20px;
   overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
   cursor: default;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
-.venue-card:hover {
-  border-color: rgba(181,84,48,0.4);
-  box-shadow: 0 0 0 1px rgba(181,84,48,0.06), 0 20px 44px -16px rgba(181,84,48,0.25);
+.venue-tower:hover {
+  border-color: rgba(181, 84, 48, 0.3);
+  box-shadow: 0 16px 40px -12px rgba(181, 84, 48, 0.18);
+  transform: translateY(-4px);
 }
-.venue-icon-bg {
+.venue-tower-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px 20px;
+  background: linear-gradient(160deg, #fdf8f3 0%, #f7ede2 100%);
+  overflow: hidden;
+  min-height: 160px;
+}
+.venue-tower-glow {
   position: absolute;
-  top: -10px; left: -10px;
-  width: 90px; height: 90px;
+  inset: -20px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(181,84,48,0.12) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(181, 84, 48, 0.1) 0%,
+    transparent 65%
+  );
   opacity: 0;
   transition: opacity 0.35s ease;
+  animation: haloPulse 4s ease-in-out infinite;
 }
-.venue-card:hover .venue-icon-bg { opacity: 1; }
-
-.venue-icon {
+.venue-tower:hover .venue-tower-glow {
+  opacity: 1;
+}
+.venue-tower-icon {
   position: relative;
   z-index: 1;
-  width: 52px; height: 52px; display: block;
-  transition: filter 0.3s ease, transform 0.3s ease;
+  width: 96px;
+  height: 96px;
+  display: block;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
-.venue-card:hover .venue-icon {
-  filter: drop-shadow(0 0 8px rgba(181,84,48,0.4));
-  transform: scale(1.07);
+.venue-tower:hover .venue-tower-icon {
+  transform: scale(1.1) translateY(-4px);
+  filter: drop-shadow(0 8px 16px rgba(181, 84, 48, 0.25));
 }
-.venue-name {
-  font-family: 'Space Grotesk', Georgia, serif;
-  font-size: 14.5px; font-weight: 500;
-  letter-spacing: -0.01em; color: #f7f1ea; margin: 0;
+.venue-tower-info {
+  padding: 14px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
 }
-.venue-who { font-size: 12.5px; line-height: 1.55; color: rgba(244,237,228,0.5); margin: 0; }
-.venue-moment { font-size: 12px; line-height: 1.5; color: rgba(244,237,228,0.3); margin: 0; font-style: italic; }
+.venue-tower-name {
+  font-family: "Space Grotesk", Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #0e0d0b;
+  margin: 0;
+}
+.venue-tower-who {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #5e574f;
+  margin: 0;
+}
+.venue-tower-moment {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #a89f94;
+  margin: 0;
+  font-style: italic;
+}
 
 .venue-chain {
-  margin-top: 16px;
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-left: 3px solid rgba(181,84,48,0.6);
+  margin-top: 24px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-left: 3px solid #b55430;
   border-radius: 20px;
   padding: clamp(24px, 4vw, 36px) clamp(20px, 4vw, 44px);
 }
 .venue-chain-h {
-  font-family: 'Space Grotesk', Georgia, serif;
-  font-size: clamp(18px, 2.2vw, 24px); font-weight: 400;
-  letter-spacing: -0.02em; color: #f7f1ea; margin: 0 0 10px;
+  font-family: "Space Grotesk", Georgia, serif;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #0e0d0b;
+  margin: 0 0 10px;
 }
 .venue-chain-p {
-  font-size: 14.5px; line-height: 1.65;
-  color: rgba(244,237,228,0.5); max-width: 640px; margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #5e574f;
+  max-width: 640px;
+  margin: 0;
 }
 
 /* ── FOR BUSINESSES ────────────────────────────────────────── */
 .biz-section {
   padding: clamp(80px, 11vw, 120px) 0;
-  background: var(--section-alt-bg);
-  border-top: 1px solid var(--divider);
-  border-bottom: 1px solid var(--divider);
+  background: #f4ede4;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 .biz-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 12px;
 }
-@media (max-width: 720px) { .biz-grid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) {
+  .biz-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .biz-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 24px;
-  padding: 32px 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.biz-card:hover {
+  border-color: rgba(181, 84, 48, 0.3);
+  box-shadow: 0 20px 56px -20px rgba(181, 84, 48, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Icon stage — takes top half of card */
+.biz-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  background: linear-gradient(160deg, #fdf8f3 0%, #f0e4d4 100%);
+  overflow: hidden;
+}
+.biz-stage-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(181, 84, 48, 0.12) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: haloPulse 4s ease-in-out infinite;
+}
+.biz-card:hover .biz-stage-glow {
+  opacity: 1;
+}
+.biz-stage-ring {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 1px solid rgba(181, 84, 48, 0.1);
+  animation: ringOrbit 16s linear infinite;
+}
+.biz-icon {
+  position: relative;
+  z-index: 1;
+  width: 128px;
+  height: 128px;
+  display: block;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+.biz-card:hover .biz-icon {
+  transform: scale(1.08) translateY(-6px);
+  filter: drop-shadow(0 12px 24px rgba(181, 84, 48, 0.3));
+}
+
+/* Text body */
+.biz-body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 28px 28px 32px;
+  flex: 1;
 }
-.biz-card:hover {
-  border-color: rgba(181,84,48,0.3);
-  box-shadow: 0 16px 48px -20px rgba(181,84,48,0.15);
-}
-.biz-top {
+.biz-title-row {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 2px;
 }
 .biz-num {
-  font-family: 'Space Grotesk', monospace;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-  color: rgba(181,84,48,0.35);
-}
-.biz-icon {
-  width: 64px; height: 64px; display: block;
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-.biz-card:hover .biz-icon {
-  filter: drop-shadow(0 0 10px rgba(181,84,48,0.3));
-  transform: scale(1.05);
+  font-family: "Space Grotesk", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(181, 84, 48, 0.35);
 }
 .biz-type {
-  font-family: 'Space Grotesk', Georgia, serif;
-  font-size: clamp(22px, 2.5vw, 28px); font-weight: 400;
-  letter-spacing: -0.025em; color: var(--text-primary); margin: 0;
+  font-family: "Space Grotesk", Georgia, serif;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  color: #0e0d0b;
+  margin: 0;
 }
-.biz-who { font-size: 13px; line-height: 1.55; color: var(--text-muted); margin: 0; }
-.biz-block { display: flex; flex-direction: column; gap: 4px; }
+.biz-who {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #a89f94;
+  margin: 0;
+}
+.biz-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .biz-label {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a89f94;
 }
-.biz-text { font-size: 13.5px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+.biz-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #5e574f;
+  margin: 0;
+}
 .biz-cta {
-  margin-top: auto; padding-top: 18px;
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 14px; font-weight: 600; color: #b55430;
-  text-decoration: none; letter-spacing: -0.01em;
+  margin-top: auto;
+  padding-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b55430;
+  text-decoration: none;
+  letter-spacing: -0.01em;
   transition: gap 0.2s ease;
 }
-.biz-cta:hover { gap: 10px; }
+.biz-cta:hover {
+  gap: 10px;
+}
 
 .biz-perks {
   margin-top: 20px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 24px;
   padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 48px);
 }
 .biz-perks-h {
-  font-family: 'Space Grotesk', Georgia, serif;
-  font-size: clamp(18px, 2vw, 22px); font-weight: 400;
-  letter-spacing: -0.02em; color: var(--text-primary); margin: 0 0 20px;
+  font-family: "Space Grotesk", Georgia, serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #0e0d0b;
+  margin: 0 0 20px;
 }
-.biz-perks-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px 32px; }
-.biz-perk { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
-.biz-check { color: #b55430; font-size: 18px; flex-shrink: 0; }
+.biz-perks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px 32px;
+}
+.biz-perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #5e574f;
+  line-height: 1.5;
+}
+.biz-check {
+  color: #b55430;
+  font-size: 18px;
+  flex-shrink: 0;
+}
 
 /* ── MEASUREMENT ───────────────────────────────────────────── */
 .measure-section {
-  background: #0a0806;
+  background: #fdf8f3;
   padding: clamp(80px, 11vw, 120px) 0;
 }
-.measure-wrap {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(40px, 6vw, 80px);
-  align-items: center;
+.measure-head {
+  margin-bottom: clamp(44px, 6vw, 64px);
 }
-@media (max-width: 860px) { .measure-wrap { grid-template-columns: 1fr; } }
-
-.measure-tag { color: #d9754a; }
-.measure-headline { color: #f7f1ea; margin: 0; }
-.measure-headline em { color: #d9754a; font-style: italic; }
-.measure-sub { color: rgba(244,237,228,0.55); margin-top: 16px; }
-
-.measure-metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.measure-tag {
+  color: #b55430;
 }
-.measure-metric:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: calc(50% - 5px); }
+.measure-headline {
+  color: #0e0d0b;
+  margin: 0;
+}
+.measure-headline em {
+  color: #b55430;
+  font-style: italic;
+}
+.measure-sub {
+  color: #5e574f;
+  margin-top: 16px;
+  max-width: 500px;
+}
 
-.measure-metric {
-  position: relative;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 18px;
-  padding: 22px 18px;
+/* 5-monument horizontal strip */
+.measure-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  padding: 0 clamp(20px, 5vw, 48px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .measure-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .measure-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.measure-monument {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  border-radius: 20px;
   overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
   cursor: default;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
-.measure-metric:hover {
-  border-color: rgba(181,84,48,0.35);
-  box-shadow: 0 12px 32px -12px rgba(181,84,48,0.22);
+.measure-monument:hover {
+  border-color: rgba(181, 84, 48, 0.3);
+  box-shadow: 0 16px 40px -12px rgba(181, 84, 48, 0.18);
+  transform: translateY(-4px);
 }
-.measure-icon-bg {
+.measure-monument-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px 24px;
+  background: linear-gradient(160deg, #fdf8f3 0%, #f0e8d8 100%);
+  min-height: 170px;
+  overflow: hidden;
+}
+.measure-monument-glow {
   position: absolute;
-  top: -16px; right: -16px;
-  width: 80px; height: 80px;
+  inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(181,84,48,0.12) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at 50% 60%,
+    rgba(181, 84, 48, 0.1) 0%,
+    transparent 60%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.measure-metric:hover .measure-icon-bg { opacity: 1; }
-
-.measure-icon {
+.measure-monument:hover .measure-monument-glow {
+  opacity: 1;
+}
+.measure-monument-icon {
   position: relative;
   z-index: 1;
-  width: 44px; height: 44px; display: block;
-  filter: invert(0.9) sepia(0.4) saturate(0.6) brightness(1.05);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  width: 88px;
+  height: 88px;
+  display: block;
+  /* Engraving icons are brown-on-cream — natural on this background */
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
-.measure-metric:hover .measure-icon {
-  filter: invert(0.9) sepia(0.4) saturate(0.6) brightness(1.05) drop-shadow(0 0 8px rgba(255,210,160,0.5));
-  transform: scale(1.06);
+.measure-monument:hover .measure-monument-icon {
+  transform: scale(1.1) translateY(-4px);
+  filter: drop-shadow(0 8px 16px rgba(181, 84, 48, 0.2));
 }
-.measure-label { font-size: 14px; font-weight: 500; color: rgba(244,237,228,0.78); line-height: 1.4; }
+.measure-monument-label {
+  padding: 14px 16px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #0e0d0b;
+  letter-spacing: -0.005em;
+}
 
 /* ── PRICING ───────────────────────────────────────────────── */
 .pricing-section {
@@ -1133,121 +1702,187 @@ const faqs = reactive([
   overflow: hidden;
 }
 .pricing-section::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: #bc3433;
-  -webkit-mask-image: url('/hero/pattern.png');
-  mask-image: url('/hero/pattern.png');
-  -webkit-mask-size: 520px; mask-size: 520px;
+  -webkit-mask-image: url("/hero/pattern.png");
+  mask-image: url("/hero/pattern.png");
+  -webkit-mask-size: 520px;
+  mask-size: 520px;
   mix-blend-mode: multiply;
   opacity: 0.5;
   pointer-events: none;
 }
 .pricing-wrap {
-  position: relative; z-index: 1;
-  display: flex; flex-direction: column;
-  align-items: center; text-align: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 52px;
 }
 .pricing-eyebrow {
-  font-family: 'Space Grotesk', monospace;
-  font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em;
-  text-transform: uppercase; color: rgba(253,247,241,0.6);
+  font-family: "Space Grotesk", monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(253, 247, 241, 0.6);
   margin-bottom: 16px;
 }
 .pricing-headline {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Space Grotesk", Georgia, serif;
   font-weight: 400;
   font-size: clamp(40px, 5.5vw, 66px);
-  line-height: 1.06; letter-spacing: -0.03em;
-  color: #fff; margin: 0;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0;
 }
-.pricing-headline em { font-style: italic; color: #ffd3b6; }
+.pricing-headline em {
+  font-style: italic;
+  color: #ffd3b6;
+}
 
-.pricing-points { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.pricing-points {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .pricing-point {
   position: relative;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 24px;
-  padding: 32px 24px 28px;
-  width: clamp(180px, 26vw, 220px);
-  display: flex; flex-direction: column;
-  align-items: center; gap: 16px; text-align: center;
+  padding: 36px 24px 28px;
+  width: clamp(190px, 26vw, 230px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
   overflow: hidden;
-  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 .pricing-point:hover {
-  background: rgba(255,255,255,0.15);
-  border-color: rgba(255,255,255,0.3);
-  box-shadow: 0 16px 40px -14px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
 }
 
-.pricing-ring {
+/* Stage: 3 rings + floating icon, no extra div layer */
+.pricing-stage {
   position: relative;
-  width: 72px; height: 72px;
-  display: flex; align-items: center; justify-content: center;
+  width: 100px;
+  height: 100px;
   flex-shrink: 0;
 }
-.pricing-ring::before {
-  content: '';
+.pricing-ring {
   position: absolute;
-  inset: 0; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.pricing-ring-1 {
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   animation: ringOrbit 9s linear infinite;
 }
-.pricing-ring::after {
-  content: '';
-  position: absolute;
-  inset: 6px; border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,0.1);
+.pricing-ring-2 {
+  inset: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
   animation: ringOrbit 6s linear infinite reverse;
 }
-.pricing-ring-inner {
+.pricing-ring-core {
   position: absolute;
-  inset: 14px; border-radius: 50%;
-  background: rgba(255,255,255,0.08);
+  inset: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
 }
-@keyframes ringOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
 .pricing-icon {
-  position: relative; z-index: 1;
-  width: 48px; height: 48px; display: block;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  display: block;
   filter: invert(1) sepia(0.15) saturate(0.4) brightness(1.1);
   animation: iconFloat 3.8s ease-in-out infinite;
 }
-.pricing-point:nth-child(2) .pricing-icon { animation-delay: -1.3s; }
-.pricing-point:nth-child(3) .pricing-icon { animation-delay: -2.6s; }
-@keyframes iconFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-
-.pricing-point p {
-  font-size: 14.5px; line-height: 1.55;
-  color: rgba(255,255,255,0.84); margin: 0;
+.pricing-point:nth-child(2) .pricing-icon {
+  animation-delay: -1.3s;
 }
-.pricing-cta { }
+.pricing-point:nth-child(3) .pricing-icon {
+  animation-delay: -2.6s;
+}
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-7px);
+  }
+}
+.pricing-point p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.84);
+  margin: 0;
+}
+
 .pricing-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  height: 56px; padding: 0 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 36px;
   border-radius: 999px;
-  background: #fdf7f1; color: #ae4828;
-  font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
+  background: #fdf7f1;
+  color: #ae4828;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   text-decoration: none;
-  position: relative; overflow: hidden;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  position: relative;
+  overflow: hidden;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
 }
 .pricing-btn::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.45) 50%, transparent 65%);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 65%
+  );
   transform: translateX(-100%);
   animation: btnShimmer 3.5s ease-in-out 1.5s infinite;
 }
-.pricing-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+.pricing-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
 @keyframes btnShimmer {
-  0%, 100% { transform: translateX(-100%); }
-  60% { transform: translateX(100%); }
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(100%);
+  }
 }
 
 /* ── FAQ ────────────────────────────────────────────────────── */
@@ -1258,8 +1893,13 @@ const faqs = reactive([
   align-items: start;
 }
 @media (min-width: 900px) {
-  .faq-grid { grid-template-columns: 0.82fr 1.18fr; }
-  .faq-intro { position: sticky; top: 104px; }
+  .faq-grid {
+    grid-template-columns: 0.82fr 1.18fr;
+  }
+  .faq-intro {
+    position: sticky;
+    top: 104px;
+  }
 }
 .faq-intro-sub {
   margin-top: 16px;
@@ -1275,8 +1915,13 @@ const faqs = reactive([
   color: var(--text-secondary);
   text-decoration: none;
 }
-.faq-contact span { color: #b55430; font-weight: 600; }
-.faq-contact:hover span { opacity: 0.8; }
+.faq-contact span {
+  color: #b55430;
+  font-weight: 600;
+}
+.faq-contact:hover span {
+  opacity: 0.8;
+}
 
 .faq-list {
   display: flex;
@@ -1287,9 +1932,13 @@ const faqs = reactive([
   border: 1px solid var(--card-border);
   border-radius: 16px;
   background: var(--card-bg);
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
-.faq-item:hover { border-color: rgba(181, 84, 48, 0.35); }
+.faq-item:hover {
+  border-color: rgba(181, 84, 48, 0.35);
+}
 .faq-open {
   border-color: rgba(181, 84, 48, 0.5);
   box-shadow: 0 12px 32px -14px rgba(181, 84, 48, 0.3);
@@ -1308,7 +1957,7 @@ const faqs = reactive([
   text-align: left;
 }
 .faq-qtext {
-  font-family: 'Google Sans', sans-serif;
+  font-family: "Google Sans", sans-serif;
   font-size: 15.5px;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -1316,7 +1965,9 @@ const faqs = reactive([
   color: var(--text-primary);
   transition: color 0.15s ease;
 }
-.faq-open .faq-qtext { color: #b55430; }
+.faq-open .faq-qtext {
+  color: #b55430;
+}
 
 .faq-icon {
   flex-shrink: 0;
@@ -1328,9 +1979,14 @@ const faqs = reactive([
   background: rgba(181, 84, 48, 0.1);
   color: #b55430;
   font-size: 15px;
-  transition: background 0.18s ease, color 0.18s ease;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
 }
-.faq-open .faq-icon { background: #b55430; color: #fff; }
+.faq-open .faq-icon {
+  background: #b55430;
+  color: #fff;
+}
 
 /* Smooth auto-height reveal (grid-rows 0fr → 1fr) */
 .faq-a {
@@ -1338,8 +1994,12 @@ const faqs = reactive([
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.3s ease;
 }
-.faq-open .faq-a { grid-template-rows: 1fr; }
-.faq-a-inner { overflow: hidden; }
+.faq-open .faq-a {
+  grid-template-rows: 1fr;
+}
+.faq-a-inner {
+  overflow: hidden;
+}
 .faq-a-inner p {
   padding: 0 22px 20px;
   margin: 0;
@@ -1347,5 +2007,4 @@ const faqs = reactive([
   line-height: 1.7;
   color: var(--text-secondary);
 }
-
 </style>
