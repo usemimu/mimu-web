@@ -30,29 +30,25 @@
                 @mouseenter="openMenuNow(item.label)"
                 @mouseleave="scheduleClose"
               >
-                <component
-                  :is="sub.to ? 'router-link' : 'a'"
+                <a
                   v-for="sub in item.items"
                   :key="sub.label"
-                  :to="sub.to"
-                  :href="sub.href"
+                  :href="sub.to || sub.href"
                   class="mega-link"
                   @click="closeAll"
-                >{{ sub.label }}</component>
+                >{{ sub.label }}</a>
               </div>
             </transition>
           </div>
           <!-- Plain link tab -->
-          <component
-            :is="item.to ? 'router-link' : 'a'"
+          <a
             v-else
-            :to="item.to"
-            :href="item.href"
+            :href="item.to || item.href"
             class="tab"
             @click="closeAll"
           >
             {{ item.label }}<span v-if="item.badge" class="pill-badge">{{ item.badge }}</span>
-          </component>
+          </a>
         </template>
       </nav>
 
@@ -72,27 +68,23 @@
         <template v-for="item in navItems" :key="item.label">
           <div v-if="item.items" class="sheet-group">
             <span class="sheet-label">{{ item.label }}</span>
-            <component
-              :is="sub.to ? 'router-link' : 'a'"
+            <a
               v-for="sub in item.items"
               :key="sub.label"
-              :to="sub.to"
-              :href="sub.href"
+              :href="sub.to || sub.href"
               class="sheet-sub"
               @click="closeAll"
-            >{{ sub.label }}</component>
+            >{{ sub.label }}</a>
           </div>
-          <component
-            :is="item.to ? 'router-link' : 'a'"
+          <a
             v-else
-            :to="item.to"
-            :href="item.href"
+            :href="item.to || item.href"
             class="sheet-link"
             @click="closeAll"
           >
             {{ item.label }}
             <span v-if="item.badge" class="pill-badge">{{ item.badge }}</span>
-          </component>
+          </a>
         </template>
         <div class="sheet-actions">
           <a :href="loginUrl()" class="login">Log in</a>
@@ -138,8 +130,8 @@ const navItems = [
   {
     label: 'Resources',
     items: [
-      { label: 'Pricing', to: '/pricing' },
       { label: 'About', to: '/about' },
+      { label: 'Pricing', to: '/pricing' },
       { label: 'Contact', to: '/contact' },
       { label: 'FAQ', href: '/#faq' },
       { label: 'Terms', to: '/terms' },

@@ -151,7 +151,15 @@
         "name": "Mimuads",
         "alternateName": ["Mimu", "MimuAds", "Usemimu"],
         "inLanguage": "en-NG",
-        "publisher": { "@id": "https://usemimu.com/#organization" }
+        "publisher": { "@id": "https://usemimu.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://usemimu.com/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
 
@@ -162,55 +170,52 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ItemList",
-        "@id": "https://usemimu.com/#sitenav",
-        "name": "Mimuads",
-        "itemListElement": [
+        "@graph": [
           {
             "@type": "SiteNavigationElement",
-            "position": 1,
-            "name": "Get started",
-            "description": "For SMBs, startups, businesses, brands and FMCG. Launch verified, programmatic DOOH campaigns self-serve on the infrastructure for physical ad buying. No agency needed, live in a day.",
-            "url": "https://usemimu.com/get-started"
-          },
-          {
-            "@type": "SiteNavigationElement",
-            "position": 2,
-            "name": "Host a screen",
-            "description": "For venues — restaurants, train stations, airports, malls, supermarkets, salons, pharmacies. Host a Mimuads screen and earn from the verified network, with free installation and weekly payouts.",
-            "url": "https://usemimu.com/hosts"
-          },
-          {
-            "@type": "SiteNavigationElement",
-            "position": 3,
-            "name": "Intelligence Layer",
-            "description": "The agentic ML player that runs the network. On-device computer vision verification and proof of play on every impression. Download it and run it on your screens.",
-            "url": "https://usemimu.com/player"
-          },
-          {
-            "@type": "SiteNavigationElement",
-            "position": 4,
-            "name": "For Agencies",
-            "description": "Agentic ML runs the verified network for agencies and brands — programmatic buying, client-ready reporting and white-label infrastructure, with volume rates.",
-            "url": "https://usemimu.com/agencies"
-          },
-          {
-            "@type": "SiteNavigationElement",
-            "position": 5,
-            "name": "Pricing",
-            "description": "Pay for verified views, nothing else. Transparent unit pricing with no agency markup or platform fees.",
-            "url": "https://usemimu.com/pricing"
-          },
-          {
-            "@type": "SiteNavigationElement",
-            "position": 6,
+            "@id": "https://usemimu.com/#sitenav-about",
             "name": "About",
             "description": "The infrastructure for physical advertising in Africa — a verified network, on-device proof of play, and one way to buy.",
             "url": "https://usemimu.com/about"
           },
           {
             "@type": "SiteNavigationElement",
-            "position": 7,
+            "@id": "https://usemimu.com/#sitenav-get-started",
+            "name": "Get started",
+            "description": "For SMBs, startups, businesses, brands and FMCG. Launch verified, programmatic DOOH campaigns self-serve on the infrastructure for physical ad buying. No agency needed, live in a day.",
+            "url": "https://usemimu.com/get-started"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "@id": "https://usemimu.com/#sitenav-hosts",
+            "name": "Host a screen",
+            "description": "For venues — restaurants, train stations, airports, malls, supermarkets, salons, pharmacies. Host a Mimuads screen and earn from the verified network, with free installation and weekly payouts.",
+            "url": "https://usemimu.com/hosts"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "@id": "https://usemimu.com/#sitenav-player",
+            "name": "Mimuads Player",
+            "description": "The agentic ML player that runs the network. On-device computer vision verification and proof of play on every impression. Download it and run it on your screens.",
+            "url": "https://usemimu.com/player"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "@id": "https://usemimu.com/#sitenav-agencies",
+            "name": "For Agencies",
+            "description": "Agentic ML runs the verified network for agencies and brands — programmatic buying, client-ready reporting and white-label infrastructure, with volume rates.",
+            "url": "https://usemimu.com/agencies"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "@id": "https://usemimu.com/#sitenav-pricing",
+            "name": "Pricing",
+            "description": "Pay for verified views, nothing else. Transparent unit pricing with no agency markup or platform fees.",
+            "url": "https://usemimu.com/pricing"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "@id": "https://usemimu.com/#sitenav-contact",
             "name": "Contact",
             "description": "Talk to the Mimuads team about buying, building, or hosting a screen. Email hello@usemimu.com.",
             "url": "https://usemimu.com/contact"

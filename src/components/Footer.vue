@@ -19,10 +19,8 @@
           <h4 class="footer-head" :class="headCls">{{ col.title }}</h4>
           <ul class="mt-4 flex flex-col gap-2.5">
             <li v-for="link in col.links" :key="link.label">
-              <component
-                :is="link.to ? 'router-link' : 'a'"
-                :to="link.to"
-                :href="link.href"
+              <a
+                :href="link.to || link.href"
                 :download="link.download || null"
                 :target="link.external ? '_blank' : null"
                 :rel="link.external ? 'noopener noreferrer' : null"
@@ -31,7 +29,7 @@
               >
                 <span>{{ link.label }}</span>
                 <span v-if="link.badge" class="footer-badge" :class="badgeCls">{{ link.badge }}</span>
-              </component>
+              </a>
             </li>
           </ul>
         </div>

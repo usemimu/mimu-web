@@ -44,6 +44,11 @@ function setLink(html, relValue, href) {
   return html.replace(re, `$1${href}$2`)
 }
 
+function setHreflang(html, lang, href) {
+  const re = new RegExp(`(<link\\b[^>]*\\bhreflang="${lang}"[^>]*\\bhref=")[^"]*(")`)
+  return re.test(html) ? html.replace(re, `$1${href}$2`) : html
+}
+
 // Serialize a route's JSON-LD blocks and inject them just before </head>.
 // These are page-specific (breadcrumb, Service, FAQ, WebPage); the global
 // Organization + WebSite + SiteNavigationElement already live in index.html.
@@ -68,6 +73,8 @@ function injectHead(html, path, meta) {
   out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
   out = setMeta(out, 'name="description"', desc)
   out = setLink(out, 'canonical', url)
+  out = setHreflang(out, 'en-ng', url)
+  out = setHreflang(out, 'x-default', url)
   out = setMeta(out, 'property="og:title"', title)
   out = setMeta(out, 'property="og:description"', desc)
   out = setMeta(out, 'property="og:url"', url)

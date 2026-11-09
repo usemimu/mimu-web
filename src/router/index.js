@@ -130,7 +130,7 @@ function applyMeta(to) {
   if (typeof document === 'undefined') return
 
   const title = to.meta?.title || `${SITE_NAME} — Your brand, on digital screens where your audience is`
-  const description = to.meta?.description || "Mimuads is Africa's first AI-native digital out-of-home platform. Launch self-serve campaigns on neighborhood screens across Lagos. No agency needed."
+  const description = to.meta?.description || 'Mimuads is the infrastructure for physical advertising in Africa. Every DOOH screen, verified and programmatic, on one connected network. Buy self-serve, build on the API, or host a screen.'
   const url = `${SITE_URL}${to.path}`
 
   document.title = title
