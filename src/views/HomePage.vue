@@ -65,145 +65,88 @@
       </div>
     </section>
 
-    <!-- ── INFRASTRUCTURE REFRAME (scattered → connected network) ─ -->
-    <section class="section reframe">
-      <div class="reframe-bg" aria-hidden="true"></div>
-      <div class="wrap reframe-inner">
-        <div class="reframe-head">
-          <div class="tag reframe-tag">The problem</div>
-          <h2 class="reframe-title">
-            Africa has the screens.<br />It's missing the <em>infrastructure.</em>
-          </h2>
-          <p class="reframe-sub">
-            Physical advertising runs on phone calls, guesswork and photos as proof. We wire
-            that scattered supply into one programmable network anyone can buy, measure and verify.
-          </p>
-        </div>
-
-        <div class="reframe-viz">
-          <svg class="reframe-net" viewBox="0 0 900 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g class="spokes">
-              <line class="spoke" x1="680" y1="180" x2="540" y2="90" />
-              <line class="spoke" x1="680" y1="180" x2="520" y2="280" />
-              <line class="spoke" x1="680" y1="180" x2="630" y2="60" />
-              <line class="spoke" x1="680" y1="180" x2="650" y2="310" />
-              <line class="spoke" x1="680" y1="180" x2="820" y2="110" />
-              <line class="spoke" x1="680" y1="180" x2="850" y2="250" />
-              <line class="spoke" x1="680" y1="180" x2="760" y2="310" />
-              <line class="spoke" x1="680" y1="180" x2="560" y2="180" />
-              <line class="spoke" x1="680" y1="180" x2="840" y2="170" />
-              <line class="spoke" x1="540" y1="90" x2="630" y2="60" />
-              <line class="spoke" x1="820" y1="110" x2="840" y2="170" />
-              <line class="spoke" x1="520" y1="280" x2="650" y2="310" />
-            </g>
-            <g class="scatter">
-              <circle cx="40" cy="70" r="3" />
-              <circle cx="90" cy="185" r="3" />
-              <circle cx="60" cy="300" r="3" />
-              <circle cx="150" cy="115" r="3" />
-              <circle cx="205" cy="255" r="3" />
-              <circle cx="120" cy="330" r="3" />
-              <circle cx="265" cy="160" r="3" />
-              <circle cx="235" cy="305" r="3" />
-              <circle cx="310" cy="225" r="3" />
-            </g>
-            <g class="nodes">
-              <circle class="n-dot" cx="540" cy="90" r="4" />
-              <circle class="n-dot" cx="520" cy="280" r="4" />
-              <circle class="n-dot" cx="630" cy="60" r="4" />
-              <circle class="n-dot" cx="650" cy="310" r="4" />
-              <circle class="n-dot" cx="820" cy="110" r="4" />
-              <circle class="n-dot" cx="850" cy="250" r="4" />
-              <circle class="n-dot" cx="760" cy="310" r="4" />
-              <circle class="n-dot" cx="560" cy="180" r="4" />
-              <circle class="n-dot" cx="840" cy="170" r="4" />
-            </g>
-            <circle class="n-glow" cx="680" cy="180" r="18" />
-            <circle class="n-core" cx="680" cy="180" r="7" />
-          </svg>
-          <div class="reframe-labels">
-            <span class="lbl-left">Scattered supply</span>
-            <span class="lbl-right">One connected network</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ── PLATFORM ─────────────────────────────────────────────── -->
-    <section class="section section-alt">
+    <section class="plat-section">
       <div class="wrap">
-        <div class="section-header">
-          <div class="tag">The platform</div>
-          <h2 class="section-headline">Five layers, one <em>infrastructure.</em></h2>
+        <div class="plat-header reveal">
+          <div class="tag plat-tag">The platform</div>
+          <h2 class="section-headline plat-headline">Five layers,<br /><em>one infrastructure.</em></h2>
         </div>
-        <div class="platform-grid">
-          <div v-for="p in pillars" :key="p.name" class="platform-card">
-            <img :src="p.icon" :alt="p.name + ' icon'" class="platform-icon" />
-            <h3 class="platform-name">{{ p.name }}</h3>
-            <p class="platform-copy">{{ p.copy }}</p>
+        <div class="plat-grid">
+          <div v-for="(p, i) in pillars" :key="p.name" class="plat-card reveal" :style="{ '--i': i + 1 }">
+            <span class="plat-num">{{ String(i + 1).padStart(2, '0') }}</span>
+            <div class="plat-icon-wrap">
+              <div class="plat-halo" aria-hidden="true"></div>
+              <img :src="p.icon" :alt="p.name" class="plat-icon" />
+            </div>
+            <h3 class="plat-name">{{ p.name }}</h3>
+            <p class="plat-copy">{{ p.copy }}</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── AUDIENCE BY VENUE ──────────────────────────────────────── -->
-    <section class="section">
+    <section class="venue-section">
       <div class="wrap">
-        <div class="section-header">
-          <div class="tag">Audience by venue</div>
-          <h2 class="section-headline">Verified screens in the places<br /><em>Lagos spends its day.</em></h2>
-          <p class="section-sub">
-            Mimuads inventory is organised by venue type, so a business buys an audience and a moment,
-            not just a location. Live in Lagos today.
-          </p>
+        <div class="venue-header">
+          <div class="venue-header-left reveal">
+            <div class="tag venue-tag">Audience by venue</div>
+            <h2 class="section-headline venue-headline">Verified screens in the<br /><em>places Lagos spends its day.</em></h2>
+            <p class="section-sub venue-sub">Inventory organised by venue type. Buy an audience and a moment, not just a location.</p>
+          </div>
+          <div class="venue-live reveal" style="--i:1">
+            <span class="venue-live-dot" aria-hidden="true"></span>Live · Lagos
+          </div>
         </div>
         <div class="venue-grid">
-          <div v-for="v in venues" :key="v.name" class="venue-card">
-            <img :src="v.icon" :alt="v.name + ' icon'" class="venue-icon" />
+          <div v-for="(v, i) in venues" :key="v.name" class="venue-card reveal" :style="{ '--i': i + 1 }">
+            <div class="venue-icon-bg" aria-hidden="true"></div>
+            <img :src="v.icon" :alt="v.name" class="venue-icon" />
             <h3 class="venue-name">{{ v.name }}</h3>
             <p class="venue-who">{{ v.who }}</p>
             <p class="venue-moment">{{ v.moment }}</p>
           </div>
         </div>
-        <div class="venue-chain">
-          <div class="venue-chain-inner">
-            <h3 class="venue-chain-h">Buy one venue, or a whole chain.</h3>
-            <p class="venue-chain-p">Where a chain is on the network, one campaign can run in a single branch or across every location. The same screen standard, the same verified reporting, and reach that grows from one site to the whole chain.</p>
-          </div>
+        <div class="venue-chain reveal" style="--i:2">
+          <h3 class="venue-chain-h">Buy one venue, or a whole chain.</h3>
+          <p class="venue-chain-p">Where a chain is on the network, one campaign can run in a single branch or across every location. Same screen standard, same verified reporting, reach that scales.</p>
         </div>
       </div>
     </section>
 
     <!-- ── FOR BUSINESSES ────────────────────────────────────────── -->
-    <section class="section section-alt">
+    <section class="biz-section">
       <div class="wrap">
-        <div class="section-header">
+        <div class="section-header reveal">
           <div class="tag">For businesses</div>
           <h2 class="section-headline">Buy physical media<br /><em>the way you buy digital.</em></h2>
-          <p class="section-sub">Any budget, live in 24 hours, verified. All four use one wallet, the same screens and one report.</p>
+          <p class="section-sub">Any budget, live in 24 hours, verified. All use one wallet, the same screens and one report.</p>
         </div>
         <div class="biz-grid">
-          <div v-for="b in businesses" :key="b.type" class="biz-card">
-            <img :src="b.icon" :alt="b.type + ' icon'" class="biz-icon" />
-            <div class="biz-type">{{ b.type }}</div>
-            <p class="biz-who">{{ b.who }}</p>
-            <div class="biz-problem-wrap">
-              <span class="biz-problem-label">Today</span>
-              <p class="biz-problem">{{ b.problem }}</p>
+          <div v-for="(b, i) in businesses" :key="b.type" class="biz-card reveal" :style="{ '--i': i + 1 }">
+            <div class="biz-top">
+              <img :src="b.icon" :alt="b.type" class="biz-icon" />
+              <span class="biz-num">{{ String(i + 1).padStart(2, '0') }}</span>
             </div>
-            <div class="biz-solution-wrap">
-              <span class="biz-solution-label">With Mimuads</span>
-              <p class="biz-solution">{{ b.solution }}</p>
+            <h3 class="biz-type">{{ b.type }}</h3>
+            <p class="biz-who">{{ b.who }}</p>
+            <div class="biz-block">
+              <span class="biz-label">Today</span>
+              <p class="biz-text">{{ b.problem }}</p>
+            </div>
+            <div class="biz-block">
+              <span class="biz-label">With Mimuads</span>
+              <p class="biz-text">{{ b.solution }}</p>
             </div>
             <a :href="b.ctaUrl" class="biz-cta">{{ b.cta }}<i class="ph ph-arrow-right"></i></a>
           </div>
         </div>
-        <div class="biz-perks">
+        <div class="biz-perks reveal" style="--i:2">
           <h3 class="biz-perks-h">What every business gets</h3>
           <ul class="biz-perks-list">
             <li v-for="perk in bizPerks" :key="perk" class="biz-perk">
-              <i class="ph ph-check-circle biz-check"></i>
-              <span>{{ perk }}</span>
+              <i class="ph ph-check-circle biz-check"></i><span>{{ perk }}</span>
             </li>
           </ul>
         </div>
@@ -211,16 +154,17 @@
     </section>
 
     <!-- ── MEASUREMENT ───────────────────────────────────────────── -->
-    <section class="section measure-section">
+    <section class="measure-section">
       <div class="wrap measure-wrap">
-        <div class="measure-head">
-          <div class="tag measure-tag">Measurement and reporting</div>
+        <div class="measure-head reveal">
+          <div class="tag measure-tag">Measurement</div>
           <h2 class="section-headline measure-headline">See who saw it.<br /><em>Pay for what's verified.</em></h2>
           <p class="section-sub measure-sub">Every campaign comes with a dashboard that shows real numbers, not estimates.</p>
         </div>
         <div class="measure-metrics">
-          <div v-for="m in metrics" :key="m.label" class="measure-metric">
-            <img :src="m.icon" :alt="m.label + ' icon'" class="measure-icon" />
+          <div v-for="(m, i) in metrics" :key="m.label" class="measure-metric reveal" :style="{ '--i': i + 1 }">
+            <div class="measure-icon-bg" aria-hidden="true"></div>
+            <img :src="m.icon" :alt="m.label" class="measure-icon" />
             <span class="measure-label">{{ m.label }}</span>
           </div>
         </div>
@@ -230,26 +174,23 @@
     <!-- ── PRICING ───────────────────────────────────────────────── -->
     <section class="pricing-section">
       <div class="wrap pricing-wrap">
-        <div class="pricing-head">
-          <div class="pricing-tag">Pricing</div>
+        <div class="pricing-head reveal">
+          <div class="pricing-eyebrow">Pricing</div>
           <h2 class="pricing-headline">Start with <em>any budget.</em></h2>
         </div>
         <div class="pricing-points">
-          <div class="pricing-point">
-            <img src="/icons/engraving/top-up.svg" alt="Top up icon" class="pricing-icon" />
-            <p>Fund your wallet with any amount.</p>
-          </div>
-          <div class="pricing-point">
-            <img src="/icons/engraving/receipt.svg" alt="Receipt icon" class="pricing-icon" />
-            <p>You pay per verified impression.</p>
-          </div>
-          <div class="pricing-point">
-            <img src="/icons/engraving/weekly-payout.svg" alt="Weekly payout icon" class="pricing-icon" />
-            <p>Venue owners are paid weekly from campaign revenue.</p>
+          <div v-for="(pt, i) in pricingPts" :key="pt.text" class="pricing-point reveal" :style="{ '--i': i + 1 }">
+            <div class="pricing-ring" aria-hidden="true">
+              <div class="pricing-ring-inner"></div>
+            </div>
+            <img :src="pt.icon" :alt="pt.alt" class="pricing-icon" />
+            <p>{{ pt.text }}</p>
           </div>
         </div>
-        <div class="pricing-cta">
-          <a :href="signupUrl('pricing')" class="pricing-btn">Start advertising<i class="ph ph-arrow-right"></i></a>
+        <div class="pricing-cta reveal" style="--i:4">
+          <a :href="signupUrl('pricing')" class="pricing-btn">
+            <span>Start advertising</span><i class="ph ph-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -338,8 +279,16 @@ function flyPlane() {
 
 onMounted(() => {
   const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
-  if (reduce) return
-  planeTimer = setTimeout(flyPlane, 250)
+  if (!reduce) planeTimer = setTimeout(flyPlane, 250)
+
+  if (typeof IntersectionObserver !== 'undefined') {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target) } })
+    }, { threshold: 0.1 })
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el))
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'))
+  }
 })
 onBeforeUnmount(() => {
   planeDead = true
@@ -411,6 +360,12 @@ const metrics = [
   { label: 'Results by venue', icon: '/icons/engraving/screen-map.svg' },
   { label: 'Spend against budget', icon: '/icons/engraving/report.svg' },
   { label: 'Proof of play', icon: '/icons/engraving/proof-of-play.svg' },
+]
+
+const pricingPts = [
+  { icon: '/icons/engraving/top-up.svg', alt: 'Top up', text: 'Fund your wallet with any amount.' },
+  { icon: '/icons/engraving/receipt.svg', alt: 'Receipt', text: 'You pay per verified impression.' },
+  { icon: '/icons/engraving/weekly-payout.svg', alt: 'Weekly payout', text: 'Venue owners are paid weekly from campaign revenue.' },
 ]
 
 const faqs = reactive([
@@ -793,378 +748,387 @@ const faqs = reactive([
   border-bottom: 1px solid var(--divider);
 }
 
-/* ── Infrastructure reframe (network constellation) ─────────── */
-.reframe {
-  position: relative;
-  overflow: hidden;
-  background: #15120e;
-}
-.reframe-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-color: #f4ede4;
-  -webkit-mask-image: url("/hero/pattern.png");
-  mask-image: url("/hero/pattern.png");
-  -webkit-mask-size: 620px;
-  mask-size: 620px;
-  -webkit-mask-repeat: repeat;
-  mask-repeat: repeat;
-  opacity: 0.04;
-}
-.reframe-inner {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(36px, 5vw, 56px);
-  align-items: center;
-}
-@media (min-width: 980px) {
-  .reframe-inner { grid-template-columns: 0.82fr 1.18fr; }
-}
-.reframe-tag { color: #d9754a; }
-.reframe-title {
-  font-family: 'Space Grotesk', Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  color: #f7f1ea;
-  margin: 0;
-}
-.reframe-title em { font-style: italic; color: #d9754a; }
-.reframe-sub {
-  margin-top: 20px;
-  font-size: clamp(15px, 1.5vw, 17px);
-  line-height: 1.65;
-  color: rgba(244, 237, 228, 0.68);
-  max-width: 420px;
-}
-.reframe-viz { position: relative; }
-.reframe-net { width: 100%; height: auto; display: block; overflow: visible; }
-.reframe-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  padding: 0 4px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.lbl-left { color: rgba(244, 237, 228, 0.38); }
-.lbl-right { color: #ebb79c; }
 
-/* constellation */
-.spoke {
-  stroke: #cf8b6a;
-  stroke-width: 1;
-  opacity: 0.45;
-  stroke-dasharray: 3 7;
-  animation: netflow 2.8s linear infinite;
+/* ── SCROLL REVEAL ─────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 85ms),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 85ms);
 }
-@keyframes netflow { to { stroke-dashoffset: -20; } }
-.scatter circle { fill: #f4ede4; opacity: 0.28; }
-.nodes .n-dot { fill: #ebb79c; animation: twinkle 3s ease-in-out infinite; }
-.nodes .n-dot:nth-child(2n) { animation-delay: 0.7s; }
-.nodes .n-dot:nth-child(3n) { animation-delay: 1.3s; }
-@keyframes twinkle { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
-.n-core { fill: #e07a4d; }
-.n-glow {
-  fill: #b55430;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: netglow 2.8s ease-in-out infinite;
-}
-@keyframes netglow {
-  0%, 100% { opacity: 0.16; transform: scale(1); }
-  50% { opacity: 0.34; transform: scale(1.3); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .spoke, .nodes .n-dot, .n-glow { animation: none; }
-}
+.reveal.revealed { opacity: 1; transform: translateY(0); }
 
 /* ── PLATFORM ──────────────────────────────────────────────── */
-.platform-grid {
+.plat-section {
+  background: #0a0806;
+  padding: clamp(80px, 11vw, 120px) 0;
+}
+.plat-header { margin-bottom: clamp(44px, 6vw, 64px); }
+.plat-tag { color: #d9754a; }
+.plat-headline { color: #f7f1ea; margin: 0; }
+.plat-headline em { color: #d9754a; font-style: italic; }
+
+.plat-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 10px;
 }
-@media (max-width: 1100px) { .platform-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 640px)  { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1100px) { .plat-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .plat-grid { grid-template-columns: repeat(2, 1fr); } }
 
-.platform-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  padding: 28px 22px;
+.plat-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 22px;
+  padding: 28px 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+  gap: 14px;
+  min-height: 310px;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
 }
-.platform-card:hover {
-  border-color: rgba(181, 84, 48, 0.3);
-  box-shadow: 0 10px 32px -12px rgba(181, 84, 48, 0.18);
+.plat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 70%, rgba(181,84,48,0.1) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
-.platform-icon {
-  width: 56px;
-  height: 56px;
-  display: block;
+.plat-card:hover { border-color: rgba(181,84,48,0.42); background: rgba(255,255,255,0.045); box-shadow: 0 0 0 1px rgba(181,84,48,0.06), 0 24px 56px -18px rgba(181,84,48,0.3); }
+.plat-card:hover::after { opacity: 1; }
+
+.plat-num {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(181,84,48,0.35);
+  transition: color 0.3s ease;
 }
-.platform-name {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text-primary);
-  line-height: 1.3;
-  margin: 0;
+.plat-card:hover .plat-num { color: rgba(181,84,48,0.7); }
+
+.plat-icon-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
 }
-.platform-copy {
-  font-size: 13.5px;
+.plat-halo {
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(181,84,48,0.18) 0%, transparent 68%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: haloPulse 3.2s ease-in-out infinite;
+}
+.plat-card:hover .plat-halo { opacity: 1; }
+@keyframes haloPulse { 0%, 100% { transform: scale(0.8); } 50% { transform: scale(1.2); } }
+
+.plat-icon {
+  width: 72px; height: 72px; display: block;
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+.plat-card:hover .plat-icon {
+  filter: drop-shadow(0 0 12px rgba(181,84,48,0.45));
+  transform: scale(1.07) translateY(-3px);
+}
+
+.plat-name {
+  font-family: 'Space Grotesk', Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #f7f1ea;
+  margin: 0 0 2px;
+  margin-top: auto;
+}
+.plat-copy {
+  font-size: 13px;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: rgba(244,237,228,0.5);
   margin: 0;
 }
 
 /* ── AUDIENCE BY VENUE ─────────────────────────────────────── */
+.venue-section {
+  background: #0e0b08;
+  padding: clamp(80px, 11vw, 120px) 0;
+}
+.venue-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(44px, 6vw, 64px);
+}
+.venue-tag { color: #d9754a; }
+.venue-headline { color: #f7f1ea; margin: 0; }
+.venue-headline em { color: #d9754a; font-style: italic; }
+.venue-sub { color: rgba(244,237,228,0.55); margin-top: 16px; }
+
+.venue-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(244,237,228,0.65);
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+.venue-live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74,222,128,0.8);
+  animation: livePulse 2s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(74,222,128,0.7); }
+  50% { box-shadow: 0 0 16px rgba(74,222,128,1); }
+}
+
 .venue-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 10px;
 }
 @media (max-width: 1024px) { .venue-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 640px)  { .venue-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .venue-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .venue-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  position: relative;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: 20px;
-  padding: 24px 20px;
+  padding: 22px 18px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+  gap: 9px;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .venue-card:hover {
-  border-color: rgba(181, 84, 48, 0.3);
-  box-shadow: 0 10px 32px -12px rgba(181, 84, 48, 0.18);
+  border-color: rgba(181,84,48,0.4);
+  box-shadow: 0 0 0 1px rgba(181,84,48,0.06), 0 20px 44px -16px rgba(181,84,48,0.25);
 }
+.venue-icon-bg {
+  position: absolute;
+  top: -10px; left: -10px;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(181,84,48,0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.venue-card:hover .venue-icon-bg { opacity: 1; }
+
 .venue-icon {
-  width: 48px;
-  height: 48px;
-  display: block;
+  position: relative;
+  z-index: 1;
+  width: 52px; height: 52px; display: block;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.venue-card:hover .venue-icon {
+  filter: drop-shadow(0 0 8px rgba(181,84,48,0.4));
+  transform: scale(1.07);
 }
 .venue-name {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text-primary);
-  margin: 0;
+  font-family: 'Space Grotesk', Georgia, serif;
+  font-size: 14.5px; font-weight: 500;
+  letter-spacing: -0.01em; color: #f7f1ea; margin: 0;
 }
-.venue-who {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--text-secondary);
-  margin: 0;
-}
-.venue-moment {
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: var(--text-muted);
-  margin: 0;
-  font-style: italic;
-}
+.venue-who { font-size: 12.5px; line-height: 1.55; color: rgba(244,237,228,0.5); margin: 0; }
+.venue-moment { font-size: 12px; line-height: 1.5; color: rgba(244,237,228,0.3); margin: 0; font-style: italic; }
 
 .venue-chain {
-  margin-top: 40px;
-  background: var(--section-alt-bg);
-  border: 1px solid var(--card-border);
+  margin-top: 16px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 3px solid rgba(181,84,48,0.6);
   border-radius: 20px;
-  padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 48px);
+  padding: clamp(24px, 4vw, 36px) clamp(20px, 4vw, 44px);
 }
 .venue-chain-h {
   font-family: 'Space Grotesk', Georgia, serif;
-  font-size: clamp(20px, 2.4vw, 26px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin: 0 0 10px;
+  font-size: clamp(18px, 2.2vw, 24px); font-weight: 400;
+  letter-spacing: -0.02em; color: #f7f1ea; margin: 0 0 10px;
 }
 .venue-chain-p {
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  max-width: 680px;
-  margin: 0;
+  font-size: 14.5px; line-height: 1.65;
+  color: rgba(244,237,228,0.5); max-width: 640px; margin: 0;
 }
 
 /* ── FOR BUSINESSES ────────────────────────────────────────── */
+.biz-section {
+  padding: clamp(80px, 11vw, 120px) 0;
+  background: var(--section-alt-bg);
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+}
 .biz-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 14px;
 }
 @media (max-width: 720px) { .biz-grid { grid-template-columns: 1fr; } }
 
 .biz-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 20px;
-  padding: 28px 26px;
+  border-radius: 24px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.biz-card:hover {
+  border-color: rgba(181,84,48,0.3);
+  box-shadow: 0 16px 48px -20px rgba(181,84,48,0.15);
+}
+.biz-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+.biz-num {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  color: rgba(181,84,48,0.35);
 }
 .biz-icon {
-  width: 52px;
-  height: 52px;
-  display: block;
-  margin-bottom: 4px;
+  width: 64px; height: 64px; display: block;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.biz-card:hover .biz-icon {
+  filter: drop-shadow(0 0 10px rgba(181,84,48,0.3));
+  transform: scale(1.05);
 }
 .biz-type {
   font-family: 'Space Grotesk', Georgia, serif;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
+  font-size: clamp(22px, 2.5vw, 28px); font-weight: 400;
+  letter-spacing: -0.025em; color: var(--text-primary); margin: 0;
 }
-.biz-who {
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: var(--text-muted);
-  margin: 0;
+.biz-who { font-size: 13px; line-height: 1.55; color: var(--text-muted); margin: 0; }
+.biz-block { display: flex; flex-direction: column; gap: 4px; }
+.biz-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-muted);
 }
-.biz-problem-wrap,
-.biz-solution-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.biz-problem-label,
-.biz-solution-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.biz-problem {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0;
-}
-.biz-solution {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0;
-}
+.biz-text { font-size: 13.5px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
 .biz-cta {
-  margin-top: auto;
-  padding-top: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #b55430;
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  transition: gap 0.15s ease, opacity 0.15s ease;
+  margin-top: auto; padding-top: 18px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 600; color: #b55430;
+  text-decoration: none; letter-spacing: -0.01em;
+  transition: gap 0.2s ease;
 }
-.biz-cta:hover { gap: 10px; opacity: 0.85; }
+.biz-cta:hover { gap: 10px; }
 
 .biz-perks {
-  margin-top: 40px;
+  margin-top: 20px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 20px;
+  border-radius: 24px;
   padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 48px);
 }
 .biz-perks-h {
   font-family: 'Space Grotesk', Georgia, serif;
-  font-size: clamp(18px, 2vw, 22px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin: 0 0 20px;
+  font-size: clamp(18px, 2vw, 22px); font-weight: 400;
+  letter-spacing: -0.02em; color: var(--text-primary); margin: 0 0 20px;
 }
-.biz-perks-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 12px 32px;
-}
-.biz-perk {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14.5px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-.biz-check {
-  color: #b55430;
-  font-size: 18px;
-  flex-shrink: 0;
-}
+.biz-perks-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px 32px; }
+.biz-perk { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.biz-check { color: #b55430; font-size: 18px; flex-shrink: 0; }
 
 /* ── MEASUREMENT ───────────────────────────────────────────── */
 .measure-section {
-  background: #15120e;
+  background: #0a0806;
+  padding: clamp(80px, 11vw, 120px) 0;
 }
 .measure-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
 @media (max-width: 860px) { .measure-wrap { grid-template-columns: 1fr; } }
 
 .measure-tag { color: #d9754a; }
-.measure-headline { color: #f7f1ea; }
+.measure-headline { color: #f7f1ea; margin: 0; }
 .measure-headline em { color: #d9754a; font-style: italic; }
-.measure-sub { color: rgba(244, 237, 228, 0.65); max-width: 380px; }
+.measure-sub { color: rgba(244,237,228,0.55); margin-top: 16px; }
 
 .measure-metrics {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.measure-metric:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: start; }
-
-.measure-metric {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 20px 18px;
-  display: flex;
-  flex-direction: column;
   gap: 10px;
 }
+.measure-metric:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: calc(50% - 5px); }
+
+.measure-metric {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.measure-metric:hover {
+  border-color: rgba(181,84,48,0.35);
+  box-shadow: 0 12px 32px -12px rgba(181,84,48,0.22);
+}
+.measure-icon-bg {
+  position: absolute;
+  top: -16px; right: -16px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(181,84,48,0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.measure-metric:hover .measure-icon-bg { opacity: 1; }
+
 .measure-icon {
-  width: 44px;
-  height: 44px;
-  display: block;
-  opacity: 0.9;
-  /* Engraving icons are brown-on-cream — tint them to cream on dark background */
-  filter: invert(1) sepia(0.3) saturate(0.5) brightness(1.1);
+  position: relative;
+  z-index: 1;
+  width: 44px; height: 44px; display: block;
+  filter: invert(0.9) sepia(0.4) saturate(0.6) brightness(1.05);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
-.measure-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(244, 237, 228, 0.85);
-  line-height: 1.4;
+.measure-metric:hover .measure-icon {
+  filter: invert(0.9) sepia(0.4) saturate(0.6) brightness(1.05) drop-shadow(0 0 8px rgba(255,210,160,0.5));
+  transform: scale(1.06);
 }
+.measure-label { font-size: 14px; font-weight: 500; color: rgba(244,237,228,0.78); line-height: 1.4; }
 
 /* ── PRICING ───────────────────────────────────────────────── */
 .pricing-section {
   background: #ae4828;
-  padding: clamp(72px, 10vw, 108px) 0;
+  padding: clamp(80px, 11vw, 120px) 0;
   position: relative;
   overflow: hidden;
 }
@@ -1175,90 +1139,116 @@ const faqs = reactive([
   background-color: #bc3433;
   -webkit-mask-image: url('/hero/pattern.png');
   mask-image: url('/hero/pattern.png');
-  -webkit-mask-size: 520px;
-  mask-size: 520px;
+  -webkit-mask-size: 520px; mask-size: 520px;
   mix-blend-mode: multiply;
   opacity: 0.5;
   pointer-events: none;
 }
 .pricing-wrap {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 40px;
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 52px;
 }
-.pricing-tag {
-  display: inline-block;
+.pricing-eyebrow {
   font-family: 'Space Grotesk', monospace;
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(253, 247, 241, 0.7);
-  margin-bottom: 14px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(253,247,241,0.6);
+  margin-bottom: 16px;
 }
 .pricing-headline {
   font-family: 'Space Grotesk', Georgia, serif;
   font-weight: 400;
-  font-size: clamp(36px, 5vw, 60px);
-  line-height: 1.07;
-  letter-spacing: -0.03em;
-  color: #fff;
-  margin: 0;
+  font-size: clamp(40px, 5.5vw, 66px);
+  line-height: 1.06; letter-spacing: -0.03em;
+  color: #fff; margin: 0;
 }
 .pricing-headline em { font-style: italic; color: #ffd3b6; }
 
-.pricing-points {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+.pricing-points { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
 .pricing-point {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 20px;
-  padding: 24px 22px;
-  width: clamp(200px, 28vw, 240px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  text-align: center;
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 24px;
+  padding: 32px 24px 28px;
+  width: clamp(180px, 26vw, 220px);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 16px; text-align: center;
+  overflow: hidden;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
+.pricing-point:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 16px 40px -14px rgba(0,0,0,0.3);
+}
+
+.pricing-ring {
+  position: relative;
+  width: 72px; height: 72px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.pricing-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+  animation: ringOrbit 9s linear infinite;
+}
+.pricing-ring::after {
+  content: '';
+  position: absolute;
+  inset: 6px; border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.1);
+  animation: ringOrbit 6s linear infinite reverse;
+}
+.pricing-ring-inner {
+  position: absolute;
+  inset: 14px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+}
+@keyframes ringOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
 .pricing-icon {
-  width: 52px;
-  height: 52px;
-  display: block;
-  /* Cream-ify the engraving icons for the rust background */
-  filter: invert(1) sepia(0.2) saturate(0.4) brightness(1.15);
-  opacity: 0.9;
+  position: relative; z-index: 1;
+  width: 48px; height: 48px; display: block;
+  filter: invert(1) sepia(0.15) saturate(0.4) brightness(1.1);
+  animation: iconFloat 3.8s ease-in-out infinite;
 }
+.pricing-point:nth-child(2) .pricing-icon { animation-delay: -1.3s; }
+.pricing-point:nth-child(3) .pricing-icon { animation-delay: -2.6s; }
+@keyframes iconFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
 .pricing-point p {
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
-  margin: 0;
+  font-size: 14.5px; line-height: 1.55;
+  color: rgba(255,255,255,0.84); margin: 0;
 }
+.pricing-cta { }
 .pricing-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-  padding: 0 30px;
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 56px; padding: 0 36px;
   border-radius: 999px;
-  background: #fdf7f1;
-  color: #ae4828;
-  font-size: 15.5px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  background: #fdf7f1; color: #ae4828;
+  font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
   text-decoration: none;
+  position: relative; overflow: hidden;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
-.pricing-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+.pricing-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.45) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: btnShimmer 3.5s ease-in-out 1.5s infinite;
+}
+.pricing-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+@keyframes btnShimmer {
+  0%, 100% { transform: translateX(-100%); }
+  60% { transform: translateX(100%); }
+}
 
 /* ── FAQ ────────────────────────────────────────────────────── */
 .faq-grid {
