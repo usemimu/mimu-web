@@ -113,7 +113,7 @@ const reasons = [
 .reason:hover { border-color: #b55430; transform: translateY(-2px); }
 .reason-link {
   margin-top: 16px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #b55430;
 }

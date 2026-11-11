@@ -208,7 +208,7 @@ const faqs = reactive([
 /* ── Layout + theme tokens ──────────────────────────────────── */
 .page { width: 100%; }
 .wrap {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding-left: clamp(20px, 5vw, 48px);
   padding-right: clamp(20px, 5vw, 48px);
@@ -237,8 +237,8 @@ const faqs = reactive([
 /* ── Shared section typography ──────────────────────────────── */
 .tag {
   display: inline-block;
-  font-family: 'Space Grotesk', monospace;
-  font-size: 10.5px;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -251,7 +251,7 @@ const faqs = reactive([
   border-top: 1px solid var(--divider);
 }
 .section-headline {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
   font-weight: 400;
   font-size: clamp(34px, 5vw, 56px);
   line-height: 1.05;
@@ -259,9 +259,9 @@ const faqs = reactive([
   color: var(--text-primary);
   margin: 0;
 }
-.section-headline em { font-style: italic; color: #b55430; }
+.section-headline em { font-style: normal; color: #b55430; }
 .section-sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: clamp(16px, 1.5vw, 17px);
   line-height: 1.7;
   color: var(--text-secondary);
   max-width: 460px;
@@ -298,8 +298,8 @@ const faqs = reactive([
 }
 @media (min-width: 940px) { .hero-grid { grid-template-columns: 1.12fr 0.88fr; } }
 .hero-eyebrow {
-  font-family: 'Space Grotesk', monospace;
-  font-size: 11px;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -307,7 +307,7 @@ const faqs = reactive([
   margin: 0 0 20px;
 }
 .hero-head {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
   font-weight: 400;
   font-size: clamp(40px, 5.6vw, 70px);
   line-height: 1.03;
@@ -315,7 +315,7 @@ const faqs = reactive([
   color: #fff;
   margin: 0;
 }
-.hero-head em { font-style: italic; color: #eac9a9; }
+.hero-head em { font-style: normal; color: #eac9a9; }
 .hero-sub {
   font-size: clamp(16px, 1.6vw, 19px);
   line-height: 1.6;
@@ -332,7 +332,7 @@ const faqs = reactive([
   border-radius: 999px;
   background: #fdf7f1;
   color: #ae4828;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -347,7 +347,7 @@ const faqs = reactive([
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   transition: background 0.15s ease, border-color 0.15s ease;
@@ -389,7 +389,7 @@ const faqs = reactive([
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--text-secondary);
 }
@@ -403,7 +403,7 @@ const faqs = reactive([
   border-radius: 8px;
   background: rgba(181, 84, 48, 0.1);
   color: #b55430;
-  font-size: 15px;
+  font-size: 16px;
 }
 .intel-points b { color: var(--text-primary); font-weight: 600; }
 
@@ -419,14 +419,14 @@ const faqs = reactive([
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: #fff;
 }
 .player-top i { color: #e08a5c; font-size: 20px; }
 .player-sub {
   margin: 14px 0 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(244, 237, 228, 0.6);
   max-width: 320px;
@@ -442,7 +442,7 @@ const faqs = reactive([
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #f4ede4;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   transition: background 0.15s ease, border-color 0.15s ease;
@@ -472,7 +472,7 @@ const faqs = reactive([
 .plug-header { position: relative; margin-bottom: clamp(40px, 6vw, 60px); max-width: 640px; }
 .plug-tag { color: #d9754a; }
 .plug-title {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
   font-weight: 400;
   font-size: clamp(32px, 5vw, 54px);
   line-height: 1.05;
@@ -480,10 +480,10 @@ const faqs = reactive([
   color: #f7f1ea;
   margin: 0;
 }
-.plug-title em { font-style: italic; color: #d9754a; }
+.plug-title em { font-style: normal; color: #d9754a; }
 .plug-sub {
   margin: 16px 0 0;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: clamp(16px, 1.5vw, 17px);
   line-height: 1.6;
   color: rgba(244, 237, 228, 0.6);
 }
@@ -510,13 +510,13 @@ const faqs = reactive([
 }
 .plug-top { display: flex; align-items: center; }
 .plug-num {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
   font-size: 26px;
   letter-spacing: -0.02em;
   color: #d9754a;
 }
 .plug-card-title {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
   font-weight: 400;
   font-size: clamp(22px, 2.6vw, 28px);
   letter-spacing: -0.02em;
@@ -525,7 +525,7 @@ const faqs = reactive([
 }
 .plug-card-body {
   margin: 12px 0 0;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(244, 237, 228, 0.62);
 }
@@ -543,7 +543,7 @@ const faqs = reactive([
 }
 .faq-intro-sub {
   margin-top: 16px;
-  font-size: clamp(15px, 1.4vw, 16px);
+  font-size: clamp(16px, 1.4vw, 16px);
   line-height: 1.65;
   color: var(--text-secondary);
   max-width: 320px;
@@ -551,7 +551,7 @@ const faqs = reactive([
 .faq-contact {
   display: inline-block;
   margin-top: 28px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-secondary);
   text-decoration: none;
 }
@@ -583,8 +583,8 @@ const faqs = reactive([
   text-align: left;
 }
 .faq-qtext {
-  font-family: 'Google Sans', sans-serif;
-  font-size: 15.5px;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.4;
@@ -601,7 +601,7 @@ const faqs = reactive([
   border-radius: 50%;
   background: rgba(181, 84, 48, 0.1);
   color: #b55430;
-  font-size: 15px;
+  font-size: 16px;
   transition: background 0.18s ease, color 0.18s ease;
 }
 .faq-open .faq-icon { background: #b55430; color: #fff; }
@@ -615,7 +615,7 @@ const faqs = reactive([
 .faq-a-inner p {
   padding: 0 22px 20px;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--text-secondary);
 }

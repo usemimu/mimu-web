@@ -1,6 +1,6 @@
 <template>
   <footer class="site-footer border-t" :class="dark ? 'is-dark' : 'is-light'">
-    <div class="px-[clamp(20px,4vw,48px)] pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-[clamp(20px,4vw,48px)] pt-14 pb-10">
       <!-- Top: brand + link columns, spread across the full width -->
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10 lg:grid-cols-[1.4fr_repeat(5,minmax(0,1fr))] lg:gap-x-8">
         <!-- Brand -->
@@ -9,7 +9,7 @@
             <Logo :size="30" :color="dark ? '#F4EDE4' : '#B55430'" />
             <span class="wordmark" :class="dark ? 'text-neutral-100' : 'text-neutral-900'">mimuads</span>
           </router-link>
-          <p class="mt-4 text-[13.5px] leading-relaxed max-w-[15rem]" :class="mutedCls">
+          <p class="mt-4 text-[16px] leading-relaxed max-w-[15rem]" :class="mutedCls">
             The infrastructure layer for physical ad buying. Verified, programmatic, built in Africa.
           </p>
         </div>
@@ -41,7 +41,7 @@
       <!-- Bottom bar -->
       <div class="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between gap-6">
         <!-- Legal -->
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12.5px]" :class="mutedCls">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[16px]" :class="mutedCls">
           <span>© {{ year }} Mimuads</span>
           <span class="dot" aria-hidden="true">·</span>
           <a href="#" class="footer-legal" :class="linkCls">Privacy</a>
@@ -65,7 +65,7 @@
               class="social"
               :class="socialCls"
             >
-              <i :class="`ph ${s.icon} text-[15px]`"></i>
+              <i :class="`ph ${s.icon} text-[16px]`"></i>
             </a>
           </div>
           <div class="flex items-center gap-2.5">
@@ -175,7 +175,7 @@ const socialCls = computed(() =>
 
 <style scoped>
 .site-footer {
-  font-family: 'Google Sans', sans-serif;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
   transition: border-color 0.15s ease;
 }
 .is-light { border-color: #e5ddd3; background: #faf7f3; }
@@ -184,7 +184,7 @@ const socialCls = computed(() =>
 .wordmark { font-size: 20px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
 
 .footer-head {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -194,7 +194,7 @@ const socialCls = computed(() =>
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 450;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -204,7 +204,7 @@ const socialCls = computed(() =>
 .footer-legal { text-decoration: none; transition: color 0.14s ease; }
 .footer-legal:hover { color: #b55430; }
 .footer-badge {
-  font-size: 9.5px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.02em;
   padding: 1px 6px;

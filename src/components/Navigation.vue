@@ -3,6 +3,16 @@
     class="site-nav"
     :class="[scrolled ? 'is-glass' : 'is-top', overHero ? 'over-hero' : '', dark ? 'is-dark' : 'is-light']"
   >
+    <!-- Announcement bar -->
+    <div v-if="showAnnounce" class="announce-bar">
+      <p class="announce-text">
+        Mimuads is now live — <a href="/blog" class="announce-link" @click="closeAll">Read the announcement →</a>
+      </p>
+      <button class="announce-dismiss" @click="showAnnounce = false" aria-label="Dismiss announcement">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+
     <div class="nav-wrap">
       <!-- Brand -->
       <router-link to="/" class="brand" aria-label="Mimuads home" @click="closeAll">
@@ -102,6 +112,8 @@ import { signupUrl, loginUrl } from '../links.js'
 
 defineProps({ dark: { type: Boolean, default: false } })
 
+const showAnnounce = ref(true)
+
 const navItems = [
   {
     label: 'Platform',
@@ -127,6 +139,7 @@ const navItems = [
   },
   { label: 'Network', href: '/#network' },
   { label: 'Player', to: '/player' },
+  { label: 'Blog', to: '/blog' },
   {
     label: 'Resources',
     items: [
@@ -165,7 +178,7 @@ onMounted(() => {
   if (heroEl && 'IntersectionObserver' in window) {
     observer = new IntersectionObserver(
       ([entry]) => { overHero.value = entry.isIntersecting },
-      { rootMargin: '-72px 0px 0px 0px', threshold: 0 },
+      { rootMargin: '-112px 0px 0px 0px', threshold: 0 },
     )
     observer.observe(heroEl)
   } else {
@@ -181,46 +194,87 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 </script>
 
 <style scoped>
-/* ── Shell ──────────────────────────────────────────────────── */
+/* ── Shell — transparent, announce bar + pill handle their own backgrounds ── */
 .site-nav {
+  position: relative;
   width: 100%;
-  font-family: 'Google Sans', sans-serif;
-  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  border-bottom: 1px solid transparent;
+  font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
 }
-.nav-wrap {
-  width: 100%;
-  height: 72px;
-  padding: 0 clamp(20px, 4vw, 48px);
+
+/* ── Announcement bar ───────────────────────────────────────── */
+.announce-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 48px;
+  background: #0e0d0b;
+}
+.announce-text {
+  font-size: 16px;
+  line-height: 1;
+  color: rgba(244, 237, 228, 0.72);
+  text-align: center;
+}
+.announce-link {
+  color: #f4ede4;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.14s ease;
+}
+.announce-link:hover { opacity: 0.75; text-decoration: underline; }
+.announce-dismiss {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* brand | centered tabs | actions */
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgba(244, 237, 228, 0.45);
+  font-size: 16px;
+  border-radius: 6px;
+  transition: color 0.14s ease, background 0.14s ease;
+}
+.announce-dismiss:hover { color: #f4ede4; background: rgba(255,255,255,0.08); }
+@media (max-width: 600px) { .announce-bar { display: none; } }
+.nav-wrap {
+  width: calc(100% - 32px);
+  max-width: 1280px;
+  margin: 10px auto;
+  height: 64px;
+  padding: 0 clamp(16px, 3vw, 32px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 18px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Transparent over the rust hero */
-.is-top { background: transparent; }
-
-/* Glass once scrolled */
-/* Liquid-glass bar (iOS 26/27 style): very translucent, heavy blur +
-   saturation, a bright inner top edge, and a soft drop shadow. */
-.is-glass {
-  backdrop-filter: blur(26px) saturate(200%);
-  -webkit-backdrop-filter: blur(26px) saturate(200%);
+/* ── Pill states ─────────────────────────────────────────────── */
+.is-light .nav-wrap {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
 }
-.is-glass.is-light {
-  background: rgba(250, 248, 245, 0.5);
-  border-bottom-color: rgba(255, 255, 255, 0.35);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 8px 30px rgba(52, 20, 8, 0.07);
+.is-dark .nav-wrap {
+  background: #1c1a17;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
 }
-.is-glass.is-dark {
-  background: rgba(20, 18, 15, 0.42);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 8px 30px rgba(0, 0, 0, 0.3);
+.over-hero .nav-wrap {
+  background: rgba(18, 9, 4, 0.48);
+  border-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.22);
 }
 
 /* ── Brand ──────────────────────────────────────────────────── */
@@ -262,7 +316,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   gap: 6px;
   padding: 8px 12px;
   font-family: inherit;
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--nav-fg-dim);
@@ -275,7 +329,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   white-space: nowrap;
 }
 .tab:hover, .tab.active { color: var(--nav-fg); }
-.caret { font-size: 10px; opacity: 0.6; transition: transform 0.2s ease; }
+.caret { font-size: 16px; opacity: 0.6; transition: transform 0.2s ease; }
 .tab.active .caret { transform: rotate(180deg); }
 
 /* ── Glass dropdown (iOS-style) ─────────────────────────────── */
@@ -311,7 +365,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   display: block;
   padding: 9px 14px;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -328,7 +382,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 .menu-enter-from, .menu-leave-to { opacity: 0; transform: translateY(-6px); }
 
 .pill-badge {
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.02em;
   padding: 2px 7px;
@@ -341,7 +395,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 /* ── Right actions ──────────────────────────────────────────── */
 .actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 12px; }
 .login {
-  font-size: 14.5px; font-weight: 500; letter-spacing: -0.01em;
+  font-size: 16px; font-weight: 500; letter-spacing: -0.01em;
   color: var(--nav-fg-dim); text-decoration: none;
   transition: color 0.15s ease;
 }
@@ -352,7 +406,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   display: inline-flex; align-items: center;
   height: 40px; padding: 0 20px;
   border-radius: 999px;
-  font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
+  font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
   text-decoration: none; white-space: nowrap;
   transition: opacity 0.15s ease;
 }
@@ -370,8 +424,9 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 
 /* ── Mobile sheet ───────────────────────────────────────────── */
 .sheet {
-  position: absolute; top: 72px; left: 0; right: 0;
-  max-height: calc(100vh - 72px); overflow-y: auto;
+  position: absolute; top: 100%; left: 16px; right: 16px;
+  max-height: calc(100dvh - 140px); overflow-y: auto;
+  border-radius: 0 0 14px 14px;
   padding: 12px clamp(16px, 4vw, 40px) 28px;
   background: var(--card-bg, #FDF7F1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -389,13 +444,13 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 .is-dark .sheet-group { border-color: rgba(255, 255, 255, 0.05); }
 .sheet-label {
   display: block;
-  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  font-size: 16px; font-weight: 600; letter-spacing: 0.14em;
   text-transform: uppercase; color: #A89F94;
   padding: 4px 6px 2px;
 }
 .sheet-sub {
   display: block; padding: 10px 6px; border-radius: 8px;
-  font-size: 15px; font-weight: 500; text-decoration: none;
+  font-size: 16px; font-weight: 500; text-decoration: none;
   color: var(--text-primary, #342113);
 }
 .is-dark .sheet-sub { color: #F4EDE4; }

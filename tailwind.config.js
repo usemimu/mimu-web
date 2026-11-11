@@ -59,7 +59,7 @@ export default {
       },
       fontFamily: {
         display: ['Space Grotesk', 'Georgia', 'serif'],
-        body: ['Google Sans', 'system-ui', 'sans-serif'],
+        body: ['Google Sans Flex', '-apple-system', 'system-ui', 'sans-serif'],
         mono: ['ui-monospace', 'Courier New', 'monospace'],
       },
     },

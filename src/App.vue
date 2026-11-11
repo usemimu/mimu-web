@@ -12,17 +12,16 @@
     :style="{ height: safeBottom }"
   />
 
-  <div class="min-h-screen w-full overflow-x-hidden transition-colors duration-150" :class="themeClass">
+  <!-- Nav: outside overflow-x-hidden so nothing can clip it edge-to-edge -->
+  <div
+    v-if="!isStandalone"
+    class="fixed top-0 inset-x-0 z-[100]"
+    :style="{ paddingTop: safeTop }"
+  >
+    <Navigation :dark="isDark" />
+  </div>
 
-    <!-- Floating pill nav: sticky wrapper pads by safeTop so the pill
-         always sits below the safe-area color strip (no clip on notch). -->
-    <div
-      v-if="!isStandalone"
-      class="fixed top-0 inset-x-0 z-[100]"
-      :style="{ paddingTop: safeTop }"
-    >
-      <Navigation :dark="isDark" />
-    </div>
+  <div class="min-h-screen w-full overflow-x-hidden transition-colors duration-150" :class="themeClass">
 
     <main class="w-full">
       <router-view :dark="isDark" />
