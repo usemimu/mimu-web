@@ -13,7 +13,7 @@
       </button>
     </div>
 
-    <div class="nav-wrap">
+    <div class="nav-wrap" :class="{ 'mobile-open': mobileOpen }">
       <!-- Brand -->
       <router-link to="/" class="brand" aria-label="Mimuads home" @click="closeAll">
         <Logo :size="30" :color="markColor" />
@@ -70,38 +70,38 @@
           <i :class="mobileOpen ? 'ph ph-x' : 'ph ph-list'"></i>
         </button>
       </div>
-    </div>
 
-    <!-- Mobile sheet -->
-    <transition name="sheet">
-      <div v-if="mobileOpen" class="sheet">
-        <template v-for="item in navItems" :key="item.label">
-          <div v-if="item.items" class="sheet-group">
-            <span class="sheet-label">{{ item.label }}</span>
+      <!-- Mobile sheet — inside nav-wrap so top:100% aligns flush with pill bottom -->
+      <transition name="sheet">
+        <div v-if="mobileOpen" class="sheet">
+          <template v-for="item in navItems" :key="item.label">
+            <div v-if="item.items" class="sheet-group">
+              <span class="sheet-label">{{ item.label }}</span>
+              <a
+                v-for="sub in item.items"
+                :key="sub.label"
+                :href="sub.to || sub.href"
+                class="sheet-sub"
+                @click="closeAll"
+              >{{ sub.label }}</a>
+            </div>
             <a
-              v-for="sub in item.items"
-              :key="sub.label"
-              :href="sub.to || sub.href"
-              class="sheet-sub"
+              v-else
+              :href="item.to || item.href"
+              class="sheet-link"
               @click="closeAll"
-            >{{ sub.label }}</a>
+            >
+              {{ item.label }}
+              <span v-if="item.badge" class="pill-badge">{{ item.badge }}</span>
+            </a>
+          </template>
+          <div class="sheet-actions">
+            <a :href="loginUrl()" class="login">Log in</a>
+            <a :href="signupUrl('nav')" class="cta">Get started</a>
           </div>
-          <a
-            v-else
-            :href="item.to || item.href"
-            class="sheet-link"
-            @click="closeAll"
-          >
-            {{ item.label }}
-            <span v-if="item.badge" class="pill-badge">{{ item.badge }}</span>
-          </a>
-        </template>
-        <div class="sheet-actions">
-          <a :href="loginUrl()" class="login">Log in</a>
-          <a :href="signupUrl('nav')" class="cta">Get started</a>
         </div>
-      </div>
-    </transition>
+      </transition>
+    </div>
   </header>
 </template>
 
@@ -209,21 +209,28 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   justify-content: center;
   height: 40px;
   padding: 0 48px;
-  background: #0e0d0b;
+  transition: background 0.2s ease;
 }
+.is-dark .announce-bar  { background: #0e0d0b; }
+.is-light .announce-bar { background: #ede7de; }
+
 .announce-text {
   font-size: 16px;
   line-height: 1;
-  color: rgba(244, 237, 228, 0.72);
   text-align: center;
 }
+.is-dark .announce-text  { color: rgba(244, 237, 228, 0.72); }
+.is-light .announce-text { color: #6b6358; }
+
 .announce-link {
-  color: #f4ede4;
   font-weight: 500;
   text-decoration: none;
   transition: opacity 0.14s ease;
 }
+.is-dark .announce-link  { color: #f4ede4; }
+.is-light .announce-link { color: #ae4828; }
 .announce-link:hover { opacity: 0.75; text-decoration: underline; }
+
 .announce-dismiss {
   position: absolute;
   right: 16px;
@@ -236,14 +243,18 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   border: none;
   background: none;
   cursor: pointer;
-  color: rgba(244, 237, 228, 0.45);
   font-size: 16px;
   border-radius: 6px;
   transition: color 0.14s ease, background 0.14s ease;
 }
-.announce-dismiss:hover { color: #f4ede4; background: rgba(255,255,255,0.08); }
+.is-dark .announce-dismiss  { color: rgba(244, 237, 228, 0.45); }
+.is-light .announce-dismiss { color: rgba(0, 0, 0, 0.3); }
+.is-dark .announce-dismiss:hover  { color: #f4ede4; background: rgba(255,255,255,0.08); }
+.is-light .announce-dismiss:hover { color: #0e0d0b; background: rgba(0,0,0,0.06); }
+
 @media (max-width: 600px) { .announce-bar { display: none; } }
 .nav-wrap {
+  position: relative;
   width: calc(100% - 32px);
   max-width: 1280px;
   margin: 10px auto;
@@ -255,8 +266,14 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   gap: 18px;
   border-radius: 14px;
   border: 1px solid transparent;
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, border-radius 0.15s ease;
 }
+.nav-wrap.mobile-open {
+  border-radius: 14px 14px 0 0;
+}
+.is-light .nav-wrap.mobile-open  { border-color: rgba(0, 0, 0, 0.13);   box-shadow: none; }
+.is-dark .nav-wrap.mobile-open   { border-color: rgba(255,255,255,0.13); box-shadow: none; }
+.over-hero .nav-wrap.mobile-open { border-color: rgba(255,255,255,0.20); box-shadow: none; }
 
 /* ── Pill states ─────────────────────────────────────────────── */
 .is-light .nav-wrap {
@@ -424,38 +441,50 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 
 /* ── Mobile sheet ───────────────────────────────────────────── */
 .sheet {
-  position: absolute; top: 100%; left: 16px; right: 16px;
-  max-height: calc(100dvh - 140px); overflow-y: auto;
+  /* left/right: -1px aligns sheet's outer border edge with pill's outer border edge
+     (position:absolute left:0 is at the containing block's padding-edge, 1px inside the border) */
+  position: absolute; top: 100%; left: -1px; right: -1px;
+  max-height: calc(100dvh - 90px); overflow-y: auto;
   border-radius: 0 0 14px 14px;
   padding: 12px clamp(16px, 4vw, 40px) 28px;
-  background: var(--card-bg, #FDF7F1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #FDF7F1;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  border-top: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.09);
+  z-index: 50;
 }
-.is-dark .sheet { background: #1C1A17; border-color: rgba(255, 255, 255, 0.08); }
+.is-dark .sheet  { background: #1C1A17; border-color: rgba(255,255,255,0.13); box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
+.over-hero .sheet { background: #1c1a17; border-color: rgba(255,255,255,0.20); box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
 .sheet-link {
   display: flex; align-items: center; gap: 10px;
   padding: 13px 6px; border-radius: 10px;
   font-size: 16px; font-weight: 500; text-decoration: none;
-  color: var(--text-primary, #342113);
+  color: #342113;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 .is-dark .sheet-link { color: #F4EDE4; border-color: rgba(255, 255, 255, 0.05); }
+.over-hero .sheet-link { color: #F4EDE4; border-color: rgba(255, 255, 255, 0.05); }
 .sheet-group { padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
 .is-dark .sheet-group { border-color: rgba(255, 255, 255, 0.05); }
+.over-hero .sheet-group { border-color: rgba(255, 255, 255, 0.05); }
 .sheet-label {
   display: block;
   font-size: 16px; font-weight: 600; letter-spacing: 0.14em;
   text-transform: uppercase; color: #A89F94;
   padding: 4px 6px 2px;
 }
+.over-hero .sheet-label { color: rgba(244, 237, 228, 0.45); }
 .sheet-sub {
   display: block; padding: 10px 6px; border-radius: 8px;
   font-size: 16px; font-weight: 500; text-decoration: none;
-  color: var(--text-primary, #342113);
+  color: #342113;
 }
 .is-dark .sheet-sub { color: #F4EDE4; }
+.over-hero .sheet-sub { color: #F4EDE4; }
 .sheet-actions { display: flex; gap: 12px; margin-top: 18px; }
-.sheet-actions .login { display: inline-flex; align-items: center; color: var(--text-secondary, #5E574F); }
+.sheet-actions .login { display: inline-flex; align-items: center; color: #5E574F; }
+.is-dark .sheet-actions .login { color: #A89F94; }
+.over-hero .sheet-actions .login { color: rgba(244, 237, 228, 0.7); }
 .sheet-actions .cta { background: #B55430; color: #fff; }
 
 /* ── Transitions ────────────────────────────────────────────── */

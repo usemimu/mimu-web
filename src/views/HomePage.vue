@@ -124,8 +124,6 @@
       </div>
       <!-- Full-bleed infinite marquee rivers -->
       <div class="venue-marquee-outer">
-        <div class="venue-mf venue-mf--l" aria-hidden="true"></div>
-        <div class="venue-mf venue-mf--r" aria-hidden="true"></div>
         <div class="venue-marquee-track venue-marquee-track--fwd">
           <div
             v-for="(v, i) in [...venues, ...venues]"
@@ -140,7 +138,7 @@
           <div
             v-for="(v, i) in [...venues, ...venues]"
             :key="'vr' + i"
-            class="venue-tile venue-tile--dim"
+            class="venue-tile"
           >
             <img :src="v.icon" :alt="v.name" class="venue-tile-icon" />
             <span class="venue-tile-name">{{ v.name }}</span>
@@ -1034,7 +1032,7 @@ const faqs = reactive([
 }
 @media (max-width: 600px) {
   .plat-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1204,22 +1202,6 @@ const faqs = reactive([
   gap: 16px;
   padding: 8px 0 56px;
 }
-.venue-mf {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 200px;
-  z-index: 2;
-  pointer-events: none;
-}
-.venue-mf--l {
-  left: 0;
-  background: linear-gradient(90deg, #fdf8f3 30%, transparent 100%);
-}
-.venue-mf--r {
-  right: 0;
-  background: linear-gradient(-90deg, #fdf8f3 30%, transparent 100%);
-}
 .venue-marquee-track {
   display: flex;
   gap: 16px;
@@ -1259,9 +1241,6 @@ const faqs = reactive([
     0 10px 30px rgba(181, 84, 48, 0.1),
     0 2px 8px rgba(0, 0, 0, 0.06);
   transform: translateY(-6px);
-}
-.venue-tile--dim {
-  opacity: 0.65;
 }
 .venue-tile-icon {
   width: 120px;
@@ -1872,5 +1851,13 @@ const faqs = reactive([
   font-size: 16px;
   line-height: 1.7;
   color: var(--text-secondary);
+}
+
+/* ── Mobile body text ── */
+@media (max-width: 640px) {
+  .hero-sub     { font-size: 18px; }
+  .section-sub  { font-size: 16px; }
+  .biz-feat-who { font-size: 16px; }
+  .plat-card-copy { font-size: 16px; }
 }
 </style>

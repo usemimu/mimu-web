@@ -623,4 +623,11 @@ const faqs = reactive([
 @media (prefers-reduced-motion: reduce) {
   .net .spokes line, .net .nodes circle, .net .core-glow { animation: none; }
 }
+
+/* ── Mobile body text ── */
+@media (max-width: 640px) {
+  .hero-sub        { font-size: 18px; }
+  .section-sub     { font-size: 16px; }
+  .plug-card-copy  { font-size: 16px; }
+}
 </style>

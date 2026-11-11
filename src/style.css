@@ -30,6 +30,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (min-width: 1024px) {
+  body { zoom: 0.8; }
+}
+
 .font-display {
   font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
 }
@@ -296,4 +300,13 @@ body {
 @media (max-width: 720px) {
   .mkt-list-row { flex-direction: column; gap: 6px; }
   .mkt-list-row dt { flex-basis: auto; }
+}
+
+/* ── Mobile body text — cap descriptive/paragraph text on small screens ── */
+@media (max-width: 640px) {
+  .mkt-lead    { font-size: 18px; }
+  .mkt-sub     { font-size: 16px; }
+  .mkt-prose p { font-size: 16px; }
+  .mkt-cta p   { font-size: 16px; }
+  .mkt-card p  { font-size: 16px; }
 }

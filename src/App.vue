@@ -5,10 +5,12 @@
        Android bar heights (safeTop / safeBottom refs set in script). -->
   <div
     class="safe-fill fixed top-0 inset-x-0 z-[200]"
+    :class="{ 'is-scrolled': scrolled, 'is-dark': isDark }"
     :style="{ height: safeTop }"
   />
   <div
     class="safe-fill fixed bottom-0 inset-x-0 z-[200]"
+    :class="{ 'is-scrolled': scrolled, 'is-dark': isDark }"
     :style="{ height: safeBottom }"
   />
 
@@ -60,6 +62,8 @@ const themeClass = computed(() => (isDark.value ? 'dark bg-neutral-900' : 'bg-ne
 // so the strips remain visible in Chrome too.
 const safeTop = ref('env(safe-area-inset-top, 0px)')
 const safeBottom = ref('env(safe-area-inset-bottom, 0px)')
+const scrolled = ref(false)
+function onSafeScroll() { scrolled.value = window.scrollY > 8 }
 
 onMounted(() => {
   const probe = document.createElement('div')
@@ -77,6 +81,9 @@ onMounted(() => {
     safeTop.value = '24px'
     safeBottom.value = '20px'
   }
+
+  onSafeScroll()
+  window.addEventListener('scroll', onSafeScroll, { passive: true })
 })
 
 // `standalone` routes (e.g. /pitch) own their own viewport. We hide
@@ -98,6 +105,7 @@ watch(
 // watcher above handles it, but a hard unmount (HMR, etc.) shouldn't
 // leave the body class stuck on.
 onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onSafeScroll)
   if (typeof document !== 'undefined') {
     document.body.classList.remove('pitch-active')
   }
@@ -105,19 +113,20 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-/* Safe-area strips mirror the hero: clay base + Tall Poppy pattern tile.
-   Same values as .hero / .hero-pattern in HomePage.vue so the notch and
-   home-indicator fills read as an extension of the brand hero. */
+/* Safe-area strips mirror the hero at the top of the page.
+   Once the user starts scrolling, the pattern fades out and the strip
+   adopts the page background colour so it blends with the browser chrome. */
 .safe-fill {
   background: #ae4828;
   overflow: hidden;
+  transition: background 0.25s ease;
 }
 .safe-fill::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-color: #bc3433; /* Tall Poppy */
+  background-color: #bc3433;
   -webkit-mask-image: url("/hero/pattern.png");
   mask-image: url("/hero/pattern.png");
   -webkit-mask-size: 520px;
@@ -126,5 +135,9 @@ onBeforeUnmount(() => {
   mask-repeat: repeat;
   mix-blend-mode: multiply;
   opacity: 0.7;
+  transition: opacity 0.25s ease;
 }
+.safe-fill.is-scrolled { background: #F7F5F2; }
+.safe-fill.is-scrolled.is-dark { background: #0E0D0B; }
+.safe-fill.is-scrolled::before { opacity: 0; }
 </style>
