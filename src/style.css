@@ -29,9 +29,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-@media (min-width: 1024px) {
-  body { zoom: 0.8; }
+@media (max-width: 640px) {
+  body              { font-size: 14px; line-height: 1.55; }
+  .mkt-lead         { font-size: 14px; }
+  .mkt-sub          { font-size: 14px; }
+  .mkt-prose p      { font-size: 14px; }
+  .mkt-card p       { font-size: 14px; }
+  .mkt-list-row dt,
+  .mkt-list-row dd  { font-size: 14px; }
+  .mkt-cta p        { font-size: 14px; }
 }
 
 .font-display {
@@ -302,11 +308,3 @@ body {
   .mkt-list-row dt { flex-basis: auto; }
 }
 
-/* ── Mobile body text — cap descriptive/paragraph text on small screens ── */
-@media (max-width: 640px) {
-  .mkt-lead    { font-size: 18px; }
-  .mkt-sub     { font-size: 16px; }
-  .mkt-prose p { font-size: 16px; }
-  .mkt-cta p   { font-size: 16px; }
-  .mkt-card p  { font-size: 16px; }
-}

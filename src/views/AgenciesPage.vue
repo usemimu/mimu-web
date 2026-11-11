@@ -620,14 +620,19 @@ const faqs = reactive([
   color: var(--text-secondary);
 }
 
+@media (max-width: 640px) {
+  .section-sub      { font-size: 14px; }
+  .hero-sub         { font-size: 14px; }
+  .intel-points li  { font-size: 14px; }
+  .player-sub       { font-size: 14px; }
+  .plug-sub         { font-size: 14px; }
+  .plug-card-body   { font-size: 14px; }
+  .faq-intro-sub    { font-size: 14px; }
+  .faq-a-inner p    { font-size: 14px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .net .spokes line, .net .nodes circle, .net .core-glow { animation: none; }
 }
 
-/* ── Mobile body text ── */
-@media (max-width: 640px) {
-  .hero-sub        { font-size: 18px; }
-  .section-sub     { font-size: 16px; }
-  .plug-card-copy  { font-size: 16px; }
-}
 </style>

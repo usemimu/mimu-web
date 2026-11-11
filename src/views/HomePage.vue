@@ -1853,11 +1853,16 @@ const faqs = reactive([
   color: var(--text-secondary);
 }
 
-/* ── Mobile body text ── */
 @media (max-width: 640px) {
-  .hero-sub     { font-size: 18px; }
-  .section-sub  { font-size: 16px; }
-  .biz-feat-who { font-size: 16px; }
-  .plat-card-copy { font-size: 16px; }
+  .section-sub      { font-size: 14px; }
+  .hero-sub         { font-size: 14px; }
+  .plat-card-copy   { font-size: 14px; }
+  .venue-chain-p    { font-size: 14px; }
+  .biz-feat-who     { font-size: 14px; }
+  .biz-feat-p       { font-size: 14px; }
+  .biz-perk         { font-size: 14px; }
+  .pricing-point p  { font-size: 14px; }
+  .faq-a-inner p    { font-size: 14px; }
 }
+
 </style>
