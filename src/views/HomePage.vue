@@ -416,7 +416,7 @@ const pillars = [
   {
     name: "Mimuads Studio",
     copy: "Build video, image and motion-graphic creative in the app. No designer or agency needed.",
-    icon: "/icons/riso/studio.svg",
+    icon: "/icons/brutal/studio.svg",
     rx: "-110px",
     ry: "90px",
     rz: "-7deg",
@@ -424,7 +424,7 @@ const pillars = [
   {
     name: "ML Intelligence",
     copy: "Matches every campaign to a screen using venue type, location, time of day, creative format and the audience that venue draws.",
-    icon: "/icons/riso/ml.svg",
+    icon: "/icons/brutal/ml.svg",
     rx: "30px",
     ry: "-120px",
     rz: "5deg",
@@ -432,7 +432,7 @@ const pillars = [
   {
     name: "Agentic Player",
     copy: "Schedules, monitors, caches and reports on its own. Keeps playing through internet drops and restarts after power cuts.",
-    icon: "/icons/riso/player.svg",
+    icon: "/icons/brutal/player.svg",
     rx: "0px",
     ry: "80px",
     rz: "0deg",
@@ -440,7 +440,7 @@ const pillars = [
   {
     name: "Verified Attention",
     copy: "Computer vision confirms real human impressions and logs proof of play for every campaign.",
-    icon: "/icons/riso/verified.svg",
+    icon: "/icons/brutal/verified.svg",
     rx: "120px",
     ry: "-80px",
     rz: "6deg",
@@ -448,7 +448,7 @@ const pillars = [
   {
     name: "Proximity conversion",
     copy: "Sends offers to opted-in phones near the screen, linking straight to the advertiser's page, app or offer.",
-    icon: "/icons/riso/proximity.svg",
+    icon: "/icons/brutal/proximity.svg",
     rx: "90px",
     ry: "90px",
     rz: "-5deg",
@@ -458,43 +458,43 @@ const pillars = [
 const venues = [
   {
     name: "Airports",
-    icon: "/icons/riso/airport.svg",
+    icon: "/icons/brutal/airport.svg",
     who: "Business and leisure travellers",
     moment: "Long waits before departure, high intent",
   },
   {
     name: "Train stations",
-    icon: "/icons/riso/train-station.svg",
+    icon: "/icons/brutal/train-station.svg",
     who: "Daily commuters",
     moment: "Repeat exposure on the same route",
   },
   {
     name: "Pharmacies",
-    icon: "/icons/riso/pharmacy.svg",
+    icon: "/icons/brutal/pharmacy.svg",
     who: "Health-conscious shoppers and families",
     moment: "Waiting for advice or a prescription, trusted setting",
   },
   {
     name: "Supermarkets",
-    icon: "/icons/riso/supermarket.svg",
+    icon: "/icons/brutal/supermarket.svg",
     who: "Households shopping",
     moment: "Point of purchase",
   },
   {
     name: "Salons",
-    icon: "/icons/riso/salon.svg",
+    icon: "/icons/brutal/salon.svg",
     who: "Beauty and grooming customers",
     moment: "Seated for long stretches, relaxed attention",
   },
   {
     name: "Restaurants",
-    icon: "/icons/riso/restaurant.svg",
+    icon: "/icons/brutal/restaurant.svg",
     who: "Workers, students and families",
     moment: "Seated, waiting and eating",
   },
   {
     name: "Malls",
-    icon: "/icons/riso/mall.svg",
+    icon: "/icons/brutal/mall.svg",
     who: "Shoppers, families and groups",
     moment: "Browsing with buying intent",
   },
@@ -503,7 +503,7 @@ const venues = [
 const businesses = [
   {
     type: "SMBs",
-    icon: "/icons/riso/smb.svg",
+    icon: "/icons/brutal/smb.svg",
     who: "Pharmacies, salons, restaurants, shops and service businesses.",
     problem:
       "Agencies and minimum budgets price them out, and flyers can't be measured.",
@@ -514,7 +514,7 @@ const businesses = [
   },
   {
     type: "Startups",
-    icon: "/icons/riso/startup.svg",
+    icon: "/icons/brutal/startup.svg",
     who: "Fintechs, delivery apps, consumer apps and marketplaces.",
     problem:
       "They need users in specific neighbourhoods and can't prove that offline spend works.",
@@ -525,7 +525,7 @@ const businesses = [
   },
   {
     type: "Agencies",
-    icon: "/icons/riso/agency.svg",
+    icon: "/icons/brutal/agency.svg",
     who: "Media and creative agencies buying for clients.",
     problem:
       "Out-of-home buying is manual, one vendor at a time, with estimated reach.",
@@ -536,7 +536,7 @@ const businesses = [
   },
   {
     type: "FMCG brands",
-    icon: "/icons/riso/fmcg.svg",
+    icon: "/icons/brutal/fmcg.svg",
     who: "Consumer goods brands.",
     problem:
       "They want a presence where their products are bought, and proof that it was seen.",
@@ -558,17 +558,17 @@ const bizPerks = [
 
 const pricingPts = [
   {
-    icon: "/icons/engraving/top-up.svg",
+    icon: "/icons/brutal/top-up.svg",
     alt: "Top up",
     text: "Fund your wallet with any amount.",
   },
   {
-    icon: "/icons/engraving/receipt.svg",
+    icon: "/icons/brutal/receipt.svg",
     alt: "Receipt",
     text: "You pay per verified impression.",
   },
   {
-    icon: "/icons/engraving/weekly-payout.svg",
+    icon: "/icons/brutal/weekly-payout.svg",
     alt: "Weekly payout",
     text: "Venue owners are paid weekly from campaign revenue.",
   },
@@ -1104,12 +1104,11 @@ const faqs = reactive([
   width: 200px;
   height: 200px;
   display: block;
-  transition: filter 0.4s ease;
-  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.08));
+  /* Neo-brutalist icon: its hard shadow is drawn in the SVG, so no soft blur here. */
+  transition: transform 0.25s ease;
 }
 .plat-card:hover .plat-card-icon {
-  filter: drop-shadow(0 10px 28px rgba(181, 84, 48, 0.22))
-    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
+  transform: translate(-4px, -4px) rotate(-3deg);
 }
 .plat-card-body {
   padding: 18px 20px 24px;
@@ -1243,8 +1242,8 @@ const faqs = reactive([
   transform: translateY(-6px);
 }
 .venue-tile-icon {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   display: block;
 }
 .venue-tile-name {
@@ -1385,15 +1384,10 @@ const faqs = reactive([
   display: block;
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.1));
-  transition:
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.5s ease;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .biz-feat-vis:hover .biz-feat-icon {
-  transform: scale(1.07) translateY(-14px);
-  filter: drop-shadow(0 30px 56px rgba(181, 84, 48, 0.18))
-    drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+  transform: scale(1.07) translateY(-14px) rotate(-3deg);
 }
 .biz-feat-num {
   font-family:
@@ -1653,11 +1647,10 @@ const faqs = reactive([
 }
 
 .pricing-icon {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   display: block;
   margin-bottom: 24px;
-  filter: invert(1) sepia(0.1) saturate(0.6) brightness(1.15);
   animation: iconFloat 3.8s ease-in-out infinite;
   animation-delay: calc(var(--i, 0) * -1.3s);
 }
