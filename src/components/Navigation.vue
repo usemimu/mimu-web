@@ -65,7 +65,6 @@
       <!-- Right actions -->
       <div class="actions">
         <a :href="loginUrl()" class="login" data-ga-event="log_in" data-ga-label="nav">Log in</a>
-        <a :href="signupUrl('nav')" class="cta" data-ga-event="start_campaign" data-ga-label="nav">Get started</a>
         <button class="burger" :aria-expanded="mobileOpen" aria-label="Menu" @click="mobileOpen = !mobileOpen">
           <i :class="mobileOpen ? 'ph ph-x' : 'ph ph-list'"></i>
         </button>
