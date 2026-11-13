@@ -24,13 +24,12 @@ body {
   font-family: "Google Sans Flex", -apple-system, "system-ui", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 @media (max-width: 640px) {
-  body              { font-size: 14px; line-height: 1.55; }
   .mkt-lead         { font-size: 14px; }
   .mkt-sub          { font-size: 14px; }
   .mkt-prose p      { font-size: 14px; }
@@ -121,7 +120,7 @@ body {
   max-width: 820px;
 }
 .mkt-hero-eyebrow {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -138,7 +137,7 @@ body {
 .mkt-lead {
   margin-top: 22px;
   max-width: 640px;
-  font-size: clamp(16.5px, 2vw, 20px);
+  font-size: clamp(14px, 2vw, 18px);
   line-height: 1.6;
   color: rgba(253, 247, 241, 0.84);
 }
@@ -156,7 +155,7 @@ body {
   gap: 8px;
   padding: 13px 22px;
   border-radius: 999px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -185,7 +184,7 @@ body {
 .mkt-section { padding: clamp(60px, 9vh, 108px) 0; }
 .mkt-section-alt { background: var(--mkt-alt); }
 .mkt-tag {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -204,7 +203,7 @@ body {
 .mkt-sub {
   margin-top: 18px;
   max-width: 560px;
-  font-size: clamp(16px, 1.8vw, 18.5px);
+  font-size: clamp(14px, 1.8vw, 16.5px);
   line-height: 1.65;
   color: var(--mkt-fg2);
 }
@@ -213,7 +212,7 @@ body {
 .mkt-prose { max-width: 680px; }
 .mkt-prose p {
   margin-top: 20px;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.78;
   color: var(--mkt-fg2);
 }
@@ -234,21 +233,21 @@ body {
   padding: 26px 24px;
 }
 .mkt-card .mkt-num {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: #b55430;
 }
 .mkt-card h3 {
   margin-top: 12px;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--mkt-fg);
 }
 .mkt-card p {
   margin-top: 9px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--mkt-fg2);
 }
@@ -264,13 +263,13 @@ body {
 .mkt-list-row:last-child { border-bottom: 1px solid var(--mkt-border); }
 .mkt-list-row dt {
   flex: 0 0 34%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--mkt-fg);
 }
 .mkt-list-row dd {
   flex: 1;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--mkt-fg2);
 }
@@ -297,7 +296,7 @@ body {
   z-index: 1;
   margin: 14px auto 0;
   max-width: 480px;
-  font-size: 16.5px;
+  font-size: 14.5px;
   line-height: 1.6;
   color: rgba(253, 247, 241, 0.82);
 }

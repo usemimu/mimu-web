@@ -215,7 +215,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 .is-light .announce-bar { background: #ede7de; }
 
 .announce-text {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
   text-align: center;
 }
@@ -243,7 +243,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 6px;
   transition: color 0.14s ease, background 0.14s ease;
 }
@@ -305,7 +305,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   flex-shrink: 0;
 }
 .wordmark {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -333,7 +333,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   gap: 6px;
   padding: 8px 12px;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--nav-fg-dim);
@@ -346,7 +346,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   white-space: nowrap;
 }
 .tab:hover, .tab.active { color: var(--nav-fg); }
-.caret { font-size: 16px; opacity: 0.6; transition: transform 0.2s ease; }
+.caret { font-size: 14px; opacity: 0.6; transition: transform 0.2s ease; }
 .tab.active .caret { transform: rotate(180deg); }
 
 /* ── Glass dropdown (iOS-style) ─────────────────────────────── */
@@ -382,7 +382,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   display: block;
   padding: 9px 14px;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -399,7 +399,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 .menu-enter-from, .menu-leave-to { opacity: 0; transform: translateY(-6px); }
 
 .pill-badge {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
   padding: 2px 7px;
@@ -412,7 +412,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 /* ── Right actions ──────────────────────────────────────────── */
 .actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 12px; }
 .login {
-  font-size: 16px; font-weight: 500; letter-spacing: -0.01em;
+  font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
   color: var(--nav-fg-dim); text-decoration: none;
   transition: color 0.15s ease;
 }
@@ -423,7 +423,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   display: inline-flex; align-items: center;
   height: 40px; padding: 0 20px;
   border-radius: 999px;
-  font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
+  font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
   text-decoration: none; white-space: nowrap;
   transition: opacity 0.15s ease;
 }
@@ -435,7 +435,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
   display: grid; place-items: center;
   width: 40px; height: 40px;
   border: none; background: none; cursor: pointer;
-  font-size: 22px; color: var(--nav-fg);
+  font-size: 20px; color: var(--nav-fg);
 }
 @media (min-width: 980px) { .burger { display: none; } }
 
@@ -458,7 +458,7 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 .sheet-link {
   display: flex; align-items: center; gap: 10px;
   padding: 13px 6px; border-radius: 10px;
-  font-size: 16px; font-weight: 500; text-decoration: none;
+  font-size: 14px; font-weight: 500; text-decoration: none;
   color: #342113;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -469,14 +469,14 @@ const markColor = computed(() => (overHero.value ? '#FDF7F1' : null))
 .over-hero .sheet-group { border-color: rgba(255, 255, 255, 0.05); }
 .sheet-label {
   display: block;
-  font-size: 16px; font-weight: 600; letter-spacing: 0.14em;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.14em;
   text-transform: uppercase; color: #A89F94;
   padding: 4px 6px 2px;
 }
 .over-hero .sheet-label { color: rgba(244, 237, 228, 0.45); }
 .sheet-sub {
   display: block; padding: 10px 6px; border-radius: 8px;
-  font-size: 16px; font-weight: 500; text-decoration: none;
+  font-size: 14px; font-weight: 500; text-decoration: none;
   color: #342113;
 }
 .is-dark .sheet-sub { color: #F4EDE4; }
